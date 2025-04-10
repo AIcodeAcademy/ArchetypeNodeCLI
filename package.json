@@ -27,9 +27,11 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node src/index.ts",
-    "test": "node --test"
+    "test": "node --test",
+    "lint": "biome check --write ./src"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.0-beta.1",
     "@types/node": "^22.14.0"
   }
 }
