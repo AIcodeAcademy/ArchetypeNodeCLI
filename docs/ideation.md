@@ -51,6 +51,17 @@ Tested with integration tests.
 Linted with biome.
 
 
+# Real use case
 
+Rules generation or synchronization for several tools from a central folder.
+
+- Tools:
+  - Cursor rules
+  - Windsurf
+  - Cline
+  - GitHub Copilot
+
+- Central folder:
+  - ./ai/builder/rules
 
 

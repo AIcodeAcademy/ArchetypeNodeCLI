@@ -15,14 +15,21 @@
     "architect": "godot",
     "builder": "godot",
     "craftsman": "godot",
-    "journals": "update"
+    "journals": "update",
+    "bll": "domain",
+    "dal": "data"
   },
   "material-icon-theme.files.associations": {
-    "*.blueprint.md": "document",
+    "*.blueprint.md": "apiblueprint",
     "*.instructions.md": "twine",
     "*.journal.md": "verified",
     "*.plan.md": "architecture",
     "*.prompt.md": "pascal",
-    "*.template.md": "textlint"
+    "*.template.md": "textlint",
+    "*.command.ts": "console",
+    "*.logic.ts": "purescript",
+    "*.repository.ts": "database",
+    "*.type.ts": "raml",
+    "*.utils.ts": "tilt"
   }
 }
