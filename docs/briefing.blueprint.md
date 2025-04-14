@@ -7,14 +7,17 @@
 ### F1-utilities-ecosystem
 
 - Provides utilities for accessing Environment, Configuration and Writing Logs with a standardized approach.
+- [Feature Blueprint](/docs/feats/F1_utilities-ecosystem/F1.blueprint.md)
 
 ### F2-command-processing
 
 - Adapters for processing commands and formatting outputs with minimal external dependencies.
+- [Feature Blueprint](/docs/feats/F2_command-processing/F2.blueprint.md)
 
 ### F3-file-transformation
 
 - Read files from source folder/file, transform content, write to target folders/files based on configurable paths.
+- [Feature Blueprint](/docs/feats/F3_file-transformation/F3.blueprint.md)
 
 ## Specifications
 
