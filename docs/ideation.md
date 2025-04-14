@@ -36,11 +36,11 @@ In memory or file based cache.
 
 Layered architecture.
 
-  - Presentation layer
+  - Presentation layer: App folder
 
-  - Domain layer
+  - Domain layer: Domain folder
 
-  - Infrastructure layer
+  - Infrastructure layer: Repository  folder
 
 Functional programming.
 
@@ -53,15 +53,24 @@ Linted with biome.
 
 # Real use case
 
-Rules generation or synchronization for several tools from a central folder.
+Rules and prompts synchronization for several tools from a source folder.
 
-- Tools:
-  - Cursor rules
-  - Windsurf
-  - Cline
-  - GitHub Copilot
-
-- Central folder:
+- Source folder:
   - ./ai/builder/rules
+  - ./ai/builder/prompts
+
+
+- Target Tools:
+  - Must have
+    - Cursor rules: 
+      - ./cursor/rules *.mdc
+    - GitHub Copilot:  
+      - "github.copilot.chat.codeGeneration.instructions"
+      - chat.promptFilesLocations
+  . Nice to Have
+    - Cline
+    - Windsurf: .windsurfrules
+
+// https://code.visualstudio.com/docs/copilot/copilot-customization
 
 
