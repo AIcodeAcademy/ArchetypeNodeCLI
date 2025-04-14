@@ -74,3 +74,15 @@ Rules and prompts synchronization for several tools from a source folder.
 // https://code.visualstudio.com/docs/copilot/copilot-customization
 
 
+--- 
+
+Archetype Node CLI 
+Is a node project to be used as an archetype to generate CLI apps. As an example it will be used to copy, combine and rename coding-rule files from a source to several targets based on configurable paths.
+
+Features
+- Utilities for accessing Environment, Configuration and Writing Logs.
+- Adapters for processing commands and format outputs.
+- Read files from source folder/file, transform content, write to target folders/files.
+
+Specifications
+- Minimal set of external dependencies (commander and chalk)
