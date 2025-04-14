@@ -14,6 +14,8 @@
     "architect": "godot",
     "builder": "godot",
     "craftsman": "godot",
+    "journals": "update",
+    "prompts": "robot",
     "domain": "cobol",
     "system": "stack"
   },
