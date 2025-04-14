@@ -63,4 +63,8 @@ Dependencies:
 
 The utilities form the foundation of the Archetype Node CLI architecture and will be used by other features. They should follow a functional programming approach with immutable data patterns and pure functions where possible.
 
+## Implementation
+
+- [Node CLI plan](./utilities-ecosystem.node-cli.plan.md)
+
 _End of Feature Documentation for **F1_utilities-ecosystem**_

@@ -17,13 +17,13 @@ Archetype Node CLI is a TypeScript-based command-line tool designed with a layer
 
 Here is the list of containers at a glance. See below for more details.
 
-- **C1-cli-archetype-node** : A command-line application that provides utilities and scaffolding for generating CLI applications with standardized architecture.
+- **C1_node-cli** : A command-line application that provides utilities and scaffolding for generating CLI applications with standardized architecture.
 
 ## Archetype Node CLI
 
 - **Tier**: frontend
-- **Archetype**: cli
-- **Code**: C1-cli-archetype-node
+- **Archetype**: node-cli
+- **Code**: C1_node-cli
 
 Archetype Node CLI serves as both a functional CLI tool and a reference implementation for building CLI applications. It implements a layered architecture with clear separation of concerns between presentation (app), domain logic, and infrastructure (system) layers. The tool provides standardized utilities, command processing adapters, and file transformation capabilities, all designed around functional programming principles with strong typing.
 
