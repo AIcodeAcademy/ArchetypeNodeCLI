@@ -15,8 +15,7 @@
     "builder": "godot",
     "craftsman": "godot",
     "domain": "cobol",
-    "bll": "domain",
-    "dal": "data"
+    "system": "stack"
   },
   "material-icon-theme.files.associations": {
     "*.blueprint.md": "apiblueprint",
@@ -26,9 +25,10 @@
     "*.prompt.md": "pascal",
     "*.template.md": "textlint",
     "*.command.ts": "console",
-    "*.logic.ts": "purescript",
     "*.repository.ts": "database",
+    "*.service.ts": "purescript",
     "*.type.ts": "raml",
-    "*.utils.ts": "tilt"
+    "*.utils.ts": "tilt",
+    "*.validator.ts": "velite"
   }
 }
