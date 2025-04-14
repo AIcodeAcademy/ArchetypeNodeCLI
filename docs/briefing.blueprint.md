@@ -54,5 +54,6 @@ C4Context
 ## Related Documentation
 
 - [Domain Model Blueprint](/docs/domain-model.blueprint.md)
+- [Systems Architecture Blueprint](/docs/systems-architecture.blueprint.md)
 
 _End of Briefing Document for Archetype Node CLI_
