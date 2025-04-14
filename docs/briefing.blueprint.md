@@ -51,4 +51,8 @@ C4Context
 - **Author**: [Alberto Basalo](albertobasalo@aicode.academy)
 - **Company**: [AI code Academy](https://aicode.academy)
 
+## Related Documentation
+
+- [Domain Model Blueprint](/docs/domain-model.blueprint.md)
+
 _End of Briefing Document for Archetype Node CLI_

@@ -43,11 +43,9 @@ The utilities will be provided through a modular, functional API that follows Ty
 - Environment utility:
   - Functions to get environment variables with type casting and validation
   - Support for required vs optional variables with default values
-  - Environment variable prefix configuration
   
 - Configuration utility:
   - Functions to load configuration from files with schema validation
-  - Support for configuration hierarchies (default → environment-specific → local overrides)
   - Type-safe access to configuration values
   
 - Logging utility:
