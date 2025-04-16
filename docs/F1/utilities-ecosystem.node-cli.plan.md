@@ -46,3 +46,13 @@ This is a plan for implementing the feature Utilities Ecosystem at container nod
 - Documentation and usage examples.
 
 > End of API Plan for `F1_utilities-ecosystem` at `C1_node-cli`
+
+## Task Prompts
+
+- [T1 Task Prompt](./utilities-ecosystem.node-cli.T1.task.md)
+- [T2 Task Prompt](./utilities-ecosystem.node-cli.T2.task.md)
+- [T3 Task Prompt](./utilities-ecosystem.node-cli.T3.task.md)
+- [T4 Task Prompt](./utilities-ecosystem.node-cli.T4.task.md)
+- [T5 Task Prompt](./utilities-ecosystem.node-cli.T5.task.md)
+- [T6 Task Prompt](./utilities-ecosystem.node-cli.T6.task.md)
+- [T7 Task Prompt](./utilities-ecosystem.node-cli.T7.task.md)
