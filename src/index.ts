@@ -9,5 +9,5 @@ processCommand()
 		logWarn("Command processed successfully.", res);
 	})
 	.catch((error) => {
-		logError("Error processing command: ", error);
+		logError("Error processing command. ", error);
 	});

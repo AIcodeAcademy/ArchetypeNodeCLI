@@ -93,7 +93,10 @@ export const formatLogMessage = (
 	parts.push(message);
 
 	if (data !== undefined) {
-		if (typeof data === "object" && data !== null) {
+		// check if is an error
+		if (data instanceof Error) {
+			parts.push(data.message);
+		} else if (typeof data === "object" && data !== null) {
 			try {
 				parts.push(JSON.stringify(data));
 			} catch {
