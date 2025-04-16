@@ -22,9 +22,9 @@ Each instance should be in a module file with name convention <intention>.<artif
 
 - Bottom-Up implementation: Infrastructure -> Domain -> Presentation
 
-### Presentation
+### Presentation layer
 
-Folder name : `app`
+Folder name : `src/app`
 
 - Configuration and bootstrap
 - User interface/interaction
@@ -34,9 +34,9 @@ Folder name : `app`
 > can use anything exported by the domain layer
 > can use types and utils exported by the infrastructure layer 
 
-### Domain 
+### Domain layer
 
-Folder name : `domain`
+Folder name : `src/domain`
 
 - Validation rules
 - Service level logic
@@ -46,7 +46,7 @@ Folder name : `domain`
 
 ### Infrastructure
 
-Folder name : `system`
+Folder name : `src/system`
 
 - Data types
 - Fetch and save data 

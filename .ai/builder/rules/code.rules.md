@@ -18,7 +18,7 @@
 - Prefer Higher-Order functions over loops
 - Declare named functions for complex (> 4 instructions) function arguments
 
-# Data types
+## Data types
 - Avoid primitive obsession and define Types in its own `*.type.ts` file.
 - Avoid null, use undefined for optionals and default values for required.
 - Define functions for runtime validation and formatting.
