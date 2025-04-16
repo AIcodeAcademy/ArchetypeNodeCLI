@@ -7,29 +7,31 @@ import type { TextStyleConfig } from "../system/output.adapter.ts";
 import { applyTextStyle, outputFormatter } from "../system/output.adapter.ts";
 
 /**
- * utilities to be used in the CLI
+ * High-level CLI utilities exposed for external use
  */
 export {
 	createMenu,
 	createProgressBar,
 	createSpinner,
-	formatError,
-	formatHeading,
-	formatInfo,
-	formatLabelValue,
-	formatSuccess,
 	formatTable,
-	formatTitle,
-	formatWarning,
 	getArgs,
 	getCommand,
-	styleText,
 };
 
 /**
  * Style options for text output
  */
-export type TextStyle = TextStyleConfig;
+type TextStyle = TextStyleConfig;
+
+/**
+ * Table column definition
+ */
+export type TableColumn = {
+	header: string;
+	field: string;
+	width?: number;
+	align?: "left" | "right" | "center";
+};
 
 /**
  * Applies styles to text
@@ -97,16 +99,6 @@ const formatInfo = (message: string): string => {
  */
 const formatLabelValue = (label: string, value: string): string => {
 	return `${outputFormatter.color(label, "cyan")}: ${value}`;
-};
-
-/**
- * Table column definition
- */
-export type TableColumn = {
-	header: string;
-	field: string;
-	width?: number;
-	align?: "left" | "right" | "center";
 };
 
 /**
