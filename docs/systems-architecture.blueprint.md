@@ -65,7 +65,6 @@ C4Container
         Container(appLayer, "App Layer", "TypeScript", "Command processing and user interface")
         Container(domainLayer, "Domain Layer", "TypeScript", "Business rules and service logic")
         Container(systemLayer, "System Layer", "TypeScript", "Infrastructure concerns and file operations")
-        Container(utilsLayer, "Utils Layer", "TypeScript", "Cross-cutting utilities for all layers")
     }
     
     System_Ext(fileSystem, "File System", "Source and target files")
@@ -75,10 +74,9 @@ C4Container
     Rel(appLayer, domainLayer, "Calls services")
     Rel(domainLayer, systemLayer, "Uses repositories")
     
-    Rel(appLayer, utilsLayer, "Uses utilities")
-    Rel(domainLayer, utilsLayer, "Uses utilities")
-    Rel(systemLayer, utilsLayer, "Uses utilities")
+    Rel(appLayer, systemLayer, "Uses utilities")
+    Rel(domainLayer, systemLayer, "Uses utilities")
     
     Rel(systemLayer, fileSystem, "Reads/writes")
-    Rel(utilsLayer, nodeEnv, "Accesses")
+    Rel(systemLayer, nodeEnv, "Accesses")
 ```
