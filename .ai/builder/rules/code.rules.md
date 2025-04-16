@@ -2,6 +2,7 @@
 - Write code in TypeScript, fully typed and annotated.
 - Place related functions and variables in module files.
 - Export only what is needed outside the module.
+- When importing use the full file name including the extension `.ts`.
 
 ### Module naming
 - Each file got a <intention>.<artifact>.ts name.
@@ -23,3 +24,7 @@
 - Avoid null, use undefined for optionals and default values for required.
 - Define functions for runtime validation and formatting.
 
+## Patterns
+- Use Adapter pattern to wrap external dependencies.
+- USe Factory, Singleton and Builder patterns when needed.
+- Try to be DRY, but not at the cost of readability.
