@@ -1,6 +1,6 @@
 # Node CLI Archetype
 
-- **Architecture** : Layered
+- **Architecture** : Layered, no DI
 - **Framework** : Node latest
 - **Paradigm** : Functional
 
