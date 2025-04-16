@@ -1,25 +1,56 @@
-# Feature workflow
+# Node CLI Archetype
 
-Follow a bottom up implementation
+- **Architecture** : Layered
+- **Framework** : Node latest
+- **Paradigm** : Functional
 
-## Utils
+## Artifacts
 
-- Define adapters to use external services or dependencies
+- **Adapter**: Wraps and hides external dependencies
+- **Command**: Extracts and processes user commands and arguments
+- **Repository**: Persist or fetch from an store (local or remote)
+- **Service**: Main logic, and transformation
+- **Type**: Data structures, and default values
+- **Util**: Common utilities, not tied to an specific domain
+- **Validator**: Data validation
 
-## Infrastructure
+## Layers
 
-- Define domain types needed 
-- Define functions to fetch and save data 
+- Top-Down dependencies: Presentation -> Domain -> Infrastructure
 
-## Domain 
+- Bottom-Up implementation: Infrastructure -> Domain -> Presentation
 
-- Define validation rules for the domain types
-- Define service functions to implement the feature
-- Call infrastructure to load or save data
+### Presentation
 
-## Presentation
+Folder name : `app`
 
-- Obtain arguments from user and configurations from environment
-- Call logic and validation functions
-- Define and use formatters to present the results
-- Log calls and errors
+- Configuration and bootstrap
+- User interface/interaction
+- Logs operation and technical
+
+> Guardrails: 
+> can use anything exported by the domain layer
+> can use types and utils exported by the infrastructure layer 
+
+### Domain 
+
+Folder name : `domain`
+
+- Validation rules
+- Service level logic
+
+> Guardrails:
+> can use anything exported by the infrastructure layer
+
+### Infrastructure
+
+Folder name : `system`
+
+- Data types
+- Fetch and save data 
+- Low level utilities
+
+> Guardrails:
+> only use exported stuff from its own layer
+
+
