@@ -1,0 +1,27 @@
+{
+  "app": {
+    "name": "ArchetypeNodeCLI",
+    "version": "1.0.0",
+    "description": "Archetype for AI tools to create CLI applications using Node.js"
+  },
+  "logging": {
+    "level": "info",
+    "destinations": ["console"],
+    "filePath": "logs/app.log",
+    "colors": true,
+    "timestamp": true
+  },
+  "commands": {
+    "defaultCommand": "help",
+    "allowUnknownOptions": false
+  },
+  "paths": {
+    "data": "./data",
+    "temp": "./temp",
+    "logs": "./logs"
+  },
+  "features": {
+    "autoUpdateCheck": true,
+    "telemetry": false
+  }
+}
