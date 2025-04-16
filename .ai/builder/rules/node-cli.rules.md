@@ -6,6 +6,8 @@
 
 ## Artifacts
 
+Each instance should be in a module file with name convention <intention>.<artifact>.ts 
+
 - **Adapter**: Wraps and hides external dependencies
 - **Command**: Extracts and processes user commands and arguments
 - **Repository**: Persist or fetch from an store (local or remote)

@@ -14,7 +14,6 @@
     "architect": "godot",
     "builder": "godot",
     "craftsman": "godot",
-    "journals": "update",
     "prompts": "robot",
     "domain": "cobol",
     "system": "stack"
@@ -22,7 +21,7 @@
   "material-icon-theme.files.associations": {
     "*.blueprint.md": "apiblueprint",
     "*.instructions.md": "twine",
-    "*.journal.md": "verified",
+    "*.tracker.md": "verified",
     "*.plan.md": "architecture",
     "*.prompt.md": "pascal",
     "*.template.md": "textlint",
@@ -32,5 +31,15 @@
     "*.type.ts": "raml",
     "*.utils.ts": "tilt",
     "*.validator.ts": "velite"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "editor": true,
+    "inlineSuggest": true,
+    "inlineSuggest.enable": true,
+    "inlineSuggest.showSuggestionsAlways": true
   }
 }
