@@ -67,6 +67,6 @@ The utilities form the foundation of the Archetype Node CLI architecture and wil
 
 ## Related Implementation Plan
 
-- [Implementation Plan for C1_node-cli](/docs/F1/utilities-ecosystem.node-cli.plan.md)
+- [Implementation Plan for C1_node-cli](/docs/F1/utilities-ecosystem-node-cli.plan.md)
 
 > End of Feature Documentation for **F1_utilities-ecosystem**

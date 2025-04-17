@@ -42,32 +42,32 @@
                 {
                   "task": 5,
                   "description": "Define `Environment` type and validation",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 6,
                   "description": "Define `Configuration` type and validation",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 7,
                   "description": "Define `LogEntry` type",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 8,
                   "description": "Implement `EnvironmentService` using the adapter",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 9,
                   "description": "Implement `ConfigurationService` using the adapter",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 10,
                   "description": "Implement `LoggerService` using the adapter",
-                  "status": "in progress"
+                  "status": "done"
                 }
               ]
             },
