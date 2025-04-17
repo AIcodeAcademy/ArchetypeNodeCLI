@@ -2,13 +2,7 @@
  * @module logger.service
  * @description Service for handling application logging based on configuration.
  */
-import {
-	logDebug,
-	logError,
-	logInfo,
-	logSuccess,
-	logWarn,
-} from "../system/logger.adapter.ts";
+import { logToConsole } from "../system/logger.adapter.ts";
 import { LoggingConfiguration } from "./configuration.type.ts";
 import { LogEntry, LogLevel } from "./logEntry.type.ts";
 
@@ -33,62 +27,46 @@ export const createLoggerService = (config: LoggingConfiguration) => {
 		return LOG_LEVEL_ORDER[level] >= configuredLevel;
 	};
 
-	const formatMessage = (entry: Omit<LogEntry, "timestamp">): string => {
-		let message = entry.message;
-		if (config.timestamp) {
-			message = `[${new Date().toISOString()}] ${message}`;
+	// Centralized log function using the adapter
+	const log = (
+		level: LogLevel,
+		message: string,
+		context?: Record<string, unknown>,
+		source?: string,
+	) => {
+		if (!shouldLog(level)) return;
+
+		const entry: LogEntry = {
+			timestamp: new Date(),
+			level,
+			message,
+			context,
+			source,
+		};
+
+		// TODO: Handle file destination based on config.destinations
+		if (config.destinations.includes("console")) {
+			logToConsole(entry, config.colors, config.timestamp);
 		}
-		// TODO: Add context formatting if needed
-		// TODO: Handle file destination
-		return message;
 	};
 
 	return {
 		debug: (message: string, context?: Record<string, unknown>) => {
-			if (!shouldLog("debug")) return;
-			const entry: Omit<LogEntry, "timestamp"> = {
-				level: "debug",
-				message,
-				context,
-			};
-			logDebug(formatMessage(entry));
+			log("debug", message, context, "LoggerService");
 		},
 		info: (message: string, context?: Record<string, unknown>) => {
-			if (!shouldLog("info")) return;
-			const entry: Omit<LogEntry, "timestamp"> = {
-				level: "info",
-				message,
-				context,
-			};
-			logInfo(formatMessage(entry));
+			log("info", message, context, "LoggerService");
 		},
 		warn: (message: string, context?: Record<string, unknown>) => {
-			if (!shouldLog("warn")) return;
-			const entry: Omit<LogEntry, "timestamp"> = {
-				level: "warn",
-				message,
-				context,
-			};
-			logWarn(formatMessage(entry));
+			log("warn", message, context, "LoggerService");
 		},
 		error: (message: string, context?: Record<string, unknown>) => {
-			if (!shouldLog("error")) return;
-			const entry: Omit<LogEntry, "timestamp"> = {
-				level: "error",
-				message,
-				context,
-			};
-			logError(formatMessage(entry));
+			log("error", message, context, "LoggerService");
 		},
+		// Keep success for semantic clarity, maps to info level for filtering
 		success: (message: string, context?: Record<string, unknown>) => {
-			// Success is often treated like info, but uses a different color
-			if (!shouldLog("info")) return;
-			const entry: Omit<LogEntry, "timestamp"> = {
-				level: "info",
-				message,
-				context,
-			}; // Logged as info level
-			logSuccess(formatMessage(entry));
+			// Logged with info level severity but potentially different presentation if adapter handles it
+			log("info", message, context, "LoggerService");
 		},
 	};
 };

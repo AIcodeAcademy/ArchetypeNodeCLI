@@ -22,17 +22,17 @@
                 {
                   "task": 2,
                   "description": "Implement configuration file reader adapter",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 3,
                   "description": "Implement console logger adapter using 'chalk'",
-                  "status": "in progress"
+                  "status": "done"
                 },
                 {
                   "task": 4,
                   "description": "Define basic system interaction types",
-                  "status": "in progress"
+                  "status": "done"
                 }
               ]
             },
