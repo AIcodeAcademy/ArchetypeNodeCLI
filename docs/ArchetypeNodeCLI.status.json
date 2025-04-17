@@ -1,0 +1,150 @@
+{
+  "project_name": "Archetype Node CLI",
+  "status": "draft",
+  "features": [
+    {
+      "code": "F1",
+      "name": "utilities-ecosystem",
+      "status": "in progress",
+      "containers": [
+        {
+          "code": "C1_node-cli",
+          "status": "in progress",
+          "layers": [
+            {
+              "layer": "System Layer",
+              "tasks": [
+                {
+                  "task": 1,
+                  "description": "Implement environment variable reader adapter",
+                  "status": "done"
+                },
+                {
+                  "task": 2,
+                  "description": "Implement configuration file reader adapter",
+                  "status": "in progress"
+                },
+                {
+                  "task": 3,
+                  "description": "Implement console logger adapter using 'chalk'",
+                  "status": "in progress"
+                },
+                {
+                  "task": 4,
+                  "description": "Define basic system interaction types",
+                  "status": "in progress"
+                }
+              ]
+            },
+            {
+              "layer": "Domain Layer",
+              "tasks": [
+                {
+                  "task": 5,
+                  "description": "Define `Environment` type and validation",
+                  "status": "in progress"
+                },
+                {
+                  "task": 6,
+                  "description": "Define `Configuration` type and validation",
+                  "status": "in progress"
+                },
+                {
+                  "task": 7,
+                  "description": "Define `LogEntry` type",
+                  "status": "in progress"
+                },
+                {
+                  "task": 8,
+                  "description": "Implement `EnvironmentService` using the adapter",
+                  "status": "in progress"
+                },
+                {
+                  "task": 9,
+                  "description": "Implement `ConfigurationService` using the adapter",
+                  "status": "in progress"
+                },
+                {
+                  "task": 10,
+                  "description": "Implement `LoggerService` using the adapter",
+                  "status": "in progress"
+                }
+              ]
+            },
+            {
+              "layer": "App Layer",
+              "tasks": [
+                {
+                  "task": 11,
+                  "description": "Initialize and configure utilities at application startup",
+                  "status": "in progress"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "F2",
+      "name": "command-processing",
+      "status": "draft"
+    },
+    {
+      "code": "F3",
+      "name": "file-transformation",
+      "status": "draft"
+    }
+  ],
+  "containers": [
+    {
+      "code": "C1_node-cli",
+      "archetype": "node-cli",
+      "language": "typescript",
+      "framework": "none",
+      "architecture": "layered"
+    }
+  ],
+  "data-models": [
+    {
+      "entity": "Command",
+      "attributes": ["name!", "description", "options", "arguments", "action", "group?"]
+    },
+    {
+      "entity": "Option",
+      "attributes": ["flag!", "description", "defaultValue?", "required", "valueType"]
+    },
+    {
+      "entity": "Argument",
+      "attributes": ["name!", "description", "required", "valueType"]
+    },
+    {
+      "entity": "Environment",
+      "attributes": ["configFilePath!", "logLevel!", "prefix?", "nodeEnv?"]
+    },
+    {
+      "entity": "Configuration",
+      "attributes": ["sourceFolder!", "targetFolder!", "globs!", "filePath?", "environment?"]
+    },
+    {
+      "entity": "Logger",
+      "attributes": ["level", "useColors", "outputStream"]
+    },
+    {
+      "entity": "FileTransformation",
+      "attributes": ["sourcePaths", "targetPaths", "transformers", "globPatterns?"]
+    },
+    {
+      "entity": "FileEntry",
+      "attributes": ["path!", "content", "metadata", "transformedContent?", "targetPath?"]
+    },
+    {
+      "entity": "Transformer",
+      "attributes": ["name!", "transform", "options?"]
+    },
+    {
+      "entity": "LogEntry",
+      "attributes": ["timestamp!", "level!", "message!", "context?", "source?", "correlationId?"]
+    }
+  ]
+}
