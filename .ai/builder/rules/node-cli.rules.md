@@ -32,7 +32,7 @@ Folder name : `src/app`
 
 > Guardrails: 
 > can use anything exported by the domain layer
-> can use types and utils exported by the infrastructure layer 
+> can use types exported by the infrastructure layer 
 
 ### Domain layer
 
@@ -53,6 +53,14 @@ Folder name : `src/system`
 - Low level utilities
 
 > Guardrails:
-> only use exported stuff from its own layer
+> only use stuff from its own layer
 
+## Dependencies
 
+- Node latest
+- Typescript latest
+- Zod to validate data types
+- Chalk to colorize the console output
+- Commander to parse command line arguments
+- Axios to fetch data from the internet
+- Pino to log messages
