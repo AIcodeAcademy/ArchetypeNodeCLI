@@ -1,5 +1,5 @@
 {
-  "name": "archetype_node_cli",
+  "name": "archetype_node-cli",
   "version": "1.0.0",
   "description": "Archetype for AI tools to create CLI applications using Node.js.",
   "keywords": [
