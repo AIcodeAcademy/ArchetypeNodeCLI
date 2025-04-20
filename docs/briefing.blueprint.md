@@ -54,7 +54,7 @@ C4Context
 - [F3 Logging](/docs/f3-logging.blueprint.md)
 - [F4 Command Handling](/docs/f4-command-handling.blueprint.md)
 - [F5 Output Formatting](/docs/f5-output-formatting.blueprint.md)
-<!-- - [Domain Model](/docs/domain-model.blueprint.md) -->
+- [Domain Model](/docs/domain-model.blueprint.md)
 <!-- - [Systems Architecture](/docs/systems-architecture.blueprint.md) -->
 
 _End of Briefing Document for ArchetypeNodeCLI_
