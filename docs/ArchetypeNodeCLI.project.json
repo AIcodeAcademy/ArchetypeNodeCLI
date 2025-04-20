@@ -1,0 +1,43 @@
+{
+  "project-name": "ArchetypeNodeCLI",
+  "features": [
+    {
+      "id": "1",
+      "code": "f1",
+      "name": "Environment Management",
+      "slug": "f1-environment-management"
+    },
+    {
+      "id": "2",
+      "code": "f2",
+      "name": "Configuration Management",
+      "slug": "f2-configuration-management"
+    },
+    {
+      "id": "3",
+      "code": "f3",
+      "name": "Logging",
+      "slug": "f3-logging"
+    },
+    {
+      "id": "4",
+      "code": "f4",
+      "name": "Command Handling",
+      "slug": "f4-command-handling"
+    },
+    {
+      "id": "5",
+      "code": "f5",
+      "name": "Output Formatting",
+      "slug": "f5-output-formatting"
+    }
+  ],
+  "containers": [
+    {
+      "id": "1",
+      "code": "c1",
+      "name": "Node CLI",
+      "slug": "c1-node-cli"
+    }
+  ]
+}
