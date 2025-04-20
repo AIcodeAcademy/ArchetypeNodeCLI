@@ -9,6 +9,8 @@
 - Each file got a <intention>.<artifact>.ts name.
 - Intention are features or specifications in camel-case.
 - Artifacts are architectural building blocks: `adapter`, `command`, `controller`, `mapper`,`repository`, `service`, `type`, `util`, `validator`.
+- Use ES modules (import/export) syntax, not CommonJS (require)
+- Destructure imports when possible (eg. `import { foo } from 'bar'`)
 
 ## Naming
 - Use fully descriptive names for variables and functions.
