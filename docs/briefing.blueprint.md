@@ -49,8 +49,11 @@ C4Context
 
 ## Related Blueprints
 
-<!-- This section will be updated by other architect steps -->
-<!-- - [Features](/docs/f?-*.blueprint.md) -->
+- [F1 Environment Management](/docs/f1-environment-management.blueprint.md)
+- [F2 Configuration Management](/docs/f2-configuration-management.blueprint.md)
+- [F3 Logging](/docs/f3-logging.blueprint.md)
+- [F4 Command Handling](/docs/f4-command-handling.blueprint.md)
+- [F5 Output Formatting](/docs/f5-output-formatting.blueprint.md)
 <!-- - [Domain Model](/docs/domain-model.blueprint.md) -->
 <!-- - [Systems Architecture](/docs/systems-architecture.blueprint.md) -->
 
