@@ -1,10 +1,16 @@
-# Node CLI Archetype
+# Node CLI Archetype rules
 
 - **Architecture** : Layered, no DI
-- **Framework** : Node latest
 - **Paradigm** : Functional
 
-## Artifacts
+## Layered Architecture
+
+- Top-Down dependencies: **Application** -> **Domain** -> **System**
+
+- Bottom-Up implementation: **System** -> **Domain** -> **Application**
+
+
+### Artifacts
 
 Each instance should be in a module file with name convention <intention>.<artifact>.ts 
 
@@ -16,23 +22,17 @@ Each instance should be in a module file with name convention <intention>.<artif
 - **Util**: Common utilities, not tied to an specific domain
 - **Validator**: Data validation
 
-## Layers
-
-- Top-Down dependencies: Presentation -> Domain -> Infrastructure
-
-- Bottom-Up implementation: Infrastructure -> Domain -> Presentation
-
-### Presentation layer
+### Application layer
 
 Folder name : `src/app`
 
 - Configuration and bootstrap
 - User interface/interaction
-- Logs operation and technical
+- Logs operational and technical
+- Higher level utilities
 
 > Guardrails: 
-> can use anything exported by the domain layer
-> can use types exported by the infrastructure layer 
+> can use anything exported by the **Domain** or **System** layers
 
 ### Domain layer
 
@@ -40,16 +40,17 @@ Folder name : `src/domain`
 
 - Validation rules
 - Service level logic
+- Transformations
 
 > Guardrails:
-> can use anything exported by the infrastructure layer
+> can use anything exported by the **System** layer
 
-### Infrastructure
+### System Layer
 
 Folder name : `src/system`
 
-- Data types
-- Fetch and save data 
+- Data type definitions
+- Fetch and save data repositories
 - Low level utilities
 
 > Guardrails:
@@ -57,10 +58,12 @@ Folder name : `src/system`
 
 ## Dependencies
 
-- Node latest
-- Typescript latest
-- Zod to validate data types
-- Chalk to colorize the console output
-- Commander to parse command line arguments
-- Axios to fetch data from the internet
-- Pino to log messages
+- `Axios` to fetch data from the internet
+- `Chalk` to colorize the console output
+- `Commander` to parse command line arguments
+- `Pino` to log messages
+- `Zod` to validate data types
+
+### DevDependencies
+
+- `Biome` for linting and formatting

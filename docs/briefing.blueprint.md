@@ -19,13 +19,6 @@
 ### F5-output-formatting
 - Offer utilities for formatting console output consistently.
 
-## Specifications
-
-- **Interaction**: cli
-- **Authentication**: none
-- **Integrations**: none
-- **Monitoring**: operational
-- **Persistence**: file_system
 
 ## Context diagram
 
@@ -41,6 +34,21 @@ C4Context
   Rel(cli, fs, "Reads/Writes configuration")
   Rel(cli, fs, "Writes logs")
 ```
+
+---
+
+## System Specifications and Containers
+
+- **Interaction**: cli
+- **Authentication**: none
+- **Integrations**: none
+- **Monitoring**: operational
+- **Persistence**: file_system
+
+### C1 Node CLI Application
+
+- A `node-cli` application that serves as a reusable archetype for building other Node.js CLI applications.
+
 
 ## Metadata
 

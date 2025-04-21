@@ -1,4 +1,7 @@
+# Typescript Language rules 
+
 ## Language
+
 - Write code in TypeScript, fully typed and annotated.
 - Place related functions and variables in module files.
 - Export only what is needed outside the module.
