@@ -1,11 +1,10 @@
 # F# Feature Name implementation plan
 
-- Feature Code: f#-feature-name
-- Container Code: c1-node-cli
-- Plan Code: f#-C#
+- **Container Code**: {{ container code }}
+- **Feature Code**: {{ feature code }}
+- **Plan Code**: {{C#-F#}}
 
 ## Tasks
-
 
 ### 1. System Layer 
 - [ ] Task 1 [[Task 1]](./tasks/F1-C1-T1.task.md)

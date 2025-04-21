@@ -8,7 +8,7 @@
 - When importing use the full file name including the extension `.ts`.
 - Use `async`/`await` for async code.
 
-### Module naming
+### Modules
 - Each file got a <intention>.<artifact>.ts name.
 - Intention are features or specifications in camel-case.
 - Artifacts are architectural building blocks: `adapter`, `command`, `controller`, `mapper`,`repository`, `service`, `type`, `util`, `validator`.
