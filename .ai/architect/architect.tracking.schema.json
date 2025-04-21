@@ -1,0 +1,21 @@
+{
+  "project-name": "",
+  "features": [
+    {
+      "id": "#",
+      "code": "f#",
+      "name": "Title Case",
+      "slug": "{{code}}-{{name | slug}}",
+      "file": "/docs/{{slug}}.blueprint.md"
+    }
+  ],
+  "containers": [
+    {
+      "id": "#",
+      "code": "c#",
+      "archetype": "{{: node-cli | express-api | angular-spa | other}}",
+      "name": "{{ archetype | Title Case }}",
+      "slug": "{{code}}-{{archetype}}"
+    }
+  ]
+}

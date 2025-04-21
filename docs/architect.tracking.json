@@ -5,31 +5,36 @@
       "id": "1",
       "code": "f1",
       "name": "Environment Management",
-      "slug": "f1-environment-management"
+      "slug": "f1-environment-management",
+      "file": "/docs/f1-environment-management.blueprint.md"
     },
     {
       "id": "2",
       "code": "f2",
       "name": "Configuration Management",
-      "slug": "f2-configuration-management"
+      "slug": "f2-configuration-management",
+      "file": "/docs/f2-configuration-management.blueprint.md"
     },
     {
       "id": "3",
       "code": "f3",
       "name": "Logging",
-      "slug": "f3-logging"
+      "slug": "f3-logging",
+      "file": "/docs/f3-logging.blueprint.md"
     },
     {
       "id": "4",
       "code": "f4",
       "name": "Command Handling",
-      "slug": "f4-command-handling"
+      "slug": "f4-command-handling",
+      "file": "/docs/f4-command-handling.blueprint.md"
     },
     {
       "id": "5",
       "code": "f5",
       "name": "Output Formatting",
-      "slug": "f5-output-formatting"
+      "slug": "f5-output-formatting",
+      "file": "/docs/f5-output-formatting.blueprint.md"
     }
   ],
   "containers": [
@@ -37,8 +42,8 @@
       "id": "1",
       "code": "c1",
       "name": "Node CLI",
-      "slug": "c1-node-cli",
-      "archetype": "cli"
+      "archetype": "node-cli",
+      "slug": "c1-node-cli"
     }
   ]
 }

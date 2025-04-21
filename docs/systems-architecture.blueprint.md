@@ -1,12 +1,3 @@
----
-syntax: "[Template Syntax](/.ai/syntax.template.md)"
-container: "A piece of software that can be deployed independently."
-tiers: "frontend | backend | database"
-archetypes: "api | cli | web | other"
-folder: "/docs"
-file: "systems-architecture.blueprint.md"
----
-
 # System Architecture for **ArchetypeNodeCLI**
 
 This document describes the system architecture for the project.
@@ -15,28 +6,26 @@ It covers the technical stack, component interactions, and deployment considerat
 ### Reference
 
 - [Briefing Blueprint](/docs/briefing.blueprint.md)
--  [Environment Management](/docs/f1-environment-management.blueprint.md)
--  [Configuration Management](/docs/f2-configuration-management.blueprint.md)
--  [Logging](/docs/f3-logging.blueprint.md)
--  [Command Handling](/docs/f4-command-handling.blueprint.md)
--  [Output Formatting](/docs/f5-output-formatting.blueprint.md)
 - [Domain Model Blueprint](/docs/domain-model.blueprint.md)
+- [Environment Management](/docs/f1-environment-management.blueprint.md)
+- [Configuration Management](/docs/f2-configuration-management.blueprint.md)
+- [Logging](/docs/f3-logging.blueprint.md)
+- [Command Handling](/docs/f4-command-handling.blueprint.md)
+- [Output Formatting](/docs/f5-output-formatting.blueprint.md)
 
 ## Overview
 
 ArchetypeNodeCLI is a command-line interface designed for developers, serving as a foundational archetype for building other Node.js CLI applications. It manages environment variables, configuration, logging, command execution, and output formatting, interacting primarily with the local file system.
 
-## System Containers
 
 Here is the list of containers at a glance. See below for more details.
 
-- **C1-cli-node-cli** : A command-line interface archetype built with Node.js.
+- **C1-node-cli** : A command-line interface archetype built with Node.js.
 
-## Node CLI
+## C1 : Node CLI
 
-- **Tier**: backend
-- **Archetype**: cli
-- **Code**: C1-cli-node-cli
+- **Tier**: frontend
+- **Archetype**: node-cli
 
 This container represents the core Node.js command-line application, providing a reusable structure for building CLIs. It handles environment variables, configuration, logging, command parsing, and output formatting.
 
@@ -45,7 +34,6 @@ This container represents the core Node.js command-line application, providing a
 - **Language**: typescript
 - **Runtime**: node
 - **Framework**: vanilla_ts
-- **API Style**: none
 
 ### Software Architecture
 
@@ -58,6 +46,12 @@ This container represents the core Node.js command-line application, providing a
 - **Authorization**: none
 - **Data Protection**: none
 
+### Deployment
+
+- **Hosting**: local
+- **CI/CD**: package_json_scripts
+- **Monitoring**: custom
+
 ## Integrations
 
 ### External Services
@@ -68,14 +62,6 @@ This container represents the core Node.js command-line application, providing a
 - **Storage**: none
 - **Email**: none
 - **Other**: none
-
-## Deployment
-
-### Infrastructure
-
-- **Hosting**: local
-- **CI/CD**: package_json_scripts
-- **Monitoring**: custom
 
 ## System Diagram
 

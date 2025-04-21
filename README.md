@@ -4,6 +4,8 @@ Based on the [AIDDbot](https://github.com/AIcodeAcademy/AIDDbot) project.
 
 Archetype for AI tools to create CLI applications using Node.js.
 
+Repository: [AI code Academy / archetype node cli](https://github.com/AIcodeAcademy/ArchetypeNodeCLI)
+
 ---
 
 <footer>
