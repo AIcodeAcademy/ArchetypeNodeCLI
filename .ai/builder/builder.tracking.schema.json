@@ -1,0 +1,18 @@
+{
+  "project-name": "",
+  "plans": [
+    {
+      "container-slug": "{{ container | slug}}",
+      "feature-slug": "{{ feature | slug}}",
+      "file": "/containers/{{container | slug}}/docs/{{feature | slug}}.plan.md",
+      "tasks":[
+        {
+          "id": "#",
+          "file": "/containers/{{container | slug}}/docs/tasks/{{task | slug}}.task.md",
+          "status": "not-started",
+          "git": ""
+        }
+      ]
+    }
+  ]
+}
