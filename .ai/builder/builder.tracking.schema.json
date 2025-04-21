@@ -9,7 +9,7 @@
         {
           "id": "#",
           "file": "/containers/{{container | slug}}/docs/tasks/{{task | slug}}.task.md",
-          "status": "not-started",
+          "status": "{{: not-started | in-progress | completed }}",
           "git": ""
         }
       ]

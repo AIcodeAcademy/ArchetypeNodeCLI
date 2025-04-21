@@ -1,0 +1,24 @@
+{
+  "project-name": "ArchetypeNodeCLI",
+  "plans": [
+    {
+      "container-slug": "c1-node-cli",
+      "feature-slug": "f1-environment-management",
+      "file": "/containers/c1-node-cli/docs/f1-environment-management.plan.md",
+      "tasks": [
+        {
+          "id": "1",
+          "file": "/containers/c1-node-cli/docs/tasks/01-setup-environment.task.md",
+          "status": "not-started",
+          "git": ""
+        },
+        {
+          "id": "2",
+          "file": "/containers/c1-node-cli/docs/tasks/02-setup-environment.task.md",
+          "status": "not-started",
+          "git": ""
+        }
+      ]
+    }
+  ]
+}
