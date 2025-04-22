@@ -4,18 +4,21 @@
     {
       "id": "#",
       "code": "f#",
-      "name": "Title Case",
-      "slug": "{{code}}-{{name | slug}}",
-      "file": "/docs/{{slug}}.blueprint.md"
+      "name": "{{ name | Title Case }}",
+      "slug": "{{ code }}-{{ name | slugify }}",
+      "blueprint": "/docs/{{slug}}.blueprint.md",
+      "status": "{{: draft | defined | planned | pending | implemented | failed }}"
     }
   ],
   "containers": [
     {
       "id": "#",
       "code": "c#",
-      "archetype": "{{: node-cli | express-api | angular-spa | other}}",
+      "language": "{{: typescript | python | other }}",
+      "framework": "{{: node | angular | express | other }}",
+      "archetype": "{{: node-cli | express-api | angular-spa | other }}",
       "name": "{{ archetype | Title Case }}",
-      "slug": "{{code}}-{{archetype}}"
+      "slug": "{{ code }}-{{ archetype | slugify }}"
     }
   ]
 }
