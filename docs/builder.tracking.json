@@ -1,0 +1,72 @@
+{
+  "projectName": "ArchetypeNodeCLI",
+  "status": "draft",
+  "features": [
+    {
+      "id": "1",
+      "code": "f1",
+      "name": "Configuration Management",
+      "slug": "f1-configuration-management",
+      "containers": [
+        {
+          "id": "1",
+          "code": "c1",
+          "name": "Node CLI",
+          "slug": "c1-node-cli",
+          "plan": "/containers/c1-node-cli/docs/f1-configuration-management.plan.md",
+          "status": "planned",
+          "tasks": [
+            {
+              "id": "1",
+              "name": "Setup Configuration Module",
+              "status": "planned",
+              "layer": "infrastructure"
+            },
+            {
+              "id": "2",
+              "name": "Environment Variables Integration",
+              "status": "planned",
+              "layer": "infrastructure"
+            },
+            {
+              "id": "3",
+              "name": "Configuration File Support",
+              "status": "planned",
+              "layer": "infrastructure"
+            },
+            {
+              "id": "4",
+              "name": "Command Line Arguments Integration",
+              "status": "planned",
+              "layer": "infrastructure"
+            },
+            {
+              "id": "5",
+              "name": "Configuration Manager",
+              "status": "planned",
+              "layer": "application"
+            },
+            {
+              "id": "6",
+              "name": "Type Safety System",
+              "status": "planned",
+              "layer": "application"
+            },
+            {
+              "id": "7",
+              "name": "Error Handling",
+              "status": "planned",
+              "layer": "application"
+            },
+            {
+              "id": "8",
+              "name": "CLI Integration",
+              "status": "planned",
+              "layer": "interface"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
