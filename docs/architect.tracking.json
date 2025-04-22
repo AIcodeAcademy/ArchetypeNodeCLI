@@ -1,0 +1,41 @@
+{
+  "projectName": "ArchetypeNodeCLI",
+  "status": "draft",
+  "features": [
+    {
+      "id": "1",
+      "code": "f1",
+      "name": "Configuration Management",
+      "slug": "f1-configuration-management",
+      "blueprint": "/docs/f1-configuration-management.blueprint.md",
+      "status": "draft"
+    },
+    {
+      "id": "2",
+      "code": "f2",
+      "name": "Structured Logging",
+      "slug": "f2-structured-logging",
+      "blueprint": "/docs/f2-structured-logging.blueprint.md",
+      "status": "draft"
+    },
+    {
+      "id": "3",
+      "code": "f3",
+      "name": "Interactive Commands",
+      "slug": "f3-interactive-commands",
+      "blueprint": "/docs/f3-interactive-commands.blueprint.md",
+      "status": "draft"
+    }
+  ],
+  "containers": [
+    {
+      "id": "1",
+      "code": "c1",
+      "language": "typescript",
+      "framework": "node",
+      "archetype": "node-cli",
+      "name": "Node CLI",
+      "slug": "c1-node-cli"
+    }
+  ]
+} 
