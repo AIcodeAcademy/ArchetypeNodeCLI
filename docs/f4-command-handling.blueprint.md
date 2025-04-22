@@ -50,6 +50,6 @@ Interaction is via the command line. The CLI should follow standard conventions 
 ## Implementation Details
 
 <!-- This section will be updated by builder steps -->
-<!-- - [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f4-command-handling.plan.md) -->
+- [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f4-command-handling.plan.md)
 
 _End of Feature Documentation for **f4-command-handling**_
