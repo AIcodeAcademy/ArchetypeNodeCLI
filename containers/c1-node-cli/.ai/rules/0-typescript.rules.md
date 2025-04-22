@@ -1,7 +1,6 @@
 # Typescript Language rules 
 
 ## Language
-
 - Write code in TypeScript, fully typed and annotated.
 - Place related functions and variables in module files.
 - Export only what is needed outside the module.
@@ -41,6 +40,7 @@
 
 ## Patterns
 - Use Adapter pattern to wrap external dependencies.
-- Use Factory, Singleton and Builder patterns when needed.
-- Avoid Dependency Injection (DI) patterns.
+- Avoid Dependency Injection (DI) patterns, use direct calls instead.
+- Prefer composition over inheritance.
+- Use Factory, Singleton or Builder patterns only when its mandatory.
 - Try to be DRY, but not at the cost of readability.
