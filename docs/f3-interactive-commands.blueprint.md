@@ -8,9 +8,13 @@
 
 Offers a flexible command system with interactive prompts, command validation, and help documentation generation.
 
+Standard commands with options and arguments.
+
+Interactive commands with prompts and validation.
+
 ## Goal / User Story
 
-- **As a:** Node.js CLI developer
+- **As a:** CLI developer
 - **I want to:** create interactive commands with validation and help
 - **So that:** I can provide a user-friendly command-line interface with proper guidance and error handling
 
@@ -50,13 +54,13 @@ Scenario: Validate command inputs
 ## Additional Information
 
 ### Dependencies
-- Node.js runtime
+
 - Command-line interface libraries
 - Input validation libraries
 - Documentation generation tools
 
 ### Preconditions
-- Node.js environment
+
 - Terminal/console access
 - User input capabilities
 

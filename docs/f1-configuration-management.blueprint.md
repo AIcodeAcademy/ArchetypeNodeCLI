@@ -8,9 +8,13 @@
 
 Provides a robust configuration system supporting environment variables, config files, and command-line arguments with validation and type safety.
 
+The developer will define its own types, your goal is to load and validate the configuration.
+
+Precedence: command-line arguments > environment variables > config files
+
 ## Goal / User Story
 
-- **As a:** Node.js CLI developer
+- **As a:** CLI developer
 - **I want to:** manage application configuration through multiple sources
 - **So that:** I can easily configure my CLI application with proper validation and type safety
 
@@ -48,12 +52,12 @@ Scenario: Override configuration with command-line arguments
 ## Additional Information
 
 ### Dependencies
-- Node.js runtime
+
 - Configuration parsing libraries
 - Type validation libraries
 
 ### Preconditions
-- Node.js environment
+
 - Access to file system
 - Environment variables access
 

@@ -65,4 +65,6 @@ C4Context
 
 ## Related Blueprints
 
+- [Domain Model Blueprint](/docs/domain-model.blueprint.md)
+
 > End of Briefing Document for `ArchetypeNodeCLI`

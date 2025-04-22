@@ -10,7 +10,7 @@ Implements a comprehensive logging system with different log levels, formatting 
 
 ## Goal / User Story
 
-- **As a:** Node.js CLI developer
+- **As a:** CLI developer
 - **I want to:** implement structured logging in my application
 - **So that:** I can effectively monitor and debug my CLI application with proper log levels and formats
 
@@ -40,21 +40,21 @@ Scenario: Include structured data in logs
 
 - Command-line interface for log configuration
 - Support for multiple log levels (debug, info, warn, error)
-- Support for multiple output formats (text, JSON, structured)
-- Support for multiple destinations (console, file, remote)
-- Log rotation and management
-- Log filtering and search capabilities
+- Support for multiple output formats (text, JSON)
+- Support for multiple destinations (console, file)
+- No log rotation and management
+- No log filtering and search capabilities
 
 ## Additional Information
 
 ### Dependencies
-- Node.js runtime
+
 - Logging libraries
 - File system access
 - Network access (for remote logging)
 
 ### Preconditions
-- Node.js environment
+
 - Access to file system (for file logging)
 - Network connectivity (for remote logging)
 
