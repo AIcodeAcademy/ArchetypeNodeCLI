@@ -8,7 +8,7 @@
       "container": "c1-node-cli",
       "feature": "f1-environment-management",
       "file": "/containers/c1-node-cli/docs/f1-environment-management.plan.md",
-      "status": "planned",
+      "status": "completed",
       "tasks": [
         {
           "id": "1",
@@ -16,7 +16,7 @@
           "name": "Create environment types",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t1.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "2",
@@ -24,7 +24,7 @@
           "name": "Implement file system repository",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t2.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "3",
@@ -32,7 +32,7 @@
           "name": "Create environment utilities",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t3.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "4",
@@ -40,7 +40,7 @@
           "name": "Implement environment validation",
           "layer": "domain",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t4.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "5",
@@ -48,7 +48,7 @@
           "name": "Create environment service",
           "layer": "domain",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t5.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "6",
@@ -56,7 +56,7 @@
           "name": "Create environment configuration",
           "layer": "application",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t6.task.md",
-          "status": "not-started"
+          "status": "completed"
         },
         {
           "id": "7",
@@ -64,7 +64,7 @@
           "name": "Implement environment initialization",
           "layer": "application",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f1-t7.task.md",
-          "status": "not-started"
+          "status": "completed"
         }
       ]
     },
