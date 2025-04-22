@@ -174,6 +174,137 @@
           "status": "not-started"
         }
       ]
+    },
+    {
+      "id": "3",
+      "code": "c1-f3",
+      "name": "Logging",
+      "container": "c1-node-cli",
+      "feature": "f3-logging",
+      "file": "/containers/c1-node-cli/docs/f3-logging.plan.md",
+      "status": "planned",
+      "tasks": [
+        {
+          "id": "1",
+          "code": "c1-f3-t1",
+          "name": "Create log level types and constants",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t1.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "2",
+          "code": "c1-f3-t2",
+          "name": "Implement log message formatter utilities",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t2.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "3",
+          "code": "c1-f3-t3",
+          "name": "Create log output writer interface and file system implementation",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t3.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "4",
+          "code": "c1-f3-t4",
+          "name": "Implement log rotation and retention policies",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t4.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "5",
+          "code": "c1-f3-t5",
+          "name": "Create log context utilities for structured logging",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t5.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "6",
+          "code": "c1-f3-t6",
+          "name": "Define log entry domain model and validation",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t6.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "7",
+          "code": "c1-f3-t7",
+          "name": "Create log repository interface and implementation",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t7.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "8",
+          "code": "c1-f3-t8",
+          "name": "Implement log filtering and querying capabilities",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t8.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "9",
+          "code": "c1-f3-t9",
+          "name": "Create log aggregation utilities",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t9.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "10",
+          "code": "c1-f3-t10",
+          "name": "Define log event types and handlers",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t10.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "11",
+          "code": "c1-f3-t11",
+          "name": "Create logging service with configuration options",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t11.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "12",
+          "code": "c1-f3-t12",
+          "name": "Implement log initialization and setup",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t12.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "13",
+          "code": "c1-f3-t13",
+          "name": "Create log middleware for command execution",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t13.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "14",
+          "code": "c1-f3-t14",
+          "name": "Add log command for viewing and managing logs",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t14.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "15",
+          "code": "c1-f3-t15",
+          "name": "Implement log export functionality",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f3-t15.task.md",
+          "status": "not-started"
+        }
+      ]
     }
   ]
 }
