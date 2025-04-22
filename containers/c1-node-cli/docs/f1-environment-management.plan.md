@@ -41,21 +41,21 @@ This is a plan for implementing the Environment Management feature at the Node C
 
 ### 2. Domain Layer
 
-1. Implement environment validation
+4. Implement environment validation
    - `src/domain/validators/environment.validator.ts`: Validate environment configuration
    - `src/domain/validators/env-variable.validator.ts`: Validate environment variables
 
-2. Create environment service
+5. Create environment service
    - `src/domain/services/environment.service.ts`: Main logic for environment management
    - `src/domain/services/env-loader.service.ts`: Load and merge environment variables
 
 ### 3. Application Layer
 
-1. Create environment configuration
+6. Create environment configuration
    - `src/app/config/environment.config.ts`: Default environment settings
    - `src/app/config/env-files.config.ts`: Environment file paths and patterns
 
-2. Implement environment initialization
+7. Implement environment initialization
    - `src/app/adapters/environment.adapter.ts`: Environment setup and initialization
    - `src/app/adapters/env-mode.adapter.ts`: Environment mode detection and validation
 

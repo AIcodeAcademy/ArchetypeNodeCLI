@@ -2,14 +2,21 @@
   "project-name": "",
   "plans": [
     {
-      "container-slug": "{{ container | slug}}",
-      "feature-slug": "{{ feature | slug}}",
+      "id": "{{#}}",
+      "code": "{{container | slug}}-{{feature | slug}}",
+      "name": "{{feature | titlecase}} at {{container | titlecase}}",
+      "container": "{{container | slug}}",
+      "feature": "{{feature | slug}}",
       "file": "/containers/{{container | slug}}/docs/{{feature | slug}}.plan.md",
+      "status": "{{: planned | implemented | pending  }}",
       "tasks":[
         {
           "id": "#",
+          "code": "{{container | slug}}-{{feature | slug}}-{{task | slug}}",
+          "name": "{{task | titlecase}}",
+          "layer": "{{: system | domain | application }}",
           "file": "/containers/{{container | slug}}/.ai/tasks/{{task | slug}}.task.md",
-          "status": "{{: not-started | in-progress | completed }}",
+          "status": "{{: planned | prompted | implemented | pending }}",
           "git": ""
         }
       ]
