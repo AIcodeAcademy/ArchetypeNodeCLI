@@ -50,7 +50,6 @@ No direct UI. Configuration is done via `.env` files (e.g., `.env`, `.env.develo
 
 ## Implementation Details
 
-<!-- This section will be updated by builder steps -->
-<!-- - [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f1-environment-management.plan.md) -->
+- [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f1-environment-management.plan.md)
 
 _End of Feature Documentation for **f1-environment-management**_
