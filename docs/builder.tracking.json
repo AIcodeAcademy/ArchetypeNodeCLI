@@ -67,6 +67,113 @@
           "status": "not-started"
         }
       ]
+    },
+    {
+      "id": "2",
+      "code": "c1-f2",
+      "name": "Configuration Management",
+      "container": "c1-node-cli",
+      "feature": "f2-configuration-management",
+      "file": "/containers/c1-node-cli/docs/f2-configuration-management.plan.md",
+      "status": "planned",
+      "tasks": [
+        {
+          "id": "1",
+          "code": "c1-f2-t1",
+          "name": "Create configuration file types and interfaces",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t1.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "2",
+          "code": "c1-f2-t2",
+          "name": "Implement configuration file loader utilities",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t2.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "3",
+          "code": "c1-f2-t3",
+          "name": "Create environment variable parser utilities",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t3.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "4",
+          "code": "c1-f2-t4",
+          "name": "Implement configuration file watcher for development mode",
+          "layer": "system",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t4.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "5",
+          "code": "c1-f2-t5",
+          "name": "Create configuration schema validation using zod",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t5.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "6",
+          "code": "c1-f2-t6",
+          "name": "Implement configuration value resolver",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t6.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "7",
+          "code": "c1-f2-t7",
+          "name": "Create configuration repository interface and implementation",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t7.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "8",
+          "code": "c1-f2-t8",
+          "name": "Implement configuration change event system",
+          "layer": "domain",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t8.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "9",
+          "code": "c1-f2-t9",
+          "name": "Create configuration service",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t9.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "10",
+          "code": "c1-f2-t10",
+          "name": "Implement configuration initialization",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t10.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "11",
+          "code": "c1-f2-t11",
+          "name": "Create configuration access utilities",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t11.task.md",
+          "status": "not-started"
+        },
+        {
+          "id": "12",
+          "code": "c1-f2-t12",
+          "name": "Add configuration validation middleware",
+          "layer": "application",
+          "file": "/containers/c1-node-cli/.ai/tasks/c1-f2-t12.task.md",
+          "status": "not-started"
+        }
+      ]
     }
   ]
 }

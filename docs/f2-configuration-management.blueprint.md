@@ -51,7 +51,6 @@ No direct UI. Configuration is managed through files (e.g., `config.json`, `conf
 
 ## Implementation Details
 
-<!-- This section will be updated by builder steps -->
-<!-- - [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f2-configuration-management.plan.md) -->
+- [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f2-configuration-management.plan.md)
 
 _End of Feature Documentation for **f2-configuration-management**_
