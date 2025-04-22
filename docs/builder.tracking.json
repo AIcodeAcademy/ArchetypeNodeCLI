@@ -1,6 +1,14 @@
 {
   "project-name": "ArchetypeNodeCLI",
   "plans": [
-    
+    {
+      "id": "1",
+      "code": "c1-f1",
+      "name": "Environment Management",
+      "container": "c1-node-cli",
+      "feature": "f1-environment-management",
+      "file": "/containers/c1-node-cli/docs/f1-environment-management.plan.md",
+      "status": "created"
+    }
   ]
 }
