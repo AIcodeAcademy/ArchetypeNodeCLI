@@ -10,8 +10,9 @@ Consist of a `YAML` header section and a `Markdown` body.
 
 A metadata section to guide the LLM in generating the output file.
 
-> [!IMPORTANT]
-> Do not include the YAML header in the output document.
+**IMPORTANT**
+
+Do not include the YAML header in the output document.
 
 ### Markdown Body
 
@@ -27,8 +28,9 @@ Standard comments contain instructions for processing the template.
 
 Read and follow them but do not include them in the output.
 
-> [!TIP]
-> Example of an instruction comment:
+**TIP**
+
+Example of an instruction comment:
 
 ```md
 <!-- This is an instruction comment
@@ -56,8 +58,9 @@ Resolution priority:
    - Take into account the context of the previous answers
    - Offer a choice of predefined answers if possible
 
-> [!TIP]
-> Example of expression placeholders:
+**TIP**
+
+Example of expression placeholders:
 
 ```md
 {{ description in natural language }}
@@ -73,8 +76,9 @@ Use natural language to describe the conditions.
 
 Use `if` and `end` to enclose the section.
 
-> [!TIP]
-> Example of conditional sections:
+**TIP**
+
+Example of conditional sections:
 
 ```md
 {{ if condition }}
@@ -90,8 +94,9 @@ Use natural language to describe the loop.
 
 Use `for` and `end` to enclose the section.
 
-> [!TIP]
-> Example of loops:
+**TIP**
+
+Example of loops:
 
 ```md
 {{ for item in items }}
@@ -107,8 +112,9 @@ You can pick from the list or offer them to user to choose from.
 
 Those lists are prefixed by `:` and separated by `|` or `,` for single or multiple choices.
 
-> [!TIP]
-> Example of value constraints:
+**TIP**
+
+Example of value constraints:
 
 ```md
 The main theme of the project is {{ : red | green | blue }}.
@@ -128,8 +134,9 @@ Use the hash `#` symbol to number items.
 
 When used in a loop, it will be replaced with the current item number.
 
-> [!TIP]
-> Example of numbering:
+**TIP**
+
+Example of numbering:
 
 ```md
 # Feature {{ F# }}
@@ -161,8 +168,9 @@ Variables rules:
 - Can reference other aliases defined earlier
 - Cannot be redefined
 
-> [!TIP]
-> Example of variable aliases:
+**TIP**
+
+Example of variable aliases:
 
 ```md
 {{ userName = John Doe }}
@@ -174,8 +182,9 @@ Start date: {{ projectStart }}
 
 ### Summary of syntax symbols
 
-> [!NOTE]
-> Presented between `code blocks` just for ease of reading, not to be included in the template.
+**NOTE**
+
+Presented between `code blocks` just for ease of reading, not to be included in the template.
 
 - `<!-- -->` for instruction comments
 - `{{ }}` for placeholders

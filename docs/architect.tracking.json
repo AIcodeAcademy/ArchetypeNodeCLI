@@ -8,7 +8,7 @@
       "name": "Configuration Management",
       "slug": "f1-configuration-management",
       "blueprint": "/docs/f1-configuration-management.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "name": "Structured Logging",
       "slug": "f2-structured-logging",
       "blueprint": "/docs/f2-structured-logging.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     },
     {
       "id": "3",
@@ -24,7 +24,7 @@
       "name": "Interactive Commands",
       "slug": "f3-interactive-commands",
       "blueprint": "/docs/f3-interactive-commands.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     }
   ],
   "containers": [
