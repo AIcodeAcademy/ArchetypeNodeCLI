@@ -21,21 +21,21 @@ The plan will establish a command structure for the CLI, including command parsi
 
 ### System Layer
 
-- [ ] 1. Create command interface types to define the structure of commands, options, and arguments
-- [ ] 2. Implement command parser utilities to extract and validate user input
-- [ ] 3. Create Commander adapter to abstract the external library dependency
-- [ ] 4. Implement help formatting utilities for consistent help message display
+- [ ] 1. [Create command interface types](/containers/c1-node-cli/.ai/tasks/c1-f4-t1.task.md) to define the structure of commands, options, and arguments
+- [ ] 2. [Implement command parser utilities](/containers/c1-node-cli/.ai/tasks/c1-f4-t2.task.md) to extract and validate user input
+- [ ] 3. [Create Commander adapter](/containers/c1-node-cli/.ai/tasks/c1-f4-t3.task.md) to abstract the external library dependency
+- [ ] 4. [Implement help formatting utilities](/containers/c1-node-cli/.ai/tasks/c1-f4-t4.task.md) for consistent help message display
 
 ### Domain Layer
 
-- [ ] 5. Create command registry service to store and retrieve available commands
-- [ ] 6. Implement command validation logic to ensure commands are properly formatted
-- [ ] 7. Create command execution service to run commands with appropriate arguments
+- [ ] 5. [Create command registry service](/containers/c1-node-cli/.ai/tasks/c1-f4-t5.task.md) to store and retrieve available commands
+- [ ] 6. [Implement command validation logic](/containers/c1-node-cli/.ai/tasks/c1-f4-t6.task.md) to ensure commands are properly formatted
+- [ ] 7. [Create command execution service](/containers/c1-node-cli/.ai/tasks/c1-f4-t7.task.md) to run commands with appropriate arguments
 
 ### Application Layer
 
-- [ ] 8. Implement CLI entry point that processes command line arguments
-- [ ] 9. Create default help command and core commands (version, etc.)
+- [ ] 8. [Implement CLI entry point](/containers/c1-node-cli/.ai/tasks/c1-f4-t8.task.md) that processes command line arguments
+- [ ] 9. [Create default help command and core commands](/containers/c1-node-cli/.ai/tasks/c1-f4-t9.task.md) (version, etc.)
 
 ## Bill of materials
 

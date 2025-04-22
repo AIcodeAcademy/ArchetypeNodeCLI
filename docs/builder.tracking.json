@@ -321,7 +321,7 @@
           "name": "Create command interface types",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t1.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "2",
@@ -329,7 +329,7 @@
           "name": "Implement command parser utilities",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t2.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "3",
@@ -337,7 +337,7 @@
           "name": "Create Commander adapter",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t3.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "4",
@@ -345,7 +345,7 @@
           "name": "Implement help formatting utilities",
           "layer": "system",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t4.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "5",
@@ -353,7 +353,7 @@
           "name": "Create command registry service",
           "layer": "domain",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t5.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "6",
@@ -361,7 +361,7 @@
           "name": "Implement command validation logic",
           "layer": "domain",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t6.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "7",
@@ -369,7 +369,7 @@
           "name": "Create command execution service",
           "layer": "domain",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t7.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "8",
@@ -377,7 +377,7 @@
           "name": "Implement CLI entry point",
           "layer": "application",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t8.task.md",
-          "status": "planned"
+          "status": "not-started"
         },
         {
           "id": "9",
@@ -385,7 +385,7 @@
           "name": "Create default help command and core commands",
           "layer": "application",
           "file": "/containers/c1-node-cli/.ai/tasks/c1-f4-t9.task.md",
-          "status": "planned"
+          "status": "not-started"
         }
       ]
     }
