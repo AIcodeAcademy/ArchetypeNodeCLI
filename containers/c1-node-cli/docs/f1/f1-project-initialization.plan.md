@@ -18,55 +18,55 @@ This plan outlines the implementation of Project Initialization at Node CLI cont
 
 ### System Layer
 
-1. **Project Structure Setup**
+1. **[Project Structure Setup](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t1.task.md)**
    - Create base directory structure with proper organization
    - Initialize package.json with standard configuration
    - Set up TypeScript configuration (tsconfig.json)
    - Configure Biome for linting and formatting
    - Create .gitignore file
 
-2. **Configuration Management**
+2. **[Configuration Management](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t2.task.md)**
    - Implement project configuration schema
    - Create configuration validation utilities
    - Set up environment variable handling
 
-3. **File System Operations**
+3. **[File System Operations](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t3.task.md)**
    - Create directory structure utilities
    - Implement file template system
    - Add file operation error handling
 
 ### Domain Layer
 
-4. **Project Model**
+4. **[Project Model](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t4.task.md)**
    - Define project structure types
    - Create project validation rules
    - Implement project configuration model
 
-5. **Template Management**
+5. **[Template Management](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t5.task.md)**
    - Define template structure
    - Create template validation
    - Implement template processing logic
 
-6. **Validation Services**
+6. **[Validation Services](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t6.task.md)**
    - Create project name validation
    - Implement directory validation
    - Add configuration validation service
 
 ### Application Layer
 
-7. **CLI Interface**
+7. **[CLI Interface](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t7.task.md)**
    - Implement init command structure
    - Create interactive prompts
    - Add command option parsing
    - Implement progress indicators
 
-8. **User Interaction**
+8. **[User Interaction](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t8.task.md)**
    - Create user input handlers
    - Implement confirmation prompts
    - Add error message formatting
    - Create help text generation
 
-9. **Initialization Process**
+9. **[Initialization Process](/containers/c1-node-cli/docs/f1/tasks/c1-f1-t9.task.md)**
    - Implement project creation workflow
    - Add configuration file generation
    - Create documentation generation

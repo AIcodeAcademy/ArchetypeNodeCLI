@@ -18,64 +18,64 @@
         {
           "id": "t1",
           "slug": "c1-f1-t1",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t1.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t1.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t2",
           "slug": "c1-f1-t2",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t2.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t2.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t3",
           "slug": "c1-f1-t3",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t3.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t3.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t4",
           "slug": "c1-f1-t4",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t4.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t4.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t5",
           "slug": "c1-f1-t5",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t5.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t5.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t6",
           "slug": "c1-f1-t6",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t6.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t6.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t7",
           "slug": "c1-f1-t7",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t7.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t7.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t8",
           "slug": "c1-f1-t8",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t8.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t8.task.md",
+          "status": "prompted",
           "git": ""
         },
         {
           "id": "t9",
           "slug": "c1-f1-t9",
-          "task": "/containers/c1-node-cli/docs/f1/c1-f1-t9.task.md",
-          "status": "planned",
+          "task": "/containers/c1-node-cli/docs/f1/tasks/c1-f1-t9.task.md",
+          "status": "prompted",
           "git": ""
         }
       ]
