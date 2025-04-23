@@ -72,6 +72,6 @@ Notes:
 ## Implementation Details
 
 List of implementation plans for each container:
-<!-- This section will be updated by builder steps -->
+- [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f2/f2-command-handling.plan.md)
 
 > End of Feature Documentation for `f2-command-handling`

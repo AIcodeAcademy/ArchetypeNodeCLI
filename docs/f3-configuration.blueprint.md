@@ -74,6 +74,6 @@ Notes:
 ## Implementation Details
 
 List of implementation plans for each container:
-<!-- This section will be updated by builder steps -->
+- [c1-node-cli Implementation Plan](/containers/c1-node-cli/docs/f3/f3-configuration.plan.md)
 
 > End of Feature Documentation for `f3-configuration`
