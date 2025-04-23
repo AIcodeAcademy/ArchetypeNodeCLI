@@ -1,4 +1,4 @@
-# Feature F3 - Configuration System
+# Feature F2 - Configuration System
 
 ### Reference
 
@@ -79,6 +79,6 @@ Notes:
 ## Implementation Details
 
 List of implementation plans for each container:
-- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f3-configuration-system.plan.md)
+- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f2-configuration-system.plan.md)
 
-> End of Feature Documentation for `f3-configuration-system` 
+> End of Feature Documentation for `f2-configuration-system` 

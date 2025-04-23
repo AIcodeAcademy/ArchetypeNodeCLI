@@ -1,4 +1,4 @@
-# Feature F2 - Command Management
+# Feature F3 - Command Management
 
 ### Reference
 
@@ -79,6 +79,6 @@ Notes:
 ## Implementation Details
 
 List of implementation plans for each container:
-- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f2-command-management.plan.md)
+- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f3-command-management.plan.md)
 
-> End of Feature Documentation for `f2-command-management` 
+> End of Feature Documentation for `f3-command-management` 

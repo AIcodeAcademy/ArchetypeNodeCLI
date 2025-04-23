@@ -16,17 +16,17 @@ file: "briefing.blueprint.md"
 
 - [f1-project-initialization.blueprint.md](/docs/f1-project-initialization.blueprint.md)
 
-### F3 Configuration System
+### F2 Configuration System
 
 - Provides a flexible configuration system with environment variables, config files, and defaults
 
-- [f3-configuration-system.blueprint.md](/docs/f3-configuration-system.blueprint.md)
+- [f2-configuration-system.blueprint.md](/docs/f2-configuration-system.blueprint.md)
 
-### F2 Command Management
+### F3 Command Management
 
 - Implements a robust command system with argument parsing, help generation, and options support
 
-- [f2-command-management.blueprint.md](/docs/f2-command-management.blueprint.md)
+- [f3-command-management.blueprint.md](/docs/f3-command-management.blueprint.md)
 
 ### F4 Logging and Error Handling
 
@@ -69,5 +69,7 @@ graph TD
 - **Repository**: [ArchetypeNodeCLI](https://github.com/AIcodeAcademy/ArchetypeNodeCLI)
 
 ## Related Blueprints
+
+- [Domain Model Blueprint](/docs/domain-model.blueprint.md)
 
 > End of Briefing Document for `ArchetypeNodeCLI` 
