@@ -47,7 +47,9 @@ Scenario: Manage configuration sources
 
 Configuration management provides:
 
-- Multiple configuration methods
+- The programmer will define its own configuration schema
+- The feature only loads/validates the configuration
+- Multiple configuration sources are supported
 - Clear setting hierarchy
 - Validation feedback
 - Environment-specific settings
