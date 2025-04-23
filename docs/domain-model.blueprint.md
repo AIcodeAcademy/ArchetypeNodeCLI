@@ -10,7 +10,7 @@ It aims to establish a shared understanding (ubiquitous language) for business l
 - [Project Structure](/docs/f1-project-structure.blueprint.md)
 - [Command Handling](/docs/f2-command-handling.blueprint.md)
 - [Configuration](/docs/f3-configuration.blueprint.md)
-- [Error Management](/docs/f4-error-management.blueprint.md)
+- [Log Management](/docs/f4-log-management.blueprint.md)
 
 ## Entities
 

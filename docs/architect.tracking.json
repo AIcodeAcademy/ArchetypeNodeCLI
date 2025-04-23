@@ -17,16 +17,16 @@
     },
     {
       "id": "f3",
-      "name": "Error Management",
-      "slug": "f3-error-management",
-      "blueprint": "/docs/f3-error-management.blueprint.md",
+      "name": "Configuration",
+      "slug": "f3-configuration",
+      "blueprint": "/docs/f3-configuration.blueprint.md",
       "status": "defined"
     },
     {
       "id": "f4",
-      "name": "Configuration",
-      "slug": "f4-configuration",
-      "blueprint": "/docs/f4-configuration.blueprint.md",
+      "name": "Log Management",
+      "slug": "f4-log-management",
+      "blueprint": "/docs/f4-log-management.blueprint.md",
       "status": "defined"
     }
   ],

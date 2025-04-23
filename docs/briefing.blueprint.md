@@ -22,11 +22,11 @@
 
 - [f3-configuration.blueprint.md](/docs/f3-configuration.blueprint.md)
 
-### F4 Error Management
+### F4 Log Management
 
-- Includes comprehensive error handling and logging capabilities
+- Includes comprehensive logging capabilities for operational monitoring and debugging
 
-- [f4-error-management.blueprint.md](/docs/f4-error-management.blueprint.md)
+- [f4-log-management.blueprint.md](/docs/f4-log-management.blueprint.md)
 
 ## Context diagram
 
