@@ -21,11 +21,13 @@ ArchetypeNodeCLI is a command-line interface application built with Node.js that
 Here is the list of containers at a glance. See below for more details.
 
 - **C1-node-cli** : Main CLI application container that handles command execution and user interaction
+  - [Archetype Documentation](/containers/c1-node-cli/docs/node-cli.archetype.md)
 
 ## C1 : Node CLI
 
 - **Tier**: frontend
 - **Archetype**: node-cli
+- **Documentation**: [Archetype Documentation](/containers/c1-node-cli/docs/node-cli.archetype.md)
 
 The main container is a Node.js CLI application that serves as a template for building command-line applications. It implements a robust command parsing system, configuration management, and logging capabilities.
 
