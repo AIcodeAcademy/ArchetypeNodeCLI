@@ -16,17 +16,17 @@
 
 - [f2-command-handling.blueprint.md](/docs/f2-command-handling.blueprint.md)
 
-### F3 Error Management
-
-- Includes comprehensive error handling and logging capabilities
-
-- [f3-error-management.blueprint.md](/docs/f3-error-management.blueprint.md)
-
-### F4 Configuration
+### F3 Configuration
 
 - Supports flexible configuration management through environment variables and config files
 
-- [f4-configuration.blueprint.md](/docs/f4-configuration.blueprint.md)
+- [f3-configuration.blueprint.md](/docs/f3-configuration.blueprint.md)
+
+### F4 Error Management
+
+- Includes comprehensive error handling and logging capabilities
+
+- [f4-error-management.blueprint.md](/docs/f4-error-management.blueprint.md)
 
 ## Context diagram
 

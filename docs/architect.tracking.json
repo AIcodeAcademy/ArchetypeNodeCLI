@@ -6,28 +6,28 @@
       "name": "Project Structure",
       "slug": "f1-project-structure",
       "blueprint": "/docs/f1-project-structure.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     },
     {
       "id": "f2",
       "name": "Command Handling",
       "slug": "f2-command-handling",
       "blueprint": "/docs/f2-command-handling.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     },
     {
       "id": "f3",
       "name": "Error Management",
       "slug": "f3-error-management",
       "blueprint": "/docs/f3-error-management.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     },
     {
       "id": "f4",
       "name": "Configuration",
       "slug": "f4-configuration",
       "blueprint": "/docs/f4-configuration.blueprint.md",
-      "status": "draft"
+      "status": "defined"
     }
   ],
   "containers": [
