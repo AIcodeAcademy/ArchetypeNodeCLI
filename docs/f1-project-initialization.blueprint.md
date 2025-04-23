@@ -72,6 +72,6 @@ Notes:
 ## Implementation Details
 
 List of implementation plans for each container:
-- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f1-project-initialization.plan.md)
+- [Node CLI Implementation Plan](/containers/c1-node-cli/docs/f1/f1-project-initialization.plan.md)
 
 > End of Feature Documentation for `f1-project-initialization` 
