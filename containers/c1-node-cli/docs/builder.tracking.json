@@ -1,4 +1,11 @@
 {
-  "container-slug": "c1-node-cli",
-  "features": []
+  "project-name": "ArchetypeNodeCLI",
+  "container": {
+    "id": "c1",
+    "slug": "c1-node-cli",
+    "folder": "/containers/c1-node-cli"
+  },
+  "plans": [
+    
+  ]
 } 
