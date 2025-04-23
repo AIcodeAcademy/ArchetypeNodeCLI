@@ -3,6 +3,7 @@
 ### Reference
 
 - [Briefing Blueprint](/docs/briefing.blueprint.md)
+- [Implementation Plan](/containers/c1-node-cli/docs/f1-project-structure.plan.md)
 
 ## Description
 
