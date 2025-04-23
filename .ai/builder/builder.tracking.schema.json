@@ -1,17 +1,24 @@
 {
   "project-name": "{{ project name }}",
-  "container": "{{ container | slug }}",
-  "features": [
+  "container": {
+    "id": "{{ container | id }}",
+    "slug": "{{ container | slug }}",
+    "folder": "/containers/{{ slug }}"
+  },
+  "plans": [
     {
-      "id": "f{{#}}",
-      "slug": "{{ feature | slug }}",
-      "plan": "/containers/{{ container | slug }}/docs/{{ feature | id }}/{{ plan | slug }}.plan.md",
+      "feature": {
+        "id": "{{ feature | id }}",
+        "slug": "{{ feature | slug }}",
+        "folder": "{{ container.folder }}/docs/{{ feature.id }}"
+      },
+      "plan": "{{ feature.folder }}/{{ feature.slug }}.plan.md",
       "status": "{{: planned | implemented | pending }}",
       "tasks": [
         {
           "id": "t{{#}}",
-          "slug": "{{ container | id }}-{{ feature | id }}-{{ task | id }}",
-          "task": "/containers/{{ container | slug }}/docs/{{ feature | id }}/{{ task | slug }}.task.md",
+          "slug": "{{ container.id }}-{{ feature.id }}-{{ task.id }}",
+          "task": "{{ feature.folder }}/{{ task.slug }}.task.md",
           "status": "{{: planned | prompted | implemented | pending }}",
           "git": "{{ git commit hash for the task implementation }}"
         }

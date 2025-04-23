@@ -19,18 +19,21 @@ This plan outlines the implementation of a robust command handling system in the
    - Support for required and optional parameters
    - Case-insensitive command matching
    - Command alias resolution
+   - [Task: Implement Command Parser](/containers/c1-node-cli/docs/f2/tasks/f2-1-command-parser.task.md)
 
 2. **Input Validation**
    - Parameter type validation
    - Required parameter checking
    - Optional parameter handling
    - Custom validation rules support
+   - [Task: Implement Input Validation](/containers/c1-node-cli/docs/f2/tasks/f2-2-input-validation.task.md)
 
 3. **Error Handling**
    - Standardized error messages
    - Error code system
    - Error recovery mechanisms
    - User-friendly error presentation
+   - [Task: Implement Error Handling](/containers/c1-node-cli/docs/f2/tasks/f2-3-error-handling.task.md)
 
 ### Domain Layer
 
@@ -39,18 +42,21 @@ This plan outlines the implementation of a robust command handling system in the
    - Parameter definition interface
    - Command execution result model
    - Validation result model
+   - [Task: Implement Command Model](/containers/c1-node-cli/docs/f2/tasks/f2-4-command-model.task.md)
 
 2. **Command Registry**
    - Command registration system
    - Command lookup functionality
    - Command metadata management
    - Alias management
+   - [Task: Implement Command Registry](/containers/c1-node-cli/docs/f2/tasks/f2-5-command-registry.task.md)
 
 3. **Help System**
    - Command documentation structure
    - Help text generation
    - Usage examples formatting
    - Related commands linking
+   - [Task: Implement Help System](/containers/c1-node-cli/docs/f2/tasks/f2-6-help-system.task.md)
 
 ### Application Layer
 
@@ -59,18 +65,21 @@ This plan outlines the implementation of a robust command handling system in the
    - Pre-execution validation
    - Post-execution feedback
    - Execution result handling
+   - [Task: Implement Command Executor](/containers/c1-node-cli/docs/f2/tasks/f2-7-command-executor.task.md)
 
 2. **Help Command**
    - Help command implementation
    - Command list generation
    - Detailed command help
    - Usage examples display
+   - [Task: Implement Help Command](/containers/c1-node-cli/docs/f2/tasks/f2-8-help-command.task.md)
 
 3. **Command Interface**
    - Main command entry point
    - Command routing
    - User feedback handling
    - Interactive mode support
+   - [Task: Implement Command Interface](/containers/c1-node-cli/docs/f2/tasks/f2-9-command-interface.task.md)
 
 ## Bill of Materials
 
