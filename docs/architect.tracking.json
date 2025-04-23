@@ -34,7 +34,8 @@
     {
       "id": "c1",
       "archetype": "node-cli",
-      "slug": "c1-node-cli"
+      "slug": "c1-node-cli",
+      "status": "draft"
     }
   ]
 } 

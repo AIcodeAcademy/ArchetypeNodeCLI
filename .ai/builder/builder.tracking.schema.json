@@ -1,15 +1,16 @@
 {
   "project-name": "",
-  "plans": [
+  "container": "{{container | slug}}",
+  "features": [
     {
-      "slug": "{{container | slug}}-{{feature | slug}}",
-      "plan": "/containers/{{container | slug}}/docs/{{feature | slug}}.plan.md",
+      "slug": "{{feature | slug}}",
+      "plan": "/containers/{{container | slug}}/docs/{{feature | id}}/{{plan | slug}}.plan.md",
       "status": "{{: planned | implemented | pending  }}",
       "tasks":[
         {
-          "id": "{{#}}",
-          "slug": "{{container | slug}}-{{feature | slug}}-{{task | slug}}",
-          "task": "/containers/{{container | slug}}/.ai/tasks/{{task | slug}}.task.md",
+          "id": "t{{#}}",
+          "slug": "{{container | id}}-{{feature | id}}-{{task | id}}",
+          "task": "/containers/{{container | slug}}/docs/{{feature | id}}/{{task | id}}.task.md",
           "status": "{{: planned | prompted | implemented | pending }}",
           "git": "{{ git id for the task commit }}"
         }

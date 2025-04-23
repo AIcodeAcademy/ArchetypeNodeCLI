@@ -13,7 +13,9 @@
     {
       "id": "c{{#}}",
       "archetype": "{{: node-cli | express-api | angular-spa | other }}",
-      "slug": "{{ id }}-{{ archetype | slugify }}"
+      "slug": "{{ id }}-{{ archetype | slugify }}",
+      "docs": "/containers/{{slug}}/docs/{{ archetype | slugify }}.archetype.md",
+      "status": "{{: draft | defined | planned | pending | implemented | failed }}"
     }
   ]
 }
