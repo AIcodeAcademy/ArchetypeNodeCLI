@@ -3,7 +3,7 @@
   "features": [
     {
       "id": "#",
-      "name": "{{ name | Title Case }}",
+      "name": "{{ name | short sentence | Title Case }}",
       "slug": "f{{ id }}-{{ name | slugify }}",
       "blueprint": "/docs/{{slug}}.blueprint.md",
       "status": "{{: draft | defined | planned | pending | implemented | failed }}"

@@ -1,9 +1,9 @@
-- [ ] language rules
-- [ ] architecture rules
-- [ ] archetype rules
-- [ ] some kind of json with archetypes definitions
+- [x] language rules
+- [x] architecture rules
+- [x] archetype rules
+- [x] some kind of json with archetypes definitions
+- [ ] review architect workflow and simplify tracking of changes
 
-```json	  
 {
   "architectures": [
     {
