@@ -8,24 +8,18 @@
   "architectures": [
     {
       "name": "layered",
-      "description": "A layered architecture",
-      "scaffolding":["application", "domain", "system"]
+      "description": "A layered architecture for simple few features applications",
+      "scaffolding":["application", "domain", "system"],
+      "guardrails":"Dependencies go top to bottom (application -> domain -> system)",
     },
     {
       "name": "modular",
-      "description": "A modular architecture",
-      "scaffolding":["{{domain-1}}", "{{domain-2}}", "{{domain-9}}"]
-    }
-  ],
-  "archetypes": [
-    {
-      "name": "node-cli",
-      "ux": "cli",
-      "tier": "frontend",
-      "description": "A Node.js CLI application",
-      "language": "Typescript",
-      "framework": "Node.js",
-      "architecture": "layered",
+      "description": "A modular architecture for complex applications with many features",
+      "scaffolding":[
+        { "module": "feature-1", "layers": ["application", "domain", "system"]}, 
+        { "module": "feature-2", "layers": ["application", "domain", "system"]}
+      ],
+      "guardrails":"Dependencies go top to bottom (application -> domain -> system), inside and between modules",
     }
   ],
   "artifacts": [
@@ -57,6 +51,18 @@
       "name": "validator",
       "description": "Validates data.",
     }
-  ]
+  ],
+    "archetypes": [
+    {
+      "name": "node-cli",
+      "tier": "frontend",
+      "ux": "cli",
+      "description": "A Node.js CLI application",
+      "language": "Typescript",
+      "framework": "Node.js",
+      "architecture": "layered",
+      "paradigm": "functional",
+    }
+  ],
 }
 ```

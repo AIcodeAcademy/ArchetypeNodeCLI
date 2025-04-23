@@ -3,9 +3,8 @@
   "features": [
     {
       "id": "#",
-      "code": "f#",
       "name": "{{ name | Title Case }}",
-      "slug": "{{ code }}-{{ name | slugify }}",
+      "slug": "f{{ id }}-{{ name | slugify }}",
       "blueprint": "/docs/{{slug}}.blueprint.md",
       "status": "{{: draft | defined | planned | pending | implemented | failed }}"
     }
@@ -13,12 +12,8 @@
   "containers": [
     {
       "id": "#",
-      "code": "c#",
-      "language": "{{: typescript | python | other }}",
-      "framework": "{{: node | angular | express | other }}",
       "archetype": "{{: node-cli | express-api | angular-spa | other }}",
-      "name": "{{ archetype | Title Case }}",
-      "slug": "{{ code }}-{{ archetype | slugify }}"
+      "slug": "c{{ id }}-{{ archetype | slugify }}"
     }
   ]
 }

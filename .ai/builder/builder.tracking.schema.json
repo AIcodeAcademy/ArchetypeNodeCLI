@@ -2,14 +2,14 @@
   "project-name": "",
   "plans": [
     {
-      "code": "{{container | slug}}-{{feature | slug}}",
-      "file": "/containers/{{container | slug}}/docs/{{feature | slug}}.plan.md",
+      "slug": "{{container | slug}}-{{feature | slug}}",
+      "plan": "/containers/{{container | slug}}/docs/{{feature | slug}}.plan.md",
       "status": "{{: planned | implemented | pending  }}",
       "tasks":[
         {
           "id": "{{#}}",
-          "code": "{{container | slug}}-{{feature | slug}}-{{task | slug}}",
-          "file": "/containers/{{container | slug}}/.ai/tasks/{{task | slug}}.task.md",
+          "slug": "{{container | slug}}-{{feature | slug}}-{{task | slug}}",
+          "task": "/containers/{{container | slug}}/.ai/tasks/{{task | slug}}.task.md",
           "status": "{{: planned | prompted | implemented | pending }}",
           "git": "{{ git id for the task commit }}"
         }

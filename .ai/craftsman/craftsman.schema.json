@@ -1,0 +1,10 @@
+{
+  "project-name": "",
+  "features": [
+    {
+      "slug": "",
+      "status": "{{: implemented | verified | failed }}",
+      "git": "{{ git id for the feature commit or branch }}"
+    }
+  ]
+}
