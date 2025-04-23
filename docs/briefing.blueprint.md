@@ -64,4 +64,6 @@ graph TD
 
 ## Related Blueprints
 
+- [Systems Architecture](/docs/systems-architecture.blueprint.md)
+
 > End of Briefing Document for `ArchetypeNodeCLI` 
