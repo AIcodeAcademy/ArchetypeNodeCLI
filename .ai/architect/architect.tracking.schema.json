@@ -2,18 +2,18 @@
   "project-name": "",
   "features": [
     {
-      "id": "#",
+      "id": "f{{#}}",
       "name": "{{ name | short sentence | Title Case }}",
-      "slug": "f{{ id }}-{{ name | slugify }}",
+      "slug": "{{ id }}-{{ name | slugify }}",
       "blueprint": "/docs/{{slug}}.blueprint.md",
       "status": "{{: draft | defined | planned | pending | implemented | failed }}"
     }
   ],
   "containers": [
     {
-      "id": "#",
+      "id": "c{{#}}",
       "archetype": "{{: node-cli | express-api | angular-spa | other }}",
-      "slug": "c{{ id }}-{{ archetype | slugify }}"
+      "slug": "{{ id }}-{{ archetype | slugify }}"
     }
   ]
 }
