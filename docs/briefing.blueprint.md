@@ -71,5 +71,6 @@ graph TD
 ## Related Blueprints
 
 - [Domain Model Blueprint](/docs/domain-model.blueprint.md)
+- [Systems Architecture Blueprint](/docs/systems-architecture.blueprint.md)
 
 > End of Briefing Document for `ArchetypeNodeCLI` 
