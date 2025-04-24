@@ -6,7 +6,7 @@
       "name": "{{ name | short sentence | Title Case }}",
       "slug": "{{ id }}-{{ name | slugify }}",
       "blueprint": "/docs/{{slug}}.blueprint.md",
-      "status": "{{: draft | defined | planned | pending | implemented | failed }}"
+      "status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
     }
   ],
   "containers": [
@@ -15,7 +15,7 @@
       "archetype": "{{: node-cli | express-api | angular-spa | other }}",
       "slug": "{{ id }}-{{ archetype | slugify }}",
       "docs": "/containers/{{slug}}/docs/{{ archetype | slugify }}.archetype.md",
-      "status": "{{: draft | defined | planned | pending | implemented | failed }}"
+      "status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
     }
   ]
 }

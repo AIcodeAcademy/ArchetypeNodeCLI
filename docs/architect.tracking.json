@@ -36,7 +36,7 @@
       "archetype": "node-cli",
       "slug": "c1-node-cli",
       "docs": "/containers/c1-node-cli/docs/node-cli.archetype.md",
-      "status": "draft"
+      "status": "defined"
     }
   ]
 } 

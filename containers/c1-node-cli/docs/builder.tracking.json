@@ -1,0 +1,39 @@
+{
+  "project-name": "ArchetypeNodeCLI",
+  "container": {
+    "id": "c1",
+    "slug": "c1-node-cli",
+    "folder": "/containers/c1-node-cli",
+    "status": "defined"
+  },
+  "features": [
+    {
+      "id": "f1",
+      "slug": "f1-project-initialization",
+      "folder": "/containers/c1-node-cli/docs/f1",
+      "status": "defined",
+      "git": ""
+    },
+    {
+      "id": "f2",
+      "slug": "f2-configuration-system",
+      "folder": "/containers/c1-node-cli/docs/f2",
+      "status": "defined",
+      "git": ""
+    },
+    {
+      "id": "f3",
+      "slug": "f3-command-management",
+      "folder": "/containers/c1-node-cli/docs/f3",
+      "status": "defined",
+      "git": ""
+    },
+    {
+      "id": "f4",
+      "slug": "f4-logging-error-handling",
+      "folder": "/containers/c1-node-cli/docs/f4",
+      "status": "defined",
+      "git": ""
+    }
+  ]
+} 
