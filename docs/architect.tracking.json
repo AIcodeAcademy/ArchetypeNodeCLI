@@ -14,14 +14,16 @@
       "name": "Configuration System",
       "slug": "f2-configuration-system",
       "blueprint": "/docs/f2-configuration-system.blueprint.md",
-      "status": "defined"
+      "status": "planned",
+      "plan": "/containers/c1-node-cli/docs/f2/f2-configuration-system.plan.md"
     },
     {
       "id": "f3",
       "name": "Command Management",
       "slug": "f3-command-management",
       "blueprint": "/docs/f3-command-management.blueprint.md",
-      "status": "defined"
+      "status": "prompted",
+      "plan": "/containers/c1-node-cli/docs/f3/f3-command-management.plan.md"
     },
     {
       "id": "f4",

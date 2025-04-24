@@ -20,15 +20,19 @@
       "id": "f2",
       "slug": "f2-configuration-system",
       "folder": "/containers/c1-node-cli/docs/f2",
-      "status": "defined",
-      "git": ""
+      "status": "prompted",
+      "git": "",
+      "plan": "/containers/c1-node-cli/docs/f2/f2-configuration-system.plan.md",
+      "prompts": "/containers/c1-node-cli/docs/f2/f2-configuration-system.prompts.md"
     },
     {
       "id": "f3",
       "slug": "f3-command-management",
       "folder": "/containers/c1-node-cli/docs/f3",
-      "status": "defined",
-      "git": ""
+      "status": "prompted",
+      "git": "",
+      "plan": "/containers/c1-node-cli/docs/f3/f3-command-management.plan.md",
+      "prompts": "/containers/c1-node-cli/docs/f3/f3-command-management.prompt.md"
     },
     {
       "id": "f4",
