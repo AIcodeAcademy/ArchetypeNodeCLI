@@ -11,8 +11,9 @@
       "id": "f1",
       "slug": "f1-project-initialization",
       "folder": "/containers/c1-node-cli/docs/f1",
-      "status": "defined",
-      "git": ""
+      "status": "planned",
+      "git": "",
+      "plan": "/containers/c1-node-cli/docs/f1/f1-project-initialization.plan.md"
     },
     {
       "id": "f2",

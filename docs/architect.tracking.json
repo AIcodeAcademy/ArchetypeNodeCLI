@@ -6,7 +6,8 @@
       "name": "Project Initialization",
       "slug": "f1-project-initialization",
       "blueprint": "/docs/f1-project-initialization.blueprint.md",
-      "status": "defined"
+      "status": "planned",
+      "plan": "/containers/c1-node-cli/docs/f1/f1-project-initialization.plan.md"
     },
     {
       "id": "f2",
