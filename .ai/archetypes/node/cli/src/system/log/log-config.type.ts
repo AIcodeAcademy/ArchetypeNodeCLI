@@ -8,13 +8,13 @@ export const DEFAULT_LOG_CONFIG: LogConfig = {
 	transports: [
 		{
 			type: "console",
-			minLevel: "warn",
+			minLevel: "info",
 			formatter: "pretty",
 			timestamp: false,
 		},
 		{
 			type: "file",
-			minLevel: "info",
+			minLevel: "warn",
 			formatter: "csv",
 			timestamp: true,
 			path: "log.csv",

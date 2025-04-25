@@ -1,7 +1,13 @@
 import { createConsoleTransport } from "./console-transporter.util.ts";
 import { createFileTransport } from "./fs-transporter.util.ts";
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
-import type { LogEntry, LogEntryFn, LogLevelType, Logger } from "./log.type.ts";
+import {
+	LOG_LEVELS,
+	type LogEntry,
+	type LogEntryFn,
+	type LogLevelType,
+	type Logger,
+} from "./log.type.ts";
 
 let logger: Logger | undefined = undefined;
 
@@ -23,7 +29,12 @@ export function createLogger(logConfig: LogConfig): Logger {
 
 	const logEntryFn: LogEntryFn = (logEntry: LogEntry) => {
 		for (const transport of transports) {
-			if (logEntry.level < transport.minLevel) {
+			const logLevel =
+				LOG_LEVELS.find((ll) => ll.level === logEntry.level) || LOG_LEVELS[0];
+			const transportMinLevel =
+				LOG_LEVELS.find((ll) => ll.level === transport.minLevel) ||
+				LOG_LEVELS[0];
+			if (logLevel.id < transportMinLevel.id) {
 				continue;
 			}
 			transport.write(logEntry);

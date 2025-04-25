@@ -9,14 +9,14 @@ export const getEnv = (): Env => {
 	}
 	let configFile = process.env.CONFIG_FILE as string;
 	if (!configFile) {
-		configFile = DEFAULT_ENV.configFile;
+		configFile = DEFAULT_ENV.CONFIG_FILE;
 	}
 
 	return {
 		...DEFAULT_ENV,
 		NODE_ENV: nodeEnv,
+		CONFIG_FILE: configFile,
 		path: process.cwd(),
-		configFile,
 		isProduction: nodeEnv === "production",
 	} as const;
 };

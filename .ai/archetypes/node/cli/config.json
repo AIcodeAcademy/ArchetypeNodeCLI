@@ -1,0 +1,20 @@
+{
+	"log": {
+		"minLevel": "debug",
+		"transports": [
+			{
+				"type": "console",
+				"minLevel": "debug",
+				"formatter": "pretty",
+				"timestamp": false
+			},
+			{
+				"type": "file",
+				"minLevel": "warn",
+				"formatter": "csv",
+				"timestamp": true,
+				"path": "log.csv"
+			}
+		]
+	}
+}
