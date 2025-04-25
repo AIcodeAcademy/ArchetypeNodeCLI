@@ -493,3 +493,317 @@ warn,A message of an important event
 16:36:19,info,A message of any normal operation
 16:36:19,warn,A message of an important event
 16:36:19,error,A message of an exceptional event
+16:54:12,debug,A message to help you while debugging
+16:54:12,info,A message of any normal operation
+16:54:12,warn,A message of an important event
+16:54:12,error,A message of an exceptional event
+16:54:23,debug,A message to help you while debugging
+16:54:23,info,A message of any normal operation
+16:54:23,warn,A message of an important event
+16:54:23,error,A message of an exceptional event
+16:54:33,debug,A message to help you while debugging
+16:54:33,warn,A message of an important event
+16:54:33,error,A message of an exceptional event
+16:54:33,info,A message of any normal operation
+16:58:04,debug,A message to help you while debugging
+16:58:04,error,A message of an exceptional event
+16:58:04,info,A message of any normal operation
+16:58:04,warn,A message of an important event
+16:58:14,debug,A message to help you while debugging
+16:58:14,info,A message of any normal operation
+16:58:14,warn,A message of an important event
+16:58:14,error,A message of an exceptional event
+16:58:24,debug,A message to help you while debugging
+16:58:24,info,A message of any normal operation
+16:58:24,warn,A message of an important event
+16:58:24,error,A message of an exceptional event
+16:58:48,debug,A message to help you while debugging
+16:58:48,info,A message of any normal operation
+16:58:48,warn,A message of an important event
+16:58:48,error,A message of an exceptional event
+16:59:17,debug,A message to help you while debugging
+16:59:17,info,A message of any normal operation
+16:59:17,error,A message of an exceptional event
+16:59:17,warn,A message of an important event
+16:59:55,debug,A message to help you while debugging
+16:59:55,info,A message of any normal operation
+16:59:55,info,Parsed arguments
+16:59:55,error,A message of an exceptional event
+16:59:55,warn,A message of an important event
+17:00:11,debug,A message to help you while debugging
+17:00:11,info,A message of any normal operation
+17:00:11,warn,A message of an important event
+17:00:11,info,Parsed arguments: {"values":{},"positionals":[]}
+17:00:11,error,A message of an exceptional event
+17:01:20,debug,A message to help you while debugging
+17:01:20,info,A message of any normal operation
+17:01:20,warn,A message of an important event
+17:01:20,error,A message of an exceptional event
+17:01:20,info,Parsed arguments: {"values":{},"positionals":["myCommand"]}
+17:03:01,debug,A message to help you while debugging
+17:03:01,info,A message of any normal operation
+17:03:01,warn,A message of an important event
+17:03:01,error,A message of an exceptional event
+17:03:01,info,Parsed arguments: {"values":{},"positionals":["myCommand"]}
+17:04:37,debug,A message to help you while debugging
+17:04:37,info,A message of any normal operation
+17:04:37,info,Parsed arguments: {"values":{},"positionals":[]}
+17:04:37,error,A message of an exceptional event
+17:04:37,warn,A message of an important event
+17:04:53,debug,A message to help you while debugging
+17:04:53,info,A message of any normal operation
+17:04:53,info,Parsed arguments: {"values":{},"positionals":["hello"]}
+17:04:53,warn,A message of an important event
+17:04:53,error,A message of an exceptional event
+17:05:01,debug,A message to help you while debugging
+17:05:01,info,A message of any normal operation
+17:05:01,error,A message of an exceptional event
+17:05:01,warn,A message of an important event
+17:05:01,info,Parsed arguments: {"values":{},"positionals":["name"]}
+17:05:05,debug,A message to help you while debugging
+17:05:05,info,A message of any normal operation
+17:05:05,error,A message of an exceptional event
+17:05:05,info,Parsed arguments: {"values":{},"positionals":[]}
+17:05:05,warn,A message of an important event
+17:05:14,debug,A message to help you while debugging
+17:05:14,info,A message of any normal operation
+17:05:14,warn,A message of an important event
+17:05:14,info,Parsed arguments: {"values":{},"positionals":[]}
+17:05:14,error,A message of an exceptional event
+17:05:39,debug,A message to help you while debugging
+17:05:39,info,A message of any normal operation
+17:05:39,error,A message of an exceptional event
+17:05:39,info,Parsed arguments: {"values":{},"positionals":["one"]}
+17:05:39,warn,A message of an important event
+17:08:24,debug,A message to help you while debugging
+17:08:24,info,A message of any normal operation
+17:08:24,warn,A message of an important event
+17:08:24,info,Parsed arguments: {"values":{},"positionals":["name"]}
+17:08:24,error,A message of an exceptional event
+17:08:32,debug,A message to help you while debugging
+17:08:32,error,A message of an exceptional event
+17:08:32,warn,A message of an important event
+17:08:32,info,Parsed arguments: {"values":{},"positionals":["name","al"]}
+17:08:32,info,A message of any normal operation
+17:08:37,debug,A message to help you while debugging
+17:08:37,info,A message of any normal operation
+17:08:37,warn,A message of an important event
+17:08:37,error,A message of an exceptional event
+17:08:37,info,Parsed arguments: {"values":{},"positionals":["name:al"]}
+17:09:56,debug,A message to help you while debugging
+17:09:56,info,A message of any normal operation
+17:09:56,info,Parsed arguments: {"values":{"foo":true,"bar":"b"},"positionals":[]}
+17:09:56,warn,A message of an important event
+17:09:56,error,A message of an exceptional event
+17:10:29,debug,A message to help you while debugging
+17:10:29,info,A message of any normal operation
+17:10:29,info,Parsed arguments: {"values":{"foo":true,"bar":"b"},"positionals":[]}
+17:10:29,error,A message of an exceptional event
+17:10:29,warn,A message of an important event
+17:11:39,debug,A message to help you while debugging
+17:11:39,info,A message of any normal operation
+17:11:39,error,A message of an exceptional event
+17:11:39,info,Parsed arguments: {"values":{},"positionals":["foo:false"]}
+17:11:39,warn,A message of an important event
+17:12:00,debug,A message to help you while debugging
+17:12:00,info,A message of any normal operation
+17:12:00,warn,A message of an important event
+17:12:00,error,A message of an exceptional event
+17:12:00,info,Parsed arguments: {"values":{},"positionals":[]}
+17:12:05,debug,A message to help you while debugging
+17:12:05,error,A message of an exceptional event
+17:12:05,info,A message of any normal operation
+17:12:05,info,Parsed arguments: {"values":{},"positionals":[]}
+17:12:05,warn,A message of an important event
+17:12:17,debug,A message to help you while debugging
+17:12:17,info,Parsed arguments: {"values":{},"positionals":["b"]}
+17:12:17,info,A message of any normal operation
+17:12:17,error,A message of an exceptional event
+17:12:17,warn,A message of an important event
+17:12:46,debug,A message to help you while debugging
+17:12:46,error,A message of an exceptional event
+17:12:46,info,Parsed arguments: ["b"]
+17:12:46,info,A message of any normal operation
+17:12:46,warn,A message of an important event
+17:12:46,info,Parsed arguments: {"values":{},"positionals":["b"]}
+17:13:00,debug,A message to help you while debugging
+17:13:00,error,A message of an exceptional event
+17:13:00,info,A message of any normal operation
+17:13:00,info,Parsed arguments: {"values":{},"positionals":["b"]}
+17:13:00,warn,A message of an important event
+17:13:00,info,Parsed arguments: ["b"]
+17:13:15,debug,A message to help you while debugging
+17:13:15,info,A message of any normal operation
+17:13:15,info,Parsed arguments: ["foo"]
+17:13:15,error,A message of an exceptional event
+17:13:15,warn,A message of an important event
+17:13:15,info,Parsed arguments: {"values":{},"positionals":["foo"]}
+17:13:32,debug,A message to help you while debugging
+17:13:32,info,A message of any normal operation
+17:13:32,warn,A message of an important event
+17:13:32,info,Parsed arguments: []
+17:13:32,error,A message of an exceptional event
+17:13:32,info,Parsed arguments: {"values":{},"positionals":[]}
+17:13:49,debug,A message to help you while debugging
+17:13:49,info,A message of any normal operation
+17:13:49,error,A message of an exceptional event
+17:13:49,info,Parsed arguments: []
+17:13:49,info,Parsed arguments: {"values":{},"positionals":[]}
+17:13:49,warn,A message of an important event
+17:13:57,debug,A message to help you while debugging
+17:13:57,info,A message of any normal operation
+17:13:57,warn,A message of an important event
+17:13:57,info,Parsed arguments: {"values":{},"positionals":["one"]}
+17:13:57,info,Parsed arguments: ["one"]
+17:13:57,error,A message of an exceptional event
+17:23:12,debug,A message to help you while debugging
+17:23:12,info,A message of any normal operation
+17:23:12,info,Parsed arguments: ["one"]
+17:23:12,warn,A message of an important event
+17:23:12,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["one"]}
+17:23:12,error,A message of an exceptional event
+17:23:31,debug,A message to help you while debugging
+17:23:31,info,A message of any normal operation
+17:23:31,info,Parsed arguments: ["help"]
+17:23:31,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["help"]}
+17:23:31,warn,A message of an important event
+17:23:31,error,A message of an exceptional event
+17:24:02,debug,A message to help you while debugging
+17:24:02,info,A message of any normal operation
+17:24:02,warn,A message of an important event
+17:24:02,info,Parsed arguments: ["help"]
+17:24:02,error,A message of an exceptional event
+17:24:02,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["help"]}
+17:24:13,debug,A message to help you while debugging
+17:24:13,error,A message of an exceptional event
+17:24:13,info,Parsed arguments: ["help"]
+17:24:13,warn,A message of an important event
+17:24:13,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["help"]}
+17:24:13,info,A message of any normal operation
+17:25:14,debug,A message to help you while debugging
+17:25:14,info,Parsed arguments: ["help"]
+17:25:14,info,A message of any normal operation
+17:25:14,info,Parsed arguments: {"values":{"help":false,"all":true},"positionals":["help"]}
+17:25:14,error,A message of an exceptional event
+17:25:14,warn,A message of an important event
+17:25:45,debug,A message to help you while debugging
+17:25:45,info,A message of any normal operation
+17:25:45,warn,A message of an important event
+17:25:45,info,Parsed arguments: {"values":{"help":false,"all":true},"positionals":["help","true"]}
+17:25:45,info,Parsed arguments: ["help","true"]
+17:25:45,error,A message of an exceptional event
+17:26:34,debug,A message to help you while debugging
+17:26:34,info,A message of any normal operation
+17:26:34,info,Parsed arguments: ["-h"]
+17:26:34,warn,A message of an important event
+17:26:34,info,Parsed arguments: {"values":{"help":true,"all":true},"positionals":[]}
+17:26:34,error,A message of an exceptional event
+17:27:00,debug,A message to help you while debugging
+17:27:00,info,A message of any normal operation
+17:27:00,info,Parsed arguments: ["-h","-m","'Hello","World'"]
+17:27:00,warn,A message of an important event
+17:27:00,info,Parsed arguments: {"values":{"help":true,"message":"'Hello","all":true},"positionals":["World'"]}
+17:27:00,error,A message of an exceptional event
+17:27:21,debug,A message to help you while debugging
+17:27:21,info,A message of any normal operation
+17:27:21,info,Parsed arguments: ["-h","-m","'HelloWorld'"]
+17:27:21,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":true},"positionals":[]}
+17:27:21,warn,A message of an important event
+17:27:21,error,A message of an exceptional event
+17:28:31,debug,A message to help you while debugging
+17:28:31,info,A message of any normal operation
+17:28:31,info,Parsed arguments: ["-h","-m","'HelloWorld'"]
+17:28:31,warn,A message of an important event
+17:28:31,info,Commands: []
+17:28:31,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":true},"positionals":[]}
+17:28:31,error,A message of an exceptional event
+17:29:14,debug,A message to help you while debugging
+17:29:14,info,Parsed arguments: ["-h","-m","'HelloWorld'"]
+17:29:14,info,A message of any normal operation
+17:29:14,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":true},"positionals":[]}
+17:29:14,error,A message of an exceptional event
+17:29:14,info,Commands: {"help":true,"message":"'HelloWorld'","all":true}
+17:29:14,warn,A message of an important event
+17:29:51,debug,A message to help you while debugging
+17:29:51,info,A message of any normal operation
+17:29:51,warn,A message of an important event
+17:29:51,error,A message of an exceptional event
+17:29:51,info,Parsed arguments: ["-h","-m","'HelloWorld'"]
+17:29:51,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":[]}
+17:29:51,info,Commands: {"help":true,"message":"'HelloWorld'","all":false}
+17:30:01,debug,A message to help you while debugging
+17:30:01,info,A message of any normal operation
+17:30:01,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all"]}
+17:30:01,info,Commands: {"help":true,"message":"'HelloWorld'","all":false}
+17:30:01,warn,A message of an important event
+17:30:01,error,A message of an exceptional event
+17:30:01,info,Parsed arguments: ["-h","-m","'HelloWorld'","all"]
+17:30:23,debug,A message to help you while debugging
+17:30:23,error,A message of an exceptional event
+17:30:23,info,A message of any normal operation
+17:30:23,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all","true"]}
+17:30:23,info,Parsed arguments: ["-h","-m","'HelloWorld'","all","true"]
+17:30:23,info,Commands: {"help":true,"message":"'HelloWorld'","all":false}
+17:30:23,warn,A message of an important event
+17:31:25,debug,A message to help you while debugging
+17:31:25,info,A message of any normal operation
+17:31:25,info,Parsed arguments: ["-h","-m","'HelloWorld'","all","true"]
+17:31:25,error,A message of an exceptional event
+17:31:25,warn,A message of an important event
+17:31:25,info,Commands: {"help":true,"message":"'HelloWorld'","all":false}
+17:31:25,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all","true"]}
+17:33:12,debug,A message to help you while debugging
+17:33:12,info,Parsed arguments: ["-h","-m","'HelloWorld'","all","true"]
+17:33:12,info,A message of any normal operation
+17:33:12,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all","true"]}
+17:33:12,error,A message of an exceptional event
+17:33:12,info,Command: "all"
+17:33:12,warn,A message of an important event
+17:33:12,info,Options: {"help":true,"message":"'HelloWorld'","all":false}
+17:33:38,debug,A message to help you while debugging
+17:33:38,info,A message of any normal operation
+17:33:38,warn,A message of an important event
+17:33:38,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all","true"]}
+17:33:38,info,Parsed arguments: ["-h","-m","'HelloWorld'","all","true"]
+17:33:38,error,A message of an exceptional event
+17:33:38,info,Parsed arguments: {"options":{"help":true,"message":"'HelloWorld'","all":false},"command":"all"}
+17:33:38,info,Command: "all"
+17:33:38,info,Options: {"help":true,"message":"'HelloWorld'","all":false}
+17:34:19,debug,A message to help you while debugging
+17:34:19,error,A message of an exceptional event
+17:34:19,info,A message of any normal operation
+17:34:19,info,Parsed arguments: {"values":{"help":true,"message":"'HelloWorld'","all":false},"positionals":["all","true"]}
+17:34:19,info,Parsed arguments: ["-h","-m","'HelloWorld'","all","true"]
+17:34:19,warn,A message of an important event
+17:34:19,info,Parsed arguments: {"command":"all","help":true,"message":"'HelloWorld'","all":false}
+17:35:00,debug,A message to help you while debugging
+17:35:00,info,A message of any normal operation
+17:35:00,info,Parsed arguments: ["all"]
+17:35:00,error,A message of an exceptional event
+17:35:00,warn,A message of an important event
+17:35:00,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["all"]}
+17:35:00,info,Parsed arguments: {"command":"all","help":false,"all":false}
+17:35:19,info,A message of any normal operation
+17:35:19,debug,A message to help you while debugging
+17:35:19,warn,A message of an important event
+17:35:19,info,Parsed arguments: ["print"]
+17:35:19,info,Parsed arguments: {"command":"print","help":false,"all":false}
+17:35:19,error,A message of an exceptional event
+17:35:19,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["print"]}
+17:35:46,debug,A message to help you while debugging
+17:35:46,warn,A message of an important event
+17:35:46,error,A message of an exceptional event
+17:35:46,info,Parsed arguments: {"values":{"help":false,"all":false},"positionals":["print"]}
+17:35:46,info,A message of any normal operation
+17:35:46,info,Parsed arguments: {"command":"print","options":{"help":false,"all":false}}
+17:35:46,info,Parsed arguments: ["print"]
+17:37:33,debug,A message to help you while debugging
+17:37:33,info,A message of any normal operation
+17:37:33,error,A message of an exceptional event
+17:37:33,warn,A message of an important event
+17:37:33,info,Parsed arguments: {"command":"print","options":{"name":"world"}}
+17:37:59,debug,A message to help you while debugging
+17:37:59,info,A message of any normal operation
+17:37:59,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:37:59,warn,A message of an important event
+17:37:59,error,A message of an exceptional event

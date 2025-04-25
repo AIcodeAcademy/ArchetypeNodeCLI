@@ -1,14 +1,14 @@
 import { ConsoleTransport } from "./console-transport.repository.ts";
 import { FileTransport } from "./fs-transporter.repository.ts";
-import type { LogConfig } from "./log-config.type.ts";
+import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
 import type { LogEntry, LogTransport } from "./log.type";
 
 export class LogService {
+	private static instance: LogService | null = null;
 	private readonly logConfig: LogConfig;
-
 	private readonly transports: LogTransport[];
 
-	constructor(logConfig: LogConfig) {
+	private constructor(logConfig: LogConfig) {
 		this.logConfig = logConfig;
 		this.transports = logConfig.transports.map((transport) => {
 			switch (transport.type) {
@@ -20,6 +20,17 @@ export class LogService {
 					throw new Error("HTTP transport not implemented");
 			}
 		});
+	}
+
+	public static getInstance(logConfig?: LogConfig): LogService {
+		if (LogService.instance) {
+			return LogService.instance;
+		}
+		if (!logConfig) {
+			return new LogService(DEFAULT_LOG_CONFIG);
+		}
+		LogService.instance = new LogService(logConfig);
+		return LogService.instance;
 	}
 
 	debug(message: string, context?: unknown) {
@@ -66,3 +77,5 @@ export class LogService {
 		}
 	}
 }
+
+export const Log = () => LogService.getInstance();
