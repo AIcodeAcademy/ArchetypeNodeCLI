@@ -2,7 +2,7 @@
 
 import { DEFAULT_ENV, type Env } from "./env.type.ts";
 
-export const env = (): Env => {
+export const getEnv = (): Env => {
 	let nodeEnv = process.env.NODE_ENV as "development" | "production";
 	if (!nodeEnv || (nodeEnv !== "development" && nodeEnv !== "production")) {
 		nodeEnv = DEFAULT_ENV.NODE_ENV;
