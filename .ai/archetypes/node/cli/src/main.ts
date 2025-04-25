@@ -1,8 +1,8 @@
 import { getEnv } from "./system/env.util.ts";
 import { logConfig } from "./system/log.config.ts";
-import { Log } from "./system/log.util.ts";
+import { createLogger } from "./system/log.factory.ts";
 
-const log = new Log(logConfig);
+const log = createLogger(logConfig);
 
 log.debug("Debug message", getEnv());
 log.info("Info message", getEnv());

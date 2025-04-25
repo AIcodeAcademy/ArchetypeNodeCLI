@@ -23,14 +23,18 @@ export const logLevels = [
 
 export type LogConfig = {
 	minLevel: LogLevelType;
-	transports: Partial<LogTransport>[];
+	transports: LogTransportConfig[];
 };
 
-export type LogTransport = {
+export type LogTransportConfig = {
 	type: LogTransportType;
 	minLevel: LogLevelType;
 	formatters: LogFormatterType[];
 	timestamp: boolean;
+	path?: string;
+};
+
+export type LogTransport = LogTransportConfig & {
 	write: (logEntry: LogEntry) => void;
 };
 
@@ -39,4 +43,14 @@ export type LogEntry = {
 	message: string;
 	context?: unknown;
 	timestamp?: string;
+};
+export type LogFn = (message: string, context?: unknown) => void;
+export type LogEntryFn = (logEntry: LogEntry) => void;
+
+export type Logger = {
+	debug: LogFn;
+	info: LogFn;
+	warn: LogFn;
+	error: LogFn;
+	fatal: LogFn;
 };

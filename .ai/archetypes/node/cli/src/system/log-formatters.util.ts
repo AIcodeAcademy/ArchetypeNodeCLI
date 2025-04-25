@@ -27,5 +27,5 @@ export function csvFormatter(logEntry: LogEntry) {
 	if (logEntry.timestamp) {
 		return [logEntry.timestamp, message].join(",");
 	}
-	return message;
+	return `${message}\n`;
 }
