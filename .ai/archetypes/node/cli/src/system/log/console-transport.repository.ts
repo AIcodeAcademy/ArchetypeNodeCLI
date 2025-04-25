@@ -11,5 +11,8 @@ export class ConsoleTransport implements LogTransport {
 	write(logEntry: LogEntry) {
 		const message: string = formatLogEntry(logEntry, this.logTransportConfig);
 		console.log(message);
+		if (logEntry.context) {
+			console.log(logEntry.context);
+		}
 	}
 }

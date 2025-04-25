@@ -807,3 +807,129 @@ warn,A message of an important event
 17:37:59,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
 17:37:59,warn,A message of an important event
 17:37:59,error,A message of an exceptional event
+17:50:52,debug,A message to help you while debugging
+17:50:52,info,A message of any normal operation
+17:50:52,error,A message of an exceptional event
+17:50:52,warn,A message of an important event
+17:50:52,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:51:05,debug,A message to help you while debugging
+17:51:05,info,A message of any normal operation
+17:51:05,warn,A message of an important event
+17:51:05,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:51:05,error,A message of an exceptional event
+17:51:56,debug,A message to help you while debugging
+17:51:56,error,A message of an exceptional event
+17:51:56,info,A message of any normal operation
+17:51:56,warn,A message of an important event
+17:51:56,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:52:26,debug,A message to help you while debugging
+17:52:26,info,A message of any normal operation
+17:52:26,error,A message of an exceptional event
+17:52:26,warn,A message of an important event
+17:52:26,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:55:09,debug,A message to help you while debugging
+17:55:09,warn,A message of an important event
+17:55:09,info,A message of any normal operation
+17:55:09,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:55:09,error,A message of an exceptional event
+17:55:41,debug,A message to help you while debugging
+17:55:41,info,A message of any normal operation
+17:55:41,warn,A message of an important event
+17:55:41,error,A message of an exceptional event
+17:55:41,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:56:45,debug,A message to help you while debugging
+17:56:45,info,A message of any normal operation
+17:56:45,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:56:45,error,A message of an exceptional event
+17:56:45,warn,A message of an important event
+17:57:36,debug,A message to help you while debugging
+17:57:36,info,A message of any normal operation
+17:57:36,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:57:36,error,A message of an exceptional event
+17:57:36,warn,A message of an important event
+17:58:21,debug,A message to help you while debugging
+17:58:21,info,A message of any normal operation
+17:58:21,error,A message of an exceptional event
+17:58:21,warn,A message of an important event
+17:58:21,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+17:59:39,debug,A message to help you while debugging
+17:59:39,info,A message of any normal operation
+17:59:39,error,A message of an exceptional event
+17:59:39,warn,A message of an important event
+17:59:39,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:00:01,info,A message of any normal operation
+18:00:01,warn,A message of an important event
+18:00:01,debug,A message to help you while debugging
+18:00:01,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:00:01,error,A message of an exceptional event
+18:00:30,debug,A message to help you while debugging
+18:00:30,info,A message of any normal operation
+18:00:30,warn,A message of an important event
+18:00:30,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:00:30,error,A message of an exceptional event
+18:00:30,info,response
+18:00:30,info,response2
+18:00:39,debug,A message to help you while debugging
+18:00:39,info,A message of any normal operation
+18:00:39,error,A message of an exceptional event
+18:00:39,warn,A message of an important event
+18:00:39,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:00:39,info,response
+18:00:39,info,response2
+18:00:39,info,response3
+18:01:48,debug,A message to help you while debugging
+18:01:48,info,A message of any normal operation
+18:01:48,error,A message of an exceptional event
+18:01:48,warn,A message of an important event
+18:01:48,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:01:48,info,response
+18:01:48,info,response2
+18:01:48,info,response3
+18:02:27,debug,A message to help you while debugging
+18:02:27,info,A message of any normal operation
+18:02:27,error,A message of an exceptional event
+18:02:27,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:02:27,warn,A message of an important event
+18:02:27,info,response
+18:02:27,info,response2
+18:02:27,info,response3
+18:02:57,debug,A message to help you while debugging
+18:02:57,error,A message of an exceptional event
+18:02:57,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:02:57,info,A message of any normal operation
+18:02:57,warn,A message of an important event
+18:02:57,info,response
+18:02:57,info,response2
+18:02:57,error,response3
+18:04:07,debug,A message to help you while debugging
+18:04:07,info,A message of any normal operation
+18:04:07,error,A message of an exceptional event
+18:04:07,warn,A message of an important event
+18:04:07,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:04:07,info,response
+18:04:07,info,response2
+18:04:07,error,response3
+18:04:17,debug,A message to help you while debugging
+18:04:17,info,A message of any normal operation
+18:04:17,error,A message of an exceptional event
+18:04:17,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:04:17,warn,A message of an important event
+18:04:17,error,response
+18:04:17,error,response2
+18:04:17,error,response3
+18:05:37,warn,A message of an important event
+18:05:37,info,A message of any normal operation
+18:05:37,error,A message of an exceptional event
+18:05:37,debug,A message to help you while debugging
+18:05:37,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:05:37,info,response
+18:05:37,error,response2
+18:05:37,error,response3
+18:05:37,debug,A message to help you while debugging
+18:05:37,info,A message of any normal operation
+18:05:37,warn,A message of an important event
+18:05:37,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+18:05:37,error,A message of an exceptional event
+18:05:37,info,response
+18:05:37,error,response2
+18:05:37,error,response3
