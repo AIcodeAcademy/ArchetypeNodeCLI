@@ -21,7 +21,7 @@ export function formatLogEntry(
 
 function jsonFormatter(logEntry: LogEntry) {
 	const message = JSON.stringify(logEntry);
-	return `${message},\n`;
+	return `${message}`;
 }
 
 function prettyFormatter(logEntry: LogEntry, timestamp: boolean) {
@@ -40,5 +40,5 @@ function csvFormatter(logEntry: LogEntry, timestamp: boolean) {
 	if (timestamp) {
 		message = [logEntry.timestamp, message].join(",");
 	}
-	return `${message}\n`;
+	return `${message}`;
 }

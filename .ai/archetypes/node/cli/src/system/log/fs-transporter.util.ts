@@ -1,4 +1,4 @@
-import fs from "node:fs/promises";
+import { appendLine } from "../fs.util.ts";
 import { formatLogEntry } from "./log-formatters.util.ts";
 import type {
 	LogEntry,
@@ -15,10 +15,10 @@ export function createFileTransport(
 		minLevel: fileTransportConfig.minLevel ?? "debug",
 		formatter: fileTransportConfig.formatter ?? "csv",
 		timestamp: fileTransportConfig.timestamp ?? true,
-		write: (logEntry: LogEntry) => {
+		write: async (logEntry: LogEntry) => {
 			const message: string = formatLogEntry(logEntry, fileTransportConfig);
 			const path = fileTransportConfig.path ?? "log.csv";
-			fs.appendFile(path, message);
+			await appendLine(path, message);
 		},
 	};
 
