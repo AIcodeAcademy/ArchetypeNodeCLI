@@ -13,7 +13,7 @@ export const LOG_LEVELS: LogLevel[] = [
 		id: 0,
 		level: "debug",
 		color: "cyan",
-		style: "italic",
+		style: "dim",
 	},
 	{
 		id: 1,
@@ -43,9 +43,9 @@ export type LogTransportConfig = {
 	path?: string;
 };
 
-export type LogTransport = LogTransportConfig & {
+export interface LogTransport {
 	write: (logEntry: LogEntry) => void;
-};
+}
 
 export type LogEntry = {
 	level: string;

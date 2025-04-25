@@ -6,7 +6,7 @@
 				"type": "console",
 				"minLevel": "debug",
 				"formatter": "pretty",
-				"timestamp": false
+				"timestamp": true
 			},
 			{
 				"type": "file",

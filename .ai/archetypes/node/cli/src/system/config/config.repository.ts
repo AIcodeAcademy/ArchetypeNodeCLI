@@ -1,4 +1,4 @@
-import { readJsonFile } from "../fs.util.ts";
+import { readJsonFile } from "../fs.utils.ts";
 import type { Config } from "./config.type";
 
 export async function readConfig(configFile: string): Promise<Config> {

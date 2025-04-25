@@ -1,10 +1,10 @@
 import { readConfig } from "./system/config/config.repository.ts";
-import { getEnv } from "./system/env/env.util.ts";
-import { createLogger } from "./system/log/log.util.ts";
+import { getEnv } from "./system/env/env.utils.ts";
+import { LogService } from "./system/log/log.service.ts";
 
 const env = getEnv();
 const config = await readConfig(env.CONFIG_FILE);
-const log = createLogger(config.log);
+const log = new LogService(config.log);
 
 log.debug("A message to help you while debugging", getEnv());
 log.info("A message of any normal operation", getEnv());

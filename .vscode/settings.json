@@ -29,7 +29,7 @@
 		"*.repository.ts": "database",
 		"*.service.ts": "purescript",
 		"*.type.ts": "raml",
-		"*.util.ts": "tilt",
+		"*.utils.ts": "tilt",
 		"*.validator.ts": "velite"
 	},
 	"github.copilot.enable": {

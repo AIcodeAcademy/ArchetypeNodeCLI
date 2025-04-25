@@ -24,21 +24,29 @@ function jsonFormatter(logEntry: LogEntry) {
 	return `${message}`;
 }
 
-function prettyFormatter(logEntry: LogEntry, timestamp: boolean) {
-	const timestampString = timestamp ? `${logEntry.timestamp}:` : "";
+function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
+	let timestamp = "";
+	if (addTimestamp) {
+		timestamp = `[${formatTimestamp(logEntry.timestamp)}] `;
+	}
 	const level5 = logEntry.level.padEnd(5);
-	const message = `${timestampString}${level5} ${logEntry.message}`;
-	const level =
-		LOG_LEVELS.find((ll) => ll.level === logEntry.level) || LOG_LEVELS[0];
+	const message = `${timestamp}${level5} ${logEntry.message}`;
+	const foundLevel = LOG_LEVELS.find((ll) => ll.level === logEntry.level);
+	const level = foundLevel || LOG_LEVELS[0];
 	const color = level.color;
 	const style = level.style;
 	return styleText([color, style], message);
 }
 
-function csvFormatter(logEntry: LogEntry, timestamp: boolean) {
+function csvFormatter(logEntry: LogEntry, addTimestamp: boolean) {
 	let message = [logEntry.level, logEntry.message].join(",");
-	if (timestamp) {
-		message = [logEntry.timestamp, message].join(",");
+	if (addTimestamp) {
+		message = [formatTimestamp(logEntry.timestamp), message].join(",");
 	}
 	return `${message}`;
+}
+
+function formatTimestamp(timestamp: string) {
+	const hhmmss = timestamp.split("T")[1].split(".")[0];
+	return `${hhmmss}`;
 }
