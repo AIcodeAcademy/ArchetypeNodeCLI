@@ -13,6 +13,8 @@ src/
 └── system/
 ```
 
+- Do not create any other folder level inside the layers.
+
 ## Application Layer
 - The **Application** layer is the entry point of the application.
 - Configuration and bootstrap

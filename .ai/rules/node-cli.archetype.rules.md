@@ -1,35 +1,22 @@
 # Node CLI Archetype rules
 
+- **Language** : TypeScript
 - **Architecture** : Layered, no DI
 - **Paradigm** : Functional
-- **Language** : TypeScript
 - **Framework** : Node.js
-- **Testing** : Node.js built-in testing
-- **Linting** : {{: ESLint | Biome}}
-- **Formatting** : {{: Prettier | Biome}}
-
-### Artifacts
-
-Each instance should be in a module file with name convention <intention>.<artifact>.ts 
-
-- **Adapter**: Wraps and hides external or built-in frameworks dependencies
-- **Command**: Extracts and processes user commands and arguments
-- **Repository**: Persist or fetch from an store (local or remote)
-- **Service**: Main logic, and transformation
-- **Type**: Data structures, and default values
-- **Util**: Common utilities, not tied to an specific domain
-- **Validator**: Data validation
-
+- **Testing** : {{: built-in | Jest }}
+- **Linting** : {{: Biome | ESLint }}
+- **Formatting** : {{: Biome | Prettier }}
 
 ## Dependencies
 
-Try to be dependency free, but if needed, use:
+This archetype is dependency free, use modern node.js built-in functions:
 
-- `Axios` to fetch data from the internet (prefer a wrapper over fetch built-in functions)
-- `Chalk` to colorize the console output (prefer console and styleText built-in functions)
-- `Commander` to parse command line arguments (prefer parseArgs built-in functions)
-- `Pino` to log messages (prefer console or file system built-in functions)
-- `Zod` to validate data types (prefer domain validation functions)
+- `fetch` to make http requests
+- `styleText` to colorize the console output 
+- `parseArgs` to parse command line arguments 
+- `node:fs` to read and write files
+
 
 ### DevDependencies
 
@@ -38,3 +25,25 @@ Try to be dependency free, but if needed, use:
 ## Testing
 
 - Use the built-in testing module (alternatively use `Jest`)
+
+
+## Scripts
+
+- `start` to start the application in production mode
+- `dev` to start the application in development mode
+- `build` to build the application
+- `test` to run the tests
+- `lint` to run the linting and formatting
+
+
+## Configuration
+
+- `.env` to store the environment variables
+  - add `.env.example` to the root of the project
+  - ignore `.env` in the `.gitignore` file
+- `config.ts` to configure the application
+
+
+
+
+
