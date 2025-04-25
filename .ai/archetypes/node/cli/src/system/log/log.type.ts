@@ -2,34 +2,43 @@ export type LogFormatterType = "csv" | "json" | "pretty";
 export type LogTransportType = "console" | "file" | "http";
 export type LogLevelType = "debug" | "info" | "warn" | "error";
 
-export const logLevels = [
+export type LogLevel = {
+	id: number;
+	level: LogLevelType;
+	color: "red" | "yellow" | "green" | "cyan";
+	style: "bold" | "italic" | "underline" | "dim";
+};
+export const LOG_LEVELS: LogLevel[] = [
 	{
 		id: 0,
 		level: "debug",
+		color: "cyan",
+		style: "italic",
 	},
 	{
 		id: 1,
 		level: "info",
+		color: "green",
+		style: "dim",
 	},
 	{
 		id: 2,
 		level: "warn",
+		color: "green",
+		style: "bold",
 	},
 	{
 		id: 3,
 		level: "error",
+		color: "red",
+		style: "bold",
 	},
 ];
-
-export type LogConfig = {
-	minLevel: LogLevelType;
-	transports: LogTransportConfig[];
-};
 
 export type LogTransportConfig = {
 	type: LogTransportType;
 	minLevel: LogLevelType;
-	formatters: LogFormatterType[];
+	formatter: LogFormatterType;
 	timestamp: boolean;
 	path?: string;
 };
@@ -42,7 +51,7 @@ export type LogEntry = {
 	level: string;
 	message: string;
 	context?: unknown;
-	timestamp?: string;
+	timestamp: string;
 };
 export type LogFn = (message: string, context?: unknown) => void;
 export type LogEntryFn = (logEntry: LogEntry) => void;
@@ -52,5 +61,4 @@ export type Logger = {
 	info: LogFn;
 	warn: LogFn;
 	error: LogFn;
-	fatal: LogFn;
 };

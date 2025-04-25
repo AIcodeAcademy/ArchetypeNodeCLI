@@ -1,10 +1,10 @@
 import { getEnv } from "./system/env.util.ts";
-import { logConfig } from "./system/log.config.ts";
-import { createLogger } from "./system/log.factory.ts";
+import { DEFAULT_LOG_CONFIG } from "./system/log/log-config.type.ts";
+import { createLogger } from "./system/log/log.util.ts";
 
-const log = createLogger(logConfig);
+const log = createLogger(DEFAULT_LOG_CONFIG);
 
-log.debug("Debug message", getEnv());
-log.info("Info message", getEnv());
-log.warn("Warn message", getEnv());
-log.error("Error message", getEnv());
+log.debug("A message to help you while debugging", getEnv());
+log.info("A message of any normal operation", getEnv());
+log.warn("A message of an important event", getEnv());
+log.error("A message of an exceptional event", getEnv());
