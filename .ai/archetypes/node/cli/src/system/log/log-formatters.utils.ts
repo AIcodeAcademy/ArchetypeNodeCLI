@@ -4,28 +4,43 @@ import {
 	styleInfo,
 	styleWarning,
 } from "../style-text.adapter.ts";
-import { type LogEntry, type LogTransportConfig } from "./log.type.ts";
+import type { LogEntry, LogTransportConfig } from "./log.type.ts";
 
-// ToDo: change switch to a map
+const formatterMap: Record<
+	LogTransportConfig["formatter"],
+	(logEntry: LogEntry, logTransportConfig: LogTransportConfig) => string
+> = {
+	json: (logEntry) => jsonFormatter(logEntry),
+	pretty: (logEntry, logTransportConfig) =>
+		prettyFormatter(logEntry, logTransportConfig.timestamp),
+	csv: (logEntry, logTransportConfig) =>
+		csvFormatter(logEntry, logTransportConfig.timestamp),
+};
 
 export function formatLogEntry(
 	logEntry: LogEntry,
 	logTransportConfig: LogTransportConfig,
 ) {
-	switch (logTransportConfig.formatter) {
-		case "json":
-			return jsonFormatter(logEntry);
-		case "pretty":
-			return prettyFormatter(logEntry, logTransportConfig.timestamp);
-		case "csv":
-			return csvFormatter(logEntry, logTransportConfig.timestamp);
-	}
+	const formatter = formatterMap[logTransportConfig.formatter];
+	if (!formatter)
+		throw new Error(`Unknown formatter: ${logTransportConfig.formatter}`);
+	return formatter(logEntry, logTransportConfig);
 }
 
 function jsonFormatter(logEntry: LogEntry) {
 	const message = JSON.stringify(logEntry);
 	return `${message}`;
 }
+
+const levelStyleMap: Record<string, (msg: string) => string> = {
+	error: styleError,
+	warn: styleWarning,
+	info: styleInfo,
+	debug: styleDebug,
+};
+
+// ToDo: clean the boolean flag
+//https://www.perplexity.ai/search/best-practices-for-clean-code-uADj2mohQVCQCv5WwQHtpA
 
 function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
 	let timestamp = "";
@@ -34,18 +49,8 @@ function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
 	}
 	const level5 = logEntry.level.padEnd(5);
 	const message = `${timestamp}${level5} ${logEntry.message}`;
-	switch (logEntry.level) {
-		case "error":
-			return styleError(message);
-		case "warn":
-			return styleWarning(message);
-		case "info":
-			return styleInfo(message);
-		case "debug":
-			return styleDebug(message);
-		default:
-			return message;
-	}
+	const styleFn = levelStyleMap[logEntry.level];
+	return styleFn ? styleFn(message) : message;
 }
 
 function csvFormatter(logEntry: LogEntry, addTimestamp: boolean) {
