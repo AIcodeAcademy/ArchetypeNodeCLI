@@ -3,6 +3,7 @@ import { FileTransport } from "./fs-transporter.repository.ts";
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
 import type {
 	LogEntry,
+	LogLevelType,
 	LogTransport,
 	LogTransportConfig,
 	LogTransportType,
@@ -45,39 +46,27 @@ export class LogService {
 	}
 
 	debug(message: string, context?: unknown) {
-		this.write({
-			level: "debug",
-			message,
-			context,
-			timestamp: new Date().toISOString(),
-		});
+		this.write(this.createEntry("debug", message, context));
 	}
 
 	info(message: string, context?: unknown) {
-		this.write({
-			level: "info",
-			message,
-			context,
-			timestamp: new Date().toISOString(),
-		});
+		this.write(this.createEntry("info", message, context));
 	}
 
 	warn(message: string, context?: unknown) {
-		this.write({
-			level: "warn",
-			message,
-			context,
-			timestamp: new Date().toISOString(),
-		});
+		this.write(this.createEntry("warn", message, context));
 	}
 
 	error(message: string, context?: unknown) {
-		this.write({
-			level: "error",
+		this.write(this.createEntry("error", message, context));
+	}
+	createEntry(level: LogLevelType, message: string, context?: unknown) {
+		return {
+			level,
 			message,
 			context,
 			timestamp: new Date().toISOString(),
-		});
+		};
 	}
 	write(logEntry: LogEntry) {
 		for (const transport of this.transports) {
