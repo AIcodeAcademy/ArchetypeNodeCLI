@@ -933,3 +933,39 @@ warn,A message of an important event
 18:05:37,info,response
 18:05:37,error,response2
 18:05:37,error,response3
+07:49:55,debug,A message to help you while debugging
+07:49:55,info,A message of any normal operation
+07:49:55,warn,A message of an important event
+07:49:55,error,A message of an exceptional event
+07:49:55,info,Parsed arguments: {"options":{"name":"world"}}
+07:49:55,info,response
+07:49:55,error,response2
+07:49:55,info,response3
+07:50:31,debug,A message to help you while debugging
+07:50:31,info,A message of any normal operation
+07:50:31,warn,A message of an important event
+07:50:31,info,Parsed arguments: {"options":{"name":"world"}}
+07:50:31,error,A message of an exceptional event
+07:50:31,error,response
+07:50:31,error,response2
+07:50:31,error,response3
+07:56:40,debug,A message to help you while debugging
+07:56:40,info,A message of any normal operation
+07:56:40,error,A message of an exceptional event
+07:56:40,warn,A message of an important event
+07:56:40,info,Parsed arguments: {"options":{"name":"world"}}
+07:56:40,error,No response
+07:56:40,error,response
+07:56:40,error,No response
+07:56:40,error,response2
+07:56:40,error,No response
+07:56:40,error,response3
+07:56:58,debug,A message to help you while debugging
+07:56:58,info,A message of any normal operation
+07:56:58,warn,A message of an important event
+07:56:58,info,Parsed arguments: {"options":{"name":"world"}}
+07:56:58,error,A message of an exceptional event
+07:56:58,info,response
+07:56:58,warn,HTTP error
+07:56:58,error,response2
+07:56:58,info,response3

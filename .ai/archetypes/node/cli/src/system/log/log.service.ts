@@ -78,4 +78,4 @@ export class LogService {
 	}
 }
 
-export const Log = () => LogService.getInstance();
+export const logger = () => LogService.getInstance();

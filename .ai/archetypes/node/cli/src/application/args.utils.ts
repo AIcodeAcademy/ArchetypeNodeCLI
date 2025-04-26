@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { Log } from "../system/log/log.service.ts";
+import { logger } from "../system/log/log.service.ts";
 
 export const parseCommands = () => {
 	const args = process.argv.slice(2);
@@ -16,6 +16,6 @@ export const parseCommands = () => {
 	});
 	const command = positionals[0];
 	const parsedArgs = { command, options: values };
-	Log().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
+	logger().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
 	return parsedArgs;
 };
