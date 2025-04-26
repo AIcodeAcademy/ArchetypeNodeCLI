@@ -1,9 +1,9 @@
 // A module to handle the environment variables
 
-import { DEFAULT_ENV, type Env } from "./env.type.ts";
-
+import type { Env, Environments } from "./env.type.ts";
+import { DEFAULT_ENV } from "./env.type.ts";
 export const getEnv = (): Env => {
-	let nodeEnv = process.env.NODE_ENV as "development" | "production";
+	let nodeEnv = process.env.NODE_ENV;
 	if (!nodeEnv || (nodeEnv !== "development" && nodeEnv !== "production")) {
 		nodeEnv = DEFAULT_ENV.NODE_ENV;
 	}
@@ -14,7 +14,7 @@ export const getEnv = (): Env => {
 
 	return {
 		...DEFAULT_ENV,
-		NODE_ENV: nodeEnv,
+		NODE_ENV: nodeEnv as Environments,
 		CONFIG_FILE: configFile,
 		path: process.cwd(),
 		isProduction: nodeEnv === "production",

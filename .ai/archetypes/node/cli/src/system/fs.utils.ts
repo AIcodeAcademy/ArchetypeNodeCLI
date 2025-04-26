@@ -6,13 +6,13 @@ export async function readFile(path: string): Promise<string> {
 	return fs.readFile(path, "utf-8");
 }
 
+export async function writeFile(path: string, data: string): Promise<void> {
+	return fs.writeFile(path, data);
+}
+
 export async function readJsonFile<T>(path: string): Promise<T> {
 	const data = await readFile(path);
 	return JSON.parse(data);
-}
-
-export async function writeFile(path: string, data: string): Promise<void> {
-	return fs.writeFile(path, data);
 }
 
 export async function writeJsonFile(
@@ -23,6 +23,6 @@ export async function writeJsonFile(
 	return writeFile(path, json);
 }
 
-export async function appendLine(path: string, data: string): Promise<void> {
-	return fs.appendFile(path, `${data}\n`);
+export async function appendLine(path: string, line: string): Promise<void> {
+	return fs.appendFile(path, `${line}\n`);
 }

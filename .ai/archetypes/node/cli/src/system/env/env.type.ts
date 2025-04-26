@@ -1,5 +1,6 @@
+export type Environments = "development" | "production";
 export type Env = {
-	NODE_ENV: "development" | "production";
+	NODE_ENV: Environments;
 	CONFIG_FILE: string;
 	path: string;
 	isProduction: boolean;

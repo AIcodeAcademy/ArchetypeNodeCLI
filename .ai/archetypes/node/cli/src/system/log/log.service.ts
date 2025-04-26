@@ -27,7 +27,8 @@ export class LogService {
 			return LogService.instance;
 		}
 		if (!logConfig) {
-			return new LogService(DEFAULT_LOG_CONFIG);
+			const temporalDefaultLogger = new LogService(DEFAULT_LOG_CONFIG);
+			return temporalDefaultLogger;
 		}
 		LogService.instance = new LogService(logConfig);
 		return LogService.instance;

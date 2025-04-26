@@ -6,6 +6,8 @@ import {
 } from "../style-text.adapter.ts";
 import { type LogEntry, type LogTransportConfig } from "./log.type.ts";
 
+// ToDo: change switch to a map
+
 export function formatLogEntry(
 	logEntry: LogEntry,
 	logTransportConfig: LogTransportConfig,

@@ -969,3 +969,12 @@ warn,A message of an important event
 07:56:58,warn,HTTP error
 07:56:58,error,response2
 07:56:58,info,response3
+08:19:52,debug,A message to help you while debugging
+08:19:52,info,A message of any normal operation
+08:19:52,warn,A message of an important event
+08:19:52,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+08:19:52,error,A message of an exceptional event
+08:19:52,info,response
+08:19:52,warn,HTTP error
+08:19:52,error,response2
+08:19:52,info,response3

@@ -1,4 +1,4 @@
-import { logger } from "./log/log.service.ts";
+import { logger } from "../log/log.service.ts";
 
 export const httpDecorator = async (
 	fn: (url: string, init?: RequestInit) => Promise<Response>,
