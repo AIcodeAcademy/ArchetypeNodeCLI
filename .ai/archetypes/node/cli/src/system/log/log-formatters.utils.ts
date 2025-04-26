@@ -1,9 +1,10 @@
-import { styleText } from "node:util";
 import {
-	LOG_LEVELS,
-	type LogEntry,
-	type LogTransportConfig,
-} from "./log.type.ts";
+	styleDebug,
+	styleError,
+	styleInfo,
+	styleWarning,
+} from "../style-text.adapter.ts";
+import { type LogEntry, type LogTransportConfig } from "./log.type.ts";
 
 export function formatLogEntry(
 	logEntry: LogEntry,
@@ -31,11 +32,18 @@ function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
 	}
 	const level5 = logEntry.level.padEnd(5);
 	const message = `${timestamp}${level5} ${logEntry.message}`;
-	const foundLevel = LOG_LEVELS.find((ll) => ll.level === logEntry.level);
-	const level = foundLevel || LOG_LEVELS[0];
-	const color = level.color;
-	const style = level.style;
-	return styleText([color, style], message);
+	switch (logEntry.level) {
+		case "error":
+			return styleError(message);
+		case "warn":
+			return styleWarning(message);
+		case "info":
+			return styleInfo(message);
+		case "debug":
+			return styleDebug(message);
+		default:
+			return message;
+	}
 }
 
 function csvFormatter(logEntry: LogEntry, addTimestamp: boolean) {
