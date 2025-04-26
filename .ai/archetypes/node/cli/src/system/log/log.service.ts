@@ -1,7 +1,21 @@
 import { ConsoleTransport } from "./console-transport.repository.ts";
 import { FileTransport } from "./fs-transporter.repository.ts";
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
-import type { LogEntry, LogTransport } from "./log.type";
+import type {
+	LogEntry,
+	LogTransport,
+	LogTransportConfig,
+	LogTransportType,
+} from "./log.type";
+
+type TransportConstructor = (transport: LogTransportConfig) => LogTransport;
+const transportConstructors: Record<LogTransportType, TransportConstructor> = {
+	console: (transport) => new ConsoleTransport(transport),
+	file: (transport) => new FileTransport(transport),
+	http: () => {
+		throw new Error("HTTP transport not implemented");
+	},
+};
 
 export class LogService {
 	private static instance: LogService | null = null;
@@ -10,15 +24,11 @@ export class LogService {
 
 	private constructor(logConfig: LogConfig) {
 		this.logConfig = logConfig;
-		this.transports = logConfig.transports.map((transport) => {
-			switch (transport.type) {
-				case "console":
-					return new ConsoleTransport(transport);
-				case "file":
-					return new FileTransport(transport);
-				case "http":
-					throw new Error("HTTP transport not implemented");
-			}
+		this.transports = logConfig.transports.map((transportConfig) => {
+			const ctor = transportConstructors[transportConfig.type];
+			if (!ctor)
+				throw new Error(`Unknown transport type: ${transportConfig.type}`);
+			return ctor(transportConfig);
 		});
 	}
 

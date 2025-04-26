@@ -6,15 +6,15 @@ import {
 } from "../style-text.adapter.ts";
 import type { LogEntry, LogTransportConfig } from "./log.type.ts";
 
-const formatterMap: Record<
-	LogTransportConfig["formatter"],
-	(logEntry: LogEntry, logTransportConfig: LogTransportConfig) => string
-> = {
-	json: (logEntry) => jsonFormatter(logEntry),
-	pretty: (logEntry, logTransportConfig) =>
-		prettyFormatter(logEntry, logTransportConfig.timestamp),
-	csv: (logEntry, logTransportConfig) =>
-		csvFormatter(logEntry, logTransportConfig.timestamp),
+type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
+type FormatterOptions = {
+	addTimestamp?: boolean;
+};
+
+const formatterMap: Record<LogTransportConfig["formatter"], FormatterFn> = {
+	json: jsonFormatter,
+	pretty: prettyFormatter,
+	csv: csvFormatter,
 };
 
 export function formatLogEntry(
@@ -22,29 +22,21 @@ export function formatLogEntry(
 	logTransportConfig: LogTransportConfig,
 ) {
 	const formatter = formatterMap[logTransportConfig.formatter];
-	if (!formatter)
-		throw new Error(`Unknown formatter: ${logTransportConfig.formatter}`);
-	return formatter(logEntry, logTransportConfig);
+	if (!formatter) return logEntry.message;
+	const options = {
+		addTimestamp: logTransportConfig.timestamp,
+	};
+	return formatter(logEntry, options);
 }
 
-function jsonFormatter(logEntry: LogEntry) {
+function jsonFormatter(logEntry: LogEntry, options: FormatterOptions) {
 	const message = JSON.stringify(logEntry);
 	return `${message}`;
 }
 
-const levelStyleMap: Record<string, (msg: string) => string> = {
-	error: styleError,
-	warn: styleWarning,
-	info: styleInfo,
-	debug: styleDebug,
-};
-
-// ToDo: clean the boolean flag
-//https://www.perplexity.ai/search/best-practices-for-clean-code-uADj2mohQVCQCv5WwQHtpA
-
-function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
+function prettyFormatter(logEntry: LogEntry, options: FormatterOptions) {
 	let timestamp = "";
-	if (addTimestamp) {
+	if (options.addTimestamp) {
 		timestamp = `[${formatTimestamp(logEntry.timestamp)}] `;
 	}
 	const level5 = logEntry.level.padEnd(5);
@@ -53,9 +45,9 @@ function prettyFormatter(logEntry: LogEntry, addTimestamp: boolean) {
 	return styleFn ? styleFn(message) : message;
 }
 
-function csvFormatter(logEntry: LogEntry, addTimestamp: boolean) {
+function csvFormatter(logEntry: LogEntry, options: FormatterOptions) {
 	let message = [logEntry.level, logEntry.message].join(",");
-	if (addTimestamp) {
+	if (options.addTimestamp) {
 		message = [formatTimestamp(logEntry.timestamp), message].join(",");
 	}
 	return `${message}`;
@@ -65,3 +57,10 @@ function formatTimestamp(timestamp: string) {
 	const hhmmss = timestamp.split("T")[1].split(".")[0];
 	return `${hhmmss}`;
 }
+
+const levelStyleMap: Record<string, (msg: string) => string> = {
+	error: styleError,
+	warn: styleWarning,
+	info: styleInfo,
+	debug: styleDebug,
+};
