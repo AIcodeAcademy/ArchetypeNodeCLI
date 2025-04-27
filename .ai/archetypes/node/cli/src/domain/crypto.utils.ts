@@ -5,25 +5,24 @@ import {
 	randomBytesString,
 } from "./crypto.adapter";
 
-const ALGORITHM = "sha256";
-const ENCODING = "hex";
+const TOKEN_LENGTH = 32;
 
 export function hashPassword(password: string): string {
-	return hashText(password, ALGORITHM, ENCODING);
+	return hashText(password);
 }
 
 export function validatePassword(password: string, hash: string): boolean {
 	return hashPassword(password) === hash;
 }
 
-export function generateToken(length = 32): string {
-	return randomBytesString(length, ENCODING);
+export function generateToken(length = TOKEN_LENGTH): string {
+	return randomBytesString(length);
 }
 
 export function encrypt(data: string, key: string): string {
-	return encryptHmac(data, key, ALGORITHM, ENCODING);
+	return encryptHmac(data, key);
 }
 
 export function decrypt(data: string, key: string): string {
-	return decryptHmac(data, key, ALGORITHM, ENCODING);
+	return decryptHmac(data, key);
 }
