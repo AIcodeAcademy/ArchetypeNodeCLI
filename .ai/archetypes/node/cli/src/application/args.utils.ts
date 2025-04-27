@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { logger } from "../system/log/log.service.ts";
+import { getLog } from "../system/log/log.singleton.ts";
 
 export const parseCommands = () => {
 	const args = process.argv.slice(2);
@@ -16,6 +16,9 @@ export const parseCommands = () => {
 	});
 	const command = positionals[0];
 	const parsedArgs = { command, options: values };
-	logger().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
+	getLog().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
 	return parsedArgs;
 };
+
+// ToDo: parseArgs adapter
+// ToDo: command option real syntax

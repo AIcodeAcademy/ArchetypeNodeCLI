@@ -1,10 +1,15 @@
-import crypto from "node:crypto";
+import {
+	decryptHmac,
+	encryptHmac,
+	hashText,
+	randomBytesString,
+} from "./crypto.adapter";
 
 const ALGORITHM = "sha256";
 const ENCODING = "hex";
 
 export function hashPassword(password: string): string {
-	return crypto.createHash(ALGORITHM).update(password).digest(ENCODING);
+	return hashText(password, ALGORITHM, ENCODING);
 }
 
 export function validatePassword(password: string, hash: string): boolean {
@@ -12,13 +17,13 @@ export function validatePassword(password: string, hash: string): boolean {
 }
 
 export function generateToken(length = 32): string {
-	return crypto.randomBytes(length).toString(ENCODING);
+	return randomBytesString(length, ENCODING);
 }
 
 export function encrypt(data: string, key: string): string {
-	return crypto.createHmac(ALGORITHM, key).update(data).digest(ENCODING);
+	return encryptHmac(data, key, ALGORITHM, ENCODING);
 }
 
 export function decrypt(data: string, key: string): string {
-	return crypto.createHmac(ALGORITHM, key).update(data).digest(ENCODING);
+	return decryptHmac(data, key, ALGORITHM, ENCODING);
 }

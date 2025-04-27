@@ -48,13 +48,13 @@ export interface LogTransport {
 }
 
 export type LogEntry = {
-	level: string;
+	level: LogLevelType;
 	message: string;
 	context?: unknown;
 	timestamp: string;
 };
-export type LogFn = (message: string, context?: unknown) => void;
-export type LogEntryFn = (logEntry: LogEntry) => void;
+type LogFn = (message: string, context?: unknown) => void;
+type LogEntryFn = (logEntry: LogEntry) => void;
 
 export type Logger = {
 	debug: LogFn;

@@ -1,28 +1,34 @@
-import {
-	styleDebug,
-	styleError,
-	styleInfo,
-	styleWarning,
-} from "../style-text.adapter.ts";
-import type { LogEntry, LogTransportConfig } from "./log.type.ts";
+import { styleTextFactory } from "../style-text.adapter.ts";
+
+import type {
+	LogEntry,
+	LogFormatterType,
+	LogTransportConfig,
+} from "./log.type.ts";
 
 type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
 type FormatterOptions = {
 	addTimestamp?: boolean;
 };
-
-const formatterMap: Record<LogTransportConfig["formatter"], FormatterFn> = {
+const formatterMap: Record<LogFormatterType, FormatterFn> = {
 	json: jsonFormatter,
 	pretty: prettyFormatter,
 	csv: csvFormatter,
 };
 
+function formatterFactory(logTransportConfig: LogTransportConfig) {
+	const formatter = formatterMap[logTransportConfig.formatter];
+	if (!formatter)
+		return (logEntry: LogEntry, options: FormatterOptions) => logEntry.message;
+
+	return formatter;
+}
+
 export function formatLogEntry(
 	logEntry: LogEntry,
 	logTransportConfig: LogTransportConfig,
 ) {
-	const formatter = formatterMap[logTransportConfig.formatter];
-	if (!formatter) return logEntry.message;
+	const formatter = formatterFactory(logTransportConfig);
 	const options = {
 		addTimestamp: logTransportConfig.timestamp,
 	};
@@ -41,7 +47,7 @@ function prettyFormatter(logEntry: LogEntry, options: FormatterOptions) {
 	}
 	const level5 = logEntry.level.padEnd(5);
 	const message = `${timestamp}${level5} ${logEntry.message}`;
-	const styleFn = levelStyleMap[logEntry.level];
+	const styleFn = styleTextFactory(logEntry.level);
 	return styleFn ? styleFn(message) : message;
 }
 
@@ -57,10 +63,3 @@ function formatTimestamp(timestamp: string) {
 	const hhmmss = timestamp.split("T")[1].split(".")[0];
 	return `${hhmmss}`;
 }
-
-const levelStyleMap: Record<string, (msg: string) => string> = {
-	error: styleError,
-	warn: styleWarning,
-	info: styleInfo,
-	debug: styleDebug,
-};

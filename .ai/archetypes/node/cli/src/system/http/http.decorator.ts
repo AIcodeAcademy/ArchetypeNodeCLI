@@ -1,4 +1,4 @@
-import { logger } from "../log/log.service.ts";
+import { getLog } from "../log/log.singleton.ts";
 
 export const httpDecorator = async (
 	fn: (url: string, init?: RequestInit) => Promise<Response>,
@@ -32,7 +32,7 @@ async function createHttpResponse(
 	error?: Error,
 ): Promise<HttpResponse> {
 	if (!response) {
-		logger().error("No response", error);
+		getLog().error("No response", error);
 		return {
 			ok: false,
 			status: 500,
@@ -47,7 +47,7 @@ async function createHttpResponse(
 			data: await response.json(),
 		};
 	}
-	logger().warn("HTTP error", response.statusText);
+	getLog().warn("HTTP error", response.statusText);
 	return {
 		ok: false,
 		status: response.status,

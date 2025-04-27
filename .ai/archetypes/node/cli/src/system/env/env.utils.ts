@@ -1,7 +1,6 @@
-// A module to handle the environment variables
-
 import type { Env, Environments } from "./env.type.ts";
 import { DEFAULT_ENV } from "./env.type.ts";
+
 export const getEnv = (): Env => {
 	let nodeEnv = process.env.NODE_ENV;
 	if (!nodeEnv || (nodeEnv !== "development" && nodeEnv !== "production")) {

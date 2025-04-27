@@ -1,14 +1,28 @@
 import { styleText } from "node:util";
+import type { LogLevelType } from "./log/log.type";
 
-export const styleError = (text: string) => {
+const styleError = (text: string) => {
 	return styleText(["red", "bold"], text);
 };
-export const styleWarning = (text: string) => {
+const styleWarning = (text: string) => {
 	return styleText(["green", "bold"], text);
 };
-export const styleInfo = (text: string) => {
+const styleInfo = (text: string) => {
 	return styleText(["green"], text);
 };
-export const styleDebug = (text: string) => {
+const styleDebug = (text: string) => {
 	return styleText(["red"], text);
+};
+
+const levelStyleMap: Record<LogLevelType, (msg: string) => string> = {
+	error: styleError,
+	warn: styleWarning,
+	info: styleInfo,
+	debug: styleDebug,
+};
+
+export const styleTextFactory = (level: LogLevelType) => {
+	const styleFn = levelStyleMap[level];
+	if (!styleFn) return (text: string) => text;
+	return styleFn;
 };
