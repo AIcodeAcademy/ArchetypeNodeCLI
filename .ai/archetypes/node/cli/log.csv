@@ -196,3 +196,14 @@
 10:08:10,error,response2
 10:08:10,error,No response
 10:08:10,error,response3
+10:31:27,debug,A message to help you while debugging
+10:31:27,info,A message of any normal operation
+10:31:27,error,A message of an exceptional event
+10:31:27,warn,A message of an important event
+10:31:27,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+10:31:27,error,No response
+10:31:27,error,response
+10:31:27,error,No response
+10:31:27,error,response2
+10:31:27,error,No response
+10:31:27,error,response3
