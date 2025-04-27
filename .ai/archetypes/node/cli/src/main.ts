@@ -2,11 +2,11 @@ import { parseCommands } from "./application/args.utils.ts";
 import { readConfig } from "./system/config/config.repository.ts";
 import { getEnv } from "./system/env/env.utils.ts";
 import { http } from "./system/http/http.utils.ts";
-import { Log } from "./system/log/log.singleton.ts";
+import { initLog } from "./system/log/log.singleton.ts";
 
 const env = getEnv();
 const config = await readConfig(env.CONFIG_FILE);
-const log = Log.getInstance(config.log);
+const log = initLog(config.log);
 
 log.debug("A message to help you while debugging", getEnv());
 log.info("A message of any normal operation", getEnv());

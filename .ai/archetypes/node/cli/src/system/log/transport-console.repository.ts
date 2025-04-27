@@ -1,7 +1,7 @@
 import { formatLogEntry } from "./log-formatters.utils.ts";
 import type { LogEntry, LogTransport, LogTransportConfig } from "./log.type.ts";
 
-export class ConsoleTransport implements LogTransport {
+export class TransportConsole implements LogTransport {
 	private logTransportConfig: LogTransportConfig;
 
 	constructor(logTransportConfig: LogTransportConfig) {

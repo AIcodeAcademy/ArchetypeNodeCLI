@@ -14,7 +14,12 @@
 				"formatter": "csv",
 				"timestamp": true,
 				"path": "log.csv"
-			}
+			},{
+        "type": "http",
+        "minLevel": "error",
+        "formatter": "json",
+        "timestamp": true
+      }
 		]
 	}
 }

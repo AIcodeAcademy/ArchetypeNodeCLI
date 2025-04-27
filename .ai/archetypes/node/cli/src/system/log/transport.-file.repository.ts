@@ -2,7 +2,7 @@ import { appendLine } from "../fs.utils.ts";
 import { formatLogEntry } from "./log-formatters.utils.ts";
 import type { LogEntry, LogTransport, LogTransportConfig } from "./log.type.ts";
 
-export class FileTransport implements LogTransport {
+export class TransportFile implements LogTransport {
 	private logTransportConfig: LogTransportConfig;
 
 	constructor(logTransportConfig: LogTransportConfig) {

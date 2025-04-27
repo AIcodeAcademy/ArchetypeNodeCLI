@@ -1,5 +1,5 @@
 import { getLog } from "../log/log.singleton.ts";
-
+export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 export const httpDecorator = async (
 	fn: (url: string, init?: RequestInit) => Promise<Response>,
 	url: string,

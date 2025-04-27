@@ -10,19 +10,6 @@ type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
 type FormatterOptions = {
 	addTimestamp?: boolean;
 };
-const formatterMap: Record<LogFormatterType, FormatterFn> = {
-	json: jsonFormatter,
-	pretty: prettyFormatter,
-	csv: csvFormatter,
-};
-
-function formatterFactory(logTransportConfig: LogTransportConfig) {
-	const formatter = formatterMap[logTransportConfig.formatter];
-	if (!formatter)
-		return (logEntry: LogEntry, options: FormatterOptions) => logEntry.message;
-
-	return formatter;
-}
 
 export function formatLogEntry(
 	logEntry: LogEntry,
@@ -33,6 +20,20 @@ export function formatLogEntry(
 		addTimestamp: logTransportConfig.timestamp,
 	};
 	return formatter(logEntry, options);
+}
+
+const formattersMap: Record<LogFormatterType, FormatterFn> = {
+	json: jsonFormatter,
+	pretty: prettyFormatter,
+	csv: csvFormatter,
+};
+
+function formatterFactory(logTransportConfig: LogTransportConfig) {
+	const formatter = formattersMap[logTransportConfig.formatter];
+	if (!formatter)
+		return (logEntry: LogEntry, options: FormatterOptions) => logEntry.message;
+
+	return formatter;
 }
 
 function jsonFormatter(logEntry: LogEntry, options: FormatterOptions) {
