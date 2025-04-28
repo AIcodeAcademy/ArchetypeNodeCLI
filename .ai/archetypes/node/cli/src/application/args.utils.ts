@@ -22,3 +22,4 @@ export const parseCommands = () => {
 
 // ToDo: parseArgs adapter
 // ToDo: command option real syntax
+// ToDo: web scraping ? meteo? ip geocoding?
