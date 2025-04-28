@@ -1,4 +1,4 @@
-import type { LogLevelType } from "./log-level-type.ts";
+import type { LogLevelType } from "./log-level.type.ts";
 export type LogFormatterType = "csv" | "json" | "pretty";
 export type LogTransportType = "console" | "file" | "http";
 export type LogTransportConfig = {

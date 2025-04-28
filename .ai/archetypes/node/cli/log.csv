@@ -394,3 +394,36 @@
 06:57:26,error,response2
 06:57:26,error,No response
 06:57:26,error,response3
+07:05:55,debug,A message to help you while debugging
+07:05:55,info,A message of any normal operation
+07:05:55,error,A message of an exceptional event
+07:05:55,warn,A message of an important event
+07:05:55,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+07:05:55,error,No response
+07:05:55,error,response
+07:05:55,error,No response
+07:05:55,error,response2
+07:05:55,error,No response
+07:05:55,error,response3
+07:06:08,debug,A message to help you while debugging
+07:06:08,info,A message of any normal operation
+07:06:08,warn,A message of an important event
+07:06:08,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+07:06:08,error,A message of an exceptional event
+07:06:08,error,No response
+07:06:08,error,response
+07:06:08,error,No response
+07:06:08,error,response2
+07:06:08,error,No response
+07:06:08,error,response3
+07:06:12,debug,A message to help you while debugging
+07:06:12,info,A message of any normal operation
+07:06:12,warn,A message of an important event
+07:06:12,error,A message of an exceptional event
+07:06:12,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+07:06:12,error,No response
+07:06:12,error,response
+07:06:12,error,No response
+07:06:12,error,response2
+07:06:12,error,No response
+07:06:12,error,response3
