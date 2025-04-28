@@ -1,11 +1,11 @@
 export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
-export const httpDecorator = async (
+export const httpDecorator = async <T>(
 	fetchFn: (url: string, init?: RequestInit) => Promise<Response>,
 	url: string,
 	body?: unknown,
 	method?: "POST" | "GET" | "PUT" | "DELETE",
-) => {
+): Promise<HttpResponse<T>> => {
 	try {
 		const init: RequestInit = {
 			method: method || body ? "POST" : "GET",
@@ -13,11 +13,12 @@ export const httpDecorator = async (
 			body: body ? JSON.stringify(body) : undefined,
 		};
 		const response = await fetchFn(url, init);
-		return createHttpResponse(response);
+		return createHttpResponse<T>(response);
 	} catch (error) {
 		return {
 			ok: false,
 			status: 0,
+			data: {} as T,
 			error: `Unexpected http error: ${error?.message}`,
 		};
 	}
@@ -31,38 +32,43 @@ function createHeaders() {
 	};
 }
 
-async function createHttpResponse(response: Response): Promise<HttpResponse> {
+async function createHttpResponse<T>(
+	response: Response,
+): Promise<HttpResponse<T>> {
 	try {
-		return await unpackResponse(response);
+		return await unpackResponse<T>(response);
 	} catch (error) {
 		return {
 			ok: false,
 			status: 0,
+			data: {} as T,
 			error: `Unpacking response error: ${error?.message}`,
 		};
 	}
 }
 
-async function unpackResponse(response: Response): Promise<HttpResponse> {
+async function unpackResponse<T>(response: Response): Promise<HttpResponse<T>> {
 	if (response.ok) {
 		const data = await response.json();
 		return {
 			ok: true,
 			status: response.status,
-			data,
+			data: data as T,
+			error: "",
 		};
 	}
 	const errorText = await response.text();
 	return {
 		ok: false,
 		status: response.status,
+		data: {} as T,
 		error: `${response.statusText} ${errorText}`,
 	};
 }
 
-export type HttpResponse = {
+export type HttpResponse<T> = {
 	ok: boolean;
 	status: number;
-	data?: unknown;
-	error?: string;
+	data: T;
+	error: string;
 };

@@ -729,3 +729,38 @@
 07:56:00,error,response
 07:56:00,error,response2
 07:56:00,error,response3
+08:44:58,debug,A message to help you while debugging
+08:44:58,info,A message of any normal operation
+08:44:58,error,A message of an exceptional event
+08:44:58,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+08:44:58,warn,A message of an important event
+08:44:59,info,My meteo
+08:49:22,debug,A message to help you while debugging
+08:49:22,info,A message of any normal operation
+08:49:22,warn,A message of an important event
+08:49:22,error,A message of an exceptional event
+08:49:22,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+08:49:22,error,Error getting my meteo
+08:49:41,debug,A message to help you while debugging
+08:49:41,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+08:49:41,error,A message of an exceptional event
+08:49:41,info,A message of any normal operation
+08:49:41,warn,A message of an important event
+08:49:41,error,Error getting my meteo
+08:50:39,debug,A message to help you while debugging
+08:50:39,warn,A message of an important event
+08:50:39,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+08:50:39,error,A message of an exceptional event
+08:50:39,info,A message of any normal operation
+08:50:39,info,My meteo
+09:05:15,debug,A message to help you while debugging
+09:05:15,info,A message of any normal operation
+09:05:15,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+09:05:15,error,A message of an exceptional event
+09:05:15,warn,A message of an important event
+09:05:15,debug,A message to help you while debugging
+09:05:15,info,A message of any normal operation
+09:05:15,error,A message of an exceptional event
+09:05:15,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+09:05:15,warn,A message of an important event
+09:05:16,info,My meteo

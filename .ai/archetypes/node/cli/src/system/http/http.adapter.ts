@@ -9,16 +9,16 @@ import { httpDecorator } from "./http.decorator.ts";
  * console.log(response.data);
  */
 export const http = {
-	get: async (url: string) => {
-		return httpDecorator(fetch, url);
+	get: async <T>(url: string) => {
+		return httpDecorator<T>(fetch, url);
 	},
 
-	post: async (url: string, data: unknown) => {
-		return httpDecorator(fetch, url, data);
+	post: async <T>(url: string, data: unknown) => {
+		return httpDecorator<T>(fetch, url, data);
 	},
 
-	put: async (url: string, data: unknown) => {
-		return httpDecorator(fetch, url, data, "PUT");
+	put: async <T>(url: string, data: unknown) => {
+		return httpDecorator<T>(fetch, url, data, "PUT");
 	},
 
 	delete: async (url: string) => {
