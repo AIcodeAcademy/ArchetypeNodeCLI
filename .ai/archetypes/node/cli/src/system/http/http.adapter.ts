@@ -1,5 +1,7 @@
 import { httpDecorator } from "./http.decorator.ts";
 
+// Adapts the Node.js fetch API to a more generic and user-friendly interface
+
 export const http = {
 	get: async (url: string) => {
 		return httpDecorator(fetch, url);

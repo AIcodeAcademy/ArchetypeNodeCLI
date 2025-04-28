@@ -1,7 +1,10 @@
 import crypto, { type BinaryToTextEncoding, randomUUID } from "node:crypto";
 
+// Adapts the Node.js crypto module to a more generic interface
+
 const ALGORITHM = "sha256";
 const ENCODING = "hex";
+
 export function generateRandomUuid(): string {
 	return randomUUID();
 }

@@ -1,6 +1,8 @@
 import type { Env, Environments } from "./env.type.ts";
 import { DEFAULT_ENV } from "./env.type.ts";
 
+// Adapts implicit Node.js environment variables to a typed object
+
 export const getEnv = (): Env => {
 	let nodeEnv = process.env.NODE_ENV;
 	if (!nodeEnv || isInvalidEnvironment(nodeEnv)) {

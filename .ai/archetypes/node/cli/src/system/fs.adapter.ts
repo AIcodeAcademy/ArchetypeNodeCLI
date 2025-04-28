@@ -1,7 +1,11 @@
 import fs from "node:fs/promises";
 
+// Adapts the Node.js fs module to a more generic interface
+
+const ENCODING = "utf-8";
+
 export async function readFile(path: string): Promise<string> {
-	return fs.readFile(path, "utf-8");
+	return fs.readFile(path, ENCODING);
 }
 
 export async function writeFile(path: string, data: string): Promise<void> {
