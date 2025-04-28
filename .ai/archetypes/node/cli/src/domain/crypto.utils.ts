@@ -1,14 +1,9 @@
-import {
-	decryptHmac,
-	encryptHmac,
-	hashText,
-	randomBytesString,
-} from "./crypto.adapter";
+import { cryptoAdapter } from "./crypto.adapter.ts";
 
 const TOKEN_LENGTH = 32;
 
 export function hashPassword(password: string): string {
-	return hashText(password);
+	return cryptoAdapter.hashText(password);
 }
 
 export function validatePassword(password: string, hash: string): boolean {
@@ -16,13 +11,13 @@ export function validatePassword(password: string, hash: string): boolean {
 }
 
 export function generateToken(length = TOKEN_LENGTH): string {
-	return randomBytesString(length);
+	return cryptoAdapter.randomBytesString(length);
 }
 
 export function encrypt(data: string, key: string): string {
-	return encryptHmac(data, key);
+	return cryptoAdapter.encryptHmac(data, key);
 }
 
 export function decrypt(data: string, key: string): string {
-	return decryptHmac(data, key);
+	return cryptoAdapter.decryptHmac(data, key);
 }

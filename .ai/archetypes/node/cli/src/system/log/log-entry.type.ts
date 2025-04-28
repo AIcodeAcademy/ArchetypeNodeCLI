@@ -1,5 +1,4 @@
-import type { LogLevelType } from "./log-level-type";
-
+import type { LogLevelType } from "./log-level.type.ts";
 export type LogEntry = {
 	level: LogLevelType;
 	message: string;

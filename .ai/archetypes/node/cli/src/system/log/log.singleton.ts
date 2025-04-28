@@ -1,6 +1,6 @@
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
-import type { LogLevelType } from "./log-level-type.ts";
+import type { LogLevelType } from "./log-level.type.ts";
 import {
 	type LogTransportWrite,
 	transportFactory,
