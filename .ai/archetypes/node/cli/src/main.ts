@@ -2,7 +2,7 @@ import { parseCommands } from "./application/args.utils.ts";
 import { readConfig } from "./system/config/config.repository.ts";
 import { getEnv } from "./system/env/env.utils.ts";
 import { http } from "./system/http/http.utils.ts";
-import { initLog } from "./system/log/log.singleton.ts";
+import { initLog } from "./system/log/log.utils.ts";
 
 const env = getEnv();
 const config = await readConfig(env.CONFIG_FILE);

@@ -1,12 +1,18 @@
 import type {
-	LogTransport,
 	LogTransportConfig,
 	LogTransportType,
-} from "./log.type.ts";
+} from "./log-config.type.ts";
+import type { LogEntry } from "./log-entry.type.ts";
 import { TransportConsole } from "./transport-console.repository.ts";
 import { TransportFile } from "./transport.-file.repository.ts";
 
-type TransportConstructor = (transport: LogTransportConfig) => LogTransport;
+export interface LogTransportWrite {
+	write: (logEntry: LogEntry) => void;
+}
+
+type TransportConstructor = (
+	transport: LogTransportConfig,
+) => LogTransportWrite;
 
 const transportConstructorsMap: Record<LogTransportType, TransportConstructor> =
 	{
@@ -19,7 +25,7 @@ const transportConstructorsMap: Record<LogTransportType, TransportConstructor> =
 
 export function transportFactory(
 	transport: LogTransportConfig,
-): LogTransport | undefined {
+): LogTransportWrite | undefined {
 	try {
 		const ctor = transportConstructorsMap[transport.type];
 		if (!ctor) {

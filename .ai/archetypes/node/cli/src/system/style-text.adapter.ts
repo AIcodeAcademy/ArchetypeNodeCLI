@@ -1,5 +1,5 @@
 import { styleText } from "node:util";
-import type { LogLevelType } from "./log/log.type";
+import type { LogLevelType } from "./log/log-entry.type";
 
 const styleError = (text: string) => {
 	return styleText(["red", "bold"], text);

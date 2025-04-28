@@ -4,7 +4,7 @@ import type {
 	LogEntry,
 	LogFormatterType,
 	LogTransportConfig,
-} from "./log.type.ts";
+} from "./log-entry.type.ts";
 
 type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
 type FormatterOptions = {

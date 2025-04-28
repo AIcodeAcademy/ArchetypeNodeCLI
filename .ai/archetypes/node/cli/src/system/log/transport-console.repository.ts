@@ -1,5 +1,9 @@
+import type {
+	LogEntry,
+	LogTransport,
+	LogTransportConfig,
+} from "./log-entry.type.ts";
 import { formatLogEntry } from "./log-formatters.utils.ts";
-import type { LogEntry, LogTransport, LogTransportConfig } from "./log.type.ts";
 
 export class TransportConsole implements LogTransport {
 	private logTransportConfig: LogTransportConfig;

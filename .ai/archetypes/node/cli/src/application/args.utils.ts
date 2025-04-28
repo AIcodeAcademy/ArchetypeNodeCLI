@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { getLog } from "../system/log/log.singleton.ts";
+import { getLog } from "../system/log/log.utils.ts";
 
 export const parseCommands = () => {
 	const args = process.argv.slice(2);
