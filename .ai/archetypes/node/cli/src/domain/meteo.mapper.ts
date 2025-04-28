@@ -1,8 +1,8 @@
 import type { IpInfo } from "../system/ip-info.type.ts";
-import type { Meteo } from "../system/meteo.type.ts";
-import type { DailyForecast, MyMeteo } from "./my-meteo.type.ts";
+import type { OpenMeteo } from "../system/meteo.type.ts";
+import type { DailyForecast, Meteo } from "./meteo.type.ts";
 
-export function mapToMyMeteo(ipInfo: IpInfo, meteo: Meteo): MyMeteo {
+export function mapToMeteo(ipInfo: IpInfo, meteo: OpenMeteo): Meteo {
 	const dailyForecasts: DailyForecast[] = meteo.daily.time.map(
 		(time, index) => ({
 			date: time,

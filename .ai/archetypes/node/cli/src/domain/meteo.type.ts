@@ -1,4 +1,4 @@
-export type MyMeteo = {
+export type Meteo = {
 	country: string;
 	city: string;
 	timezone: string;

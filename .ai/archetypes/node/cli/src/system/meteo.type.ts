@@ -1,4 +1,4 @@
-export type Meteo = {
+export type OpenMeteo = {
 	latitude: number;
 	longitude: number;
 	generationtime_ms: number;
