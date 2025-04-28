@@ -1,12 +1,10 @@
-import { appendLine } from "../fs.utils.ts";
-import type {
-	LogEntry,
-	LogTransport,
-	LogTransportConfig,
-} from "./log-entry.type.ts";
+import { appendLine } from "../fs.adapter.ts";
+import type { LogTransportConfig } from "./log-config.type.ts";
+import type { LogEntry } from "./log-entry.type.ts";
 import { formatLogEntry } from "./log-formatters.utils.ts";
+import type { LogTransportWrite } from "./transport.factory.ts";
 
-export class TransportFile implements LogTransport {
+export class TransportFile implements LogTransportWrite {
 	private logTransportConfig: LogTransportConfig;
 
 	constructor(logTransportConfig: LogTransportConfig) {

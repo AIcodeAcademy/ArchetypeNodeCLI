@@ -1,10 +1,10 @@
-import { styleTextFactory } from "../style-text.adapter.ts";
-
 import type {
-	LogEntry,
 	LogFormatterType,
 	LogTransportConfig,
-} from "./log-entry.type.ts";
+} from "./log-config.type.ts";
+import { styleTextFactory } from "./log-style.factory.ts";
+
+import type { LogEntry } from "./log-entry.type.ts";
 
 type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
 type FormatterOptions = {

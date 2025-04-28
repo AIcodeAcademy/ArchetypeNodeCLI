@@ -3,7 +3,7 @@ import { DEFAULT_ENV } from "./env.type.ts";
 
 export const getEnv = (): Env => {
 	let nodeEnv = process.env.NODE_ENV;
-	if (!nodeEnv || (nodeEnv !== "development" && nodeEnv !== "production")) {
+	if (!nodeEnv || isInvalidEnvironment(nodeEnv)) {
 		nodeEnv = DEFAULT_ENV.NODE_ENV;
 	}
 	let configFile = process.env.CONFIG_FILE as string;
@@ -19,3 +19,7 @@ export const getEnv = (): Env => {
 		isProduction: nodeEnv === "production",
 	} as const;
 };
+
+function isInvalidEnvironment(nodeEnv: string): boolean {
+	return nodeEnv !== "development" && nodeEnv !== "production";
+}
