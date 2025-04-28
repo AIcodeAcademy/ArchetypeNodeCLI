@@ -1,7 +1,7 @@
-import { readFile, writeFile } from "./fs.adapter.ts";
+import { fsAdapter } from "./fs.adapter.ts";
 
 export async function readJsonFile<T>(path: string): Promise<T> {
-	const data = await readFile(path);
+	const data = await fsAdapter.readFile(path);
 	return JSON.parse(data);
 }
 
@@ -10,5 +10,5 @@ export async function writeJsonFile(
 	data: unknown,
 ): Promise<void> {
 	const json = JSON.stringify(data);
-	return writeFile(path, json);
+	return fsAdapter.writeFile(path, json);
 }

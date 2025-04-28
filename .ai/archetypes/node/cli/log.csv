@@ -713,3 +713,11 @@
 07:36:22,error,response
 07:36:22,error,response2
 07:36:22,error,response3
+07:46:27,debug,A message to help you while debugging
+07:46:27,info,A message of any normal operation
+07:46:27,error,A message of an exceptional event
+07:46:27,info,Parsed arguments: {"command":"myCommand","options":{"name":"world"}}
+07:46:27,warn,A message of an important event
+07:46:27,error,response
+07:46:27,error,response2
+07:46:27,error,response3

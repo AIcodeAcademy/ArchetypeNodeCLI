@@ -1,4 +1,4 @@
-import { appendLine } from "../fs.adapter.ts";
+import { fsAdapter } from "../fs.adapter.ts";
 import type { LogTransportConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import { formatLogEntry } from "./log-formatters.utils.ts";
@@ -14,6 +14,6 @@ export class TransportFile implements LogTransportWrite {
 	async write(logEntry: LogEntry) {
 		const message: string = formatLogEntry(logEntry, this.logTransportConfig);
 		const path = this.logTransportConfig.path ?? "log.csv";
-		await appendLine(path, message);
+		await fsAdapter.appendLine(path, message);
 	}
 }

@@ -1,7 +1,8 @@
 import { parseCommands } from "./application/args.utils.ts";
 import { readConfig } from "./system/config/config.repository.ts";
-import { getEnv } from "./system/env/env.utils.ts";
-import { http } from "./system/http/http.utils.ts";
+import { getEnv } from "./system/env/env.adapter.ts";
+import { http } from "./system/http/http.adapter.ts";
+
 import { initLog } from "./system/log/log.utils.ts";
 
 const env = getEnv();
