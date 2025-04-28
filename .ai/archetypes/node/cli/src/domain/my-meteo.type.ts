@@ -1,6 +1,5 @@
 export type MyMeteo = {
 	country: string;
-	region: string;
 	city: string;
 	timezone: string;
 	latitude: number;
@@ -10,6 +9,6 @@ export type MyMeteo = {
 
 export type DailyForecast = {
 	date: string;
-	max_temperature: number;
-	min_temperature: number;
+	max_temp: number;
+	min_temp: number;
 };

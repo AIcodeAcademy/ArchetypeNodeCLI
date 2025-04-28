@@ -6,13 +6,12 @@ export function mapToMyMeteo(ipInfo: IpInfo, meteo: Meteo): MyMeteo {
 	const dailyForecasts: DailyForecast[] = meteo.daily.time.map(
 		(time, index) => ({
 			date: time,
-			max_temperature: meteo.daily.temperature_2m_max[index],
-			min_temperature: meteo.daily.temperature_2m_min[index],
+			max_temp: meteo.daily.temperature_2m_max[index],
+			min_temp: meteo.daily.temperature_2m_min[index],
 		}),
 	);
 	return {
 		country: ipInfo.country,
-		region: ipInfo.region,
 		city: ipInfo.city,
 		timezone: meteo.timezone,
 		latitude: meteo.latitude,

@@ -1,15 +1,22 @@
 import { parseArgs } from "node:util";
 import { getLog } from "../system/log/log.utils.ts";
 
-export const parseCommands = () => {
+export type CommandOptions = {
+	command: string;
+	options: {
+		cache: boolean;
+	};
+};
+
+export const parseCommand = (): CommandOptions => {
 	const args = process.argv.slice(2);
 	const { positionals, values } = parseArgs({
 		args,
 		options: {
-			name: {
-				type: "string",
-				short: "n",
-				default: "world",
+			cache: {
+				type: "boolean",
+				short: "c",
+				default: false,
 			},
 		},
 		allowPositionals: true,
@@ -19,7 +26,3 @@ export const parseCommands = () => {
 	getLog().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
 	return parsedArgs;
 };
-
-// ToDo: parseArgs adapter
-// ToDo: command option real syntax
-// ToDo: web scraping ? meteo? ip geocoding?
