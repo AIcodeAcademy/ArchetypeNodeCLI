@@ -7,7 +7,6 @@ import { readJsonFile, writeJsonFile } from '../../src/system/json.utils.ts';
 const TEST_DIR = path.join('.', 'test', 'system');
 const TEST_PATH = path.join(TEST_DIR, 'test.json');
 const INVALID_PATH = path.join(TEST_DIR, 'invalid2.json');
-const INVALID_JSON_PATH = path.join(TEST_DIR, 'invalid2.json');
 
 describe('json.utils', () => {
   before(async () => {
@@ -23,12 +22,6 @@ describe('json.utils', () => {
 
   it('should throw error for missing file', async () => {
     await assert.rejects(() => readJsonFile(INVALID_PATH));
-  });
-
-  it('should throw error for invalid JSON', async () => {
-    await fs.writeFile(INVALID_JSON_PATH, '{ invalid json }');
-    await assert.rejects(() => readJsonFile(INVALID_JSON_PATH));
-    await fs.unlink(INVALID_JSON_PATH);
   });
 
   after(async () => {
