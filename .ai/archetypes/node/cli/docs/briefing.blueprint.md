@@ -8,21 +8,31 @@
 
 - Vanilla Node.js CLI project with best practices, dev tools and standard structure
 
+- [Feature F1 - Project Initialization](./f1-project-initialization.blueprint.md)
+
 ### F2 Configuration System
 
 - Flexible configuration system with environment variables, config files, and defaults
+
+- [Feature F2 - Configuration System](./f2-configuration-system.blueprint.md)
 
 ### F3 Utilities
 
 - Wraps and adapts external or built-in frameworks dependencies for http, crypto, fs, etc.
 
+- [Feature F3 - Utilities](./f3-utilities.blueprint.md)
+
 ### F4 Logging and Error Handling
 
 - Comprehensive logging and error handling with different verbosity levels
 
+- [Feature F4 - Logging and Error Handling](./f4-logging-and-error-handling.blueprint.md)
+
 ### F5 Command Management
 
 - Basic command system with argument parsing, and options support
+
+- [Feature F5 - Command Management](./f5-command-management.blueprint.md)
 
 ### F6 Business example
 
