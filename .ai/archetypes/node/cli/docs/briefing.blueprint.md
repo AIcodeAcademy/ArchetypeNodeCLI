@@ -38,6 +38,8 @@
 
 - A business example to show how to use the archetype, get current weather from current location based on current IP address
 
+- [Feature F6 - Business example](./f6-business-example.blueprint.md)
+
 ## Context diagram
 
 ```mermaid
