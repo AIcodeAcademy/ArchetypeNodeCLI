@@ -24,12 +24,7 @@ You are to generate a comprehensive set of tests for the F5 Command Management f
 
 2. **Test Scope:**
    - Cover all acceptance criteria and scenarios described in the feature blueprint.
-   - Focus on the following modules:
-     - `command.factory.ts`
-     - `command.repository.ts`
-     - `command.type.ts`
-     - `argument.parser.ts`
-     - `option.parser.ts`
+   - Focus on the  modules from the `src/application` folder.
    - Test command system initialization and configuration
    - Test argument parsing functionality
    - Test option handling and validation
