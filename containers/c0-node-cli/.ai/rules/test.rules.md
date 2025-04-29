@@ -1,7 +1,7 @@
 # Test rules
 
 - We will use `node:test` for testing, without any external libraries.
-- Test will be written in TypeScript at the `/tests` directory (sibling of `/src`).
+- Test will be written in TypeScript at the `/test` directory (sibling of `/src`).
 - The script `npm test` should run the all the tests in the `/test` directory.
 
 ## Test Structure
