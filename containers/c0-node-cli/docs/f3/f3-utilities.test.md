@@ -14,7 +14,7 @@ You are to generate a comprehensive set of tests for the F3 Utilities feature as
 1. **Read the following files for context and requirements:**
    - [Feature Blueprint](/docs/f3-utilities.blueprint.md)
    - [Implementation Plan](/containers/c0-node-cli/docs/f3/f3-utilities.plan.md) (if available)
-   - [Relevant source files in `/src/system/adapters/`]
+   - [Relevant source files in `/src/system/`]
    - [Test Rules](/containers/c0-node-cli/.ai/rules/test.rules.md)
 
 2. **Test Scope:**
