@@ -2,7 +2,7 @@
 
 - **Language** : TypeScript
 - **Architecture** : Layered, no DI
-- **Paradigm** : Functional
+- **Paradigm** : Functional and Object Oriented
 - **Framework** : Node.js
 - **Testing** : {{: built-in | Jest }}
 - **Linting** : {{: Biome | ESLint }}

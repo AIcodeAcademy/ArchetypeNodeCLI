@@ -13,7 +13,11 @@ src/
 ```
 
 - Features are spread across layers, works well for a small set of features.
-- Do not create any other folder level inside the layers.
+- Can create feature or specification folders inside the layers.
+- Do not create any other technical folder level inside the layers.
+
+
+Below is the list of layers and artifacts that can be found in each layer.
 
 ## Application Layer
 - The **Application** layer is the entry point of the application.
@@ -48,20 +52,28 @@ src/
 - Low level utilities
 - Common artifacts at this layer:
   - **Adapter**: Wraps and hides external or built-in frameworks dependencies
+  - **Decorator**: An adapter that adds behavior to classes or functions
   - **Repository**: Persist or fetch from an store (local or remote)
-  - **Type**: Data structures, and default values
-  - **Util**: Common utilities, not tied to an specific domain
+
 
 > Depends on its own artifacts. 
 
-
-### Artifacts
+## Artifacts
 
 Each instance should be in a module file with name convention <intention>.<artifact>.ts 
 
+- **Adapter**: Wraps and hides external or built-in frameworks dependencies
 - **Command**: Extracts and processes user commands and arguments
+- **Component**: Visual elements of user interface
+- **Config**: Configuration and bootstrap
+- **Controller**: Receives and redirects requests to the domain layer
+- **Decorator**: Adds behavior to classes or functions
+- **Factory**: Creates and configures instances
+- **Mapper**: Data transformation
 - **Repository**: Persist or fetch from an store (local or remote)
 - **Service**: Main logic, and transformation
+- **Singleton**: Ensures a class has only one instance and provide a global point of access to it
 - **Type**: Data structures, and default values
 - **Util**: Common utilities, not tied to an specific domain
 - **Validator**: Data validation
+
