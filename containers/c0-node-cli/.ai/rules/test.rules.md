@@ -15,6 +15,7 @@
 
 
 ## Test Naming
+- Create a folder for each feature you are testing in the `/test` directory.
 - Test files should be named with the pattern `*.test.ts`.  
 - The subject of the test should be named `subName`
 - Doubles should be prefixed with `mockName`, `spyName` or `stubName`.
