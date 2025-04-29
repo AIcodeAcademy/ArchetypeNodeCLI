@@ -4,6 +4,7 @@ export type LogLevel = {
 	id: number;
 	level: LogLevelType;
 };
+
 export const LOG_LEVELS: LogLevel[] = [
 	{
 		id: 0,

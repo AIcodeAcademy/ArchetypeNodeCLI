@@ -6,19 +6,6 @@ import {
 	transportFactory,
 } from "./transport.factory.ts";
 
-function createLogEntry(
-	level: LogLevelType,
-	message: string,
-	context?: unknown,
-): LogEntry {
-	return {
-		level,
-		message,
-		context,
-		timestamp: new Date().toISOString(),
-	};
-}
-
 export class Log {
 	private static instance: Log | null = null;
 	private readonly logConfig: LogConfig;
@@ -51,20 +38,33 @@ export class Log {
 		return Log.instance;
 	}
 
-	debug(message: string, context?: unknown) {
-		this.write(createLogEntry("debug", message, context));
+	public debug(message: string, context?: unknown) {
+		this.write(this.createLogEntry("debug", message, context));
 	}
 
-	info(message: string, context?: unknown) {
-		this.write(createLogEntry("info", message, context));
+	public info(message: string, context?: unknown) {
+		this.write(this.createLogEntry("info", message, context));
 	}
 
-	warn(message: string, context?: unknown) {
-		this.write(createLogEntry("warn", message, context));
+	public warn(message: string, context?: unknown) {
+		this.write(this.createLogEntry("warn", message, context));
 	}
 
-	error(message: string, context?: unknown) {
-		this.write(createLogEntry("error", message, context));
+	public error(message: string, context?: unknown) {
+		this.write(this.createLogEntry("error", message, context));
+	}
+
+	private createLogEntry(
+		level: LogLevelType,
+		message: string,
+		context?: unknown,
+	): LogEntry {
+		return {
+			level,
+			message,
+			context,
+			timestamp: new Date().toISOString(),
+		};
 	}
 
 	private write(logEntry: LogEntry) {

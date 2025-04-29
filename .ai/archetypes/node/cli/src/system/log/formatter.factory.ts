@@ -1,25 +1,25 @@
+import { styleTextFactory } from "./formatter-style.factory.ts";
 import type {
 	LogFormatterType,
 	LogTransportConfig,
 } from "./log-config.type.ts";
-import { styleTextFactory } from "./log-style.factory.ts";
-
 import type { LogEntry } from "./log-entry.type.ts";
 
-type FormatterFn = (logEntry: LogEntry, options: FormatterOptions) => string;
-type FormatterOptions = {
+export type FormatterFn = (
+	logEntry: LogEntry,
+	options: FormatterOptions,
+) => string;
+
+export type FormatterOptions = {
 	addTimestamp?: boolean;
 };
 
-export function formatLogEntry(
-	logEntry: LogEntry,
-	logTransportConfig: LogTransportConfig,
-) {
-	const formatter = formatterFactory(logTransportConfig);
-	const options = {
-		addTimestamp: logTransportConfig.timestamp,
-	};
-	return formatter(logEntry, options);
+export function formatterFactory(logTransportConfig: LogTransportConfig) {
+	const formatter = formattersMap[logTransportConfig.formatter];
+	if (!formatter)
+		return (logEntry: LogEntry, options: FormatterOptions) => logEntry.message;
+
+	return formatter;
 }
 
 const formattersMap: Record<LogFormatterType, FormatterFn> = {
@@ -27,14 +27,6 @@ const formattersMap: Record<LogFormatterType, FormatterFn> = {
 	pretty: prettyFormatter,
 	csv: csvFormatter,
 };
-
-function formatterFactory(logTransportConfig: LogTransportConfig) {
-	const formatter = formattersMap[logTransportConfig.formatter];
-	if (!formatter)
-		return (logEntry: LogEntry, options: FormatterOptions) => logEntry.message;
-
-	return formatter;
-}
 
 function jsonFormatter(logEntry: LogEntry, options: FormatterOptions) {
 	const message = JSON.stringify(logEntry);

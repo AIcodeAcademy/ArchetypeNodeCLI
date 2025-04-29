@@ -10,19 +10,6 @@ export interface LogTransportWrite {
 	write: (logEntry: LogEntry) => void;
 }
 
-type TransportConstructor = (
-	transport: LogTransportConfig,
-) => LogTransportWrite;
-
-const transportConstructorsMap: Record<LogTransportType, TransportConstructor> =
-	{
-		console: (transport) => new TransportConsole(transport),
-		file: (transport) => new TransportFile(transport),
-		http: () => {
-			throw new Error("HTTP transport not implemented");
-		},
-	};
-
 export function transportFactory(
 	transport: LogTransportConfig,
 ): LogTransportWrite | undefined {
@@ -40,3 +27,16 @@ export function transportFactory(
 		return undefined;
 	}
 }
+
+type TransportConstructor = (
+	transport: LogTransportConfig,
+) => LogTransportWrite;
+
+const transportConstructorsMap: Record<LogTransportType, TransportConstructor> =
+	{
+		console: (transport) => new TransportConsole(transport),
+		file: (transport) => new TransportFile(transport),
+		http: () => {
+			throw new Error("HTTP transport not implemented");
+		},
+	};

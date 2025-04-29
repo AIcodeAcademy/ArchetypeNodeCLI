@@ -1,6 +1,9 @@
 import type { LogLevelType } from "./log-level.type.ts";
+
 export type LogFormatterType = "csv" | "json" | "pretty";
+
 export type LogTransportType = "console" | "file" | "http";
+
 export type LogTransportConfig = {
 	type: LogTransportType;
 	minLevel: LogLevelType;
@@ -13,6 +16,7 @@ export type LogConfig = {
 	minLevel: LogLevelType;
 	transports: LogTransportConfig[];
 };
+
 export const DEFAULT_LOG_CONFIG: LogConfig = {
 	minLevel: "debug",
 	transports: [
