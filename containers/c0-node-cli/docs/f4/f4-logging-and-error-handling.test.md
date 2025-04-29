@@ -14,7 +14,7 @@ You are to generate a comprehensive set of tests for the F4 Logging and Error Ha
 1. **Read the following files for context and requirements:**
    - [Feature Blueprint](/docs/f4-logging-and-error-handling.blueprint.md)
    - [Implementation Plan](/containers/c0-node-cli/docs/f4/f4-logging-and-error-handling.plan.md) (if available)
-   - [Relevant source files in `/src/system/`]
+   - [Relevant source files in `/src/system/log`]
    - [Test Rules](/containers/c0-node-cli/.ai/rules/test.rules.md)
 
 2. **Test Scope:**
