@@ -1,5 +1,5 @@
-import type { IpInfo } from "../system/ip-info.type.ts";
-import { ipRepository } from "../system/ip.repository.ts";
+import { ipApiRepository } from "../system/ip-api.repository.ts";
+import type { IpApi } from "../system/ip-api.type.ts";
 import { getLog } from "../system/log/log.utils.ts";
 import { openMeteoRepository } from "../system/open-meteo.repository.ts";
 import { cache } from "./cache.utils.ts";
@@ -10,25 +10,30 @@ export type MeteoOptions = {
 	useCache: boolean;
 };
 
+const CACHE_KEY = "ipApi";
+
 export async function getMeteo(options: MeteoOptions): Promise<Meteo> {
-	let ipInfo: IpInfo;
+	let ipApi: IpApi;
 	if (options.useCache) {
-		ipInfo = await getIpFromCache();
+		ipApi = await getIpApiFromCache();
 	} else {
-		ipInfo = await ipRepository.getIpInfo();
+		ipApi = await ipApiRepository.getIpApi();
 	}
-	const openMeteo = await openMeteoRepository.getMeteo(ipInfo.lat, ipInfo.lon);
-	const meteo = mapToMeteo(ipInfo, openMeteo);
+	const openMeteo = await openMeteoRepository.getOpenMeteo(
+		ipApi.lat,
+		ipApi.lon,
+	);
+	const meteo = mapToMeteo(ipApi, openMeteo);
 	return meteo;
 }
 
-async function getIpFromCache(): Promise<IpInfo> {
-	const cachedIpInfo = await cache.load<IpInfo>("ipInfo");
-	if (cachedIpInfo) {
-		return cachedIpInfo;
+async function getIpApiFromCache(): Promise<IpApi> {
+	const cachedIpApi = await cache.load<IpApi>(CACHE_KEY);
+	if (cachedIpApi) {
+		return cachedIpApi;
 	}
-	const ipInfo = await ipRepository.getIpInfo();
-	getLog().warn("Saving IP info to cache", ipInfo);
-	await cache.save("ipInfo", ipInfo);
-	return ipInfo;
+	const ipApi = await ipApiRepository.getIpApi();
+	getLog().warn("Saving IP info to cache", ipApi);
+	await cache.save(CACHE_KEY, ipApi);
+	return ipApi;
 }

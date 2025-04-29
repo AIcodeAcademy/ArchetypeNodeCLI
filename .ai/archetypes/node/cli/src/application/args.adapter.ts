@@ -22,7 +22,8 @@ export const parseCommand = (): CommandOptions => {
 		allowPositionals: true,
 	});
 	const command = positionals[0];
-	const parsedArgs = { command, options: values };
-	getLog().info(`Parsed arguments: ${JSON.stringify(parsedArgs)}`);
-	return parsedArgs;
+	const options = values;
+	const commandOptions = { command, options };
+	getLog().info(`Parsed command options: ${JSON.stringify(commandOptions)}`);
+	return commandOptions;
 };

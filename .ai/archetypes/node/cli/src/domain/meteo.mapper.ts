@@ -1,21 +1,20 @@
-import type { IpInfo } from "../system/ip-info.type.ts";
-import type { OpenMeteo } from "../system/meteo.type.ts";
-import type { DailyForecast, Meteo } from "./meteo.type.ts";
+import type { IpApi } from "../system/ip-api.type.ts";
+import type { OpenMeteo } from "../system/open-meteo.type.ts";
+import type { Meteo } from "./meteo.type.ts";
 
-export function mapToMeteo(ipInfo: IpInfo, meteo: OpenMeteo): Meteo {
-	const dailyForecasts: DailyForecast[] = meteo.daily.time.map(
-		(time, index) => ({
-			date: time,
-			max_temp: meteo.daily.temperature_2m_max[index],
-			min_temp: meteo.daily.temperature_2m_min[index],
-		}),
-	);
-	return {
-		country: ipInfo.country,
-		city: ipInfo.city,
-		timezone: meteo.timezone,
-		latitude: meteo.latitude,
-		longitude: meteo.longitude,
-		dailyForecasts,
+export function mapToMeteo(ipApi: IpApi, openMeteo: OpenMeteo): Meteo {
+	const meteo: Meteo = {
+		country: ipApi.country,
+		city: ipApi.city,
+		timezone: openMeteo.timezone,
+		latitude: openMeteo.latitude,
+		longitude: openMeteo.longitude,
+		dailyForecasts: [],
 	};
+	meteo.dailyForecasts = openMeteo.daily.time.map((time, index) => ({
+		date: time,
+		max_temp: openMeteo.daily.temperature_2m_max[index],
+		min_temp: openMeteo.daily.temperature_2m_min[index],
+	}));
+	return meteo;
 }

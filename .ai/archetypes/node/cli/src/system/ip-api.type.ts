@@ -1,4 +1,4 @@
-export type IpInfo = {
+export type IpApi = {
 	status: string;
 	country: string;
 	countryCode: string;
