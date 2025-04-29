@@ -10,8 +10,6 @@ export type MeteoOptions = {
 	useCache: boolean;
 };
 
-const CACHE_KEY = "ipApi";
-
 export async function getMeteo(options: MeteoOptions): Promise<Meteo> {
 	let ipApi: IpApi;
 	if (options.useCache) {
@@ -28,6 +26,7 @@ export async function getMeteo(options: MeteoOptions): Promise<Meteo> {
 }
 
 async function getIpApiFromCache(): Promise<IpApi> {
+	const CACHE_KEY = "ipApi";
 	const cachedIpApi = await cache.load<IpApi>(CACHE_KEY);
 	if (cachedIpApi) {
 		return cachedIpApi;

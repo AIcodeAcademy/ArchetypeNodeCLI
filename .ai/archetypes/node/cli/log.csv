@@ -896,3 +896,10 @@
 09:47:49,info,Parsed arguments: {"command":"meteo","options":{"cache":true}}
 09:47:49,warn,Saving IP info to cache
 09:47:50,info,My meteorological data
+07:38:57,debug,Environment and log working
+07:38:57,info,Parsed command options: {"command":"meteo","options":{"cache":true}}
+07:38:57,warn,Saving IP info to cache
+07:38:58,info,My meteorological data
+07:41:49,debug,Environment and log working
+07:41:49,info,Parsed command options: {"command":"meteo","options":{"cache":true}}
+07:41:49,info,My meteorological data

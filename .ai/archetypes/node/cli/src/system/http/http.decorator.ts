@@ -1,11 +1,11 @@
 export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
-export const httpDecorator = async <T>(
+export async function httpDecorator<T>(
 	fetchFn: (url: string, init?: RequestInit) => Promise<Response>,
 	url: string,
 	body?: unknown,
 	method?: "POST" | "GET" | "PUT" | "DELETE",
-): Promise<HttpResponse<T>> => {
+): Promise<HttpResponse<T>> {
 	try {
 		const init: RequestInit = {
 			method: method || body ? "POST" : "GET",
@@ -22,7 +22,7 @@ export const httpDecorator = async <T>(
 			error: `Unexpected http error: ${error?.message}`,
 		};
 	}
-};
+}
 
 function createHeaders() {
 	const token = "to be provided from environment or config file";

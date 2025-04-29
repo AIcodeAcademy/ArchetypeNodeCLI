@@ -1,27 +1,27 @@
 import { styleTextAdapter } from "../style-text.adapter.ts";
 import type { LogLevelType } from "./log-level.type.ts";
 
-export const styleTextFactory = (level: LogLevelType) => {
+export function styleTextFactory(level: LogLevelType) {
 	const styleFn = levelStyleMap[level];
 	if (!styleFn) return (text: string) => text;
 	return styleFn;
-};
+}
 
-const styleError = (text: string) => {
+function styleError(text: string) {
 	return styleTextAdapter(["red"], ["bold"], text);
-};
+}
 
-const styleWarning = (text: string) => {
+function styleWarning(text: string) {
 	return styleTextAdapter(["green"], ["bold"], text);
-};
+}
 
-const styleInfo = (text: string) => {
+function styleInfo(text: string) {
 	return styleTextAdapter(["green"], [], text);
-};
+}
 
-const styleDebug = (text: string) => {
+function styleDebug(text: string) {
 	return styleTextAdapter(["red"], [], text);
-};
+}
 
 const levelStyleMap: Record<LogLevelType, (msg: string) => string> = {
 	error: styleError,

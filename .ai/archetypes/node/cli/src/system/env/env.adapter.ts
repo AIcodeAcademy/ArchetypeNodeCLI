@@ -8,7 +8,7 @@ import { DEFAULT_ENV } from "./env.type.ts";
  * @example
  * const env = getEnv();
  */
-export const getEnv = (): Env => {
+export function getEnv(): Env {
 	let nodeEnv = process.env.NODE_ENV;
 	if (!nodeEnv || isInvalidEnvironment(nodeEnv)) {
 		nodeEnv = DEFAULT_ENV.NODE_ENV;
@@ -25,7 +25,7 @@ export const getEnv = (): Env => {
 		path: process.cwd(),
 		isProduction: nodeEnv === "production",
 	} as const;
-};
+}
 
 function isInvalidEnvironment(nodeEnv: string): boolean {
 	return nodeEnv !== "development" && nodeEnv !== "production";
