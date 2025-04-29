@@ -1,0 +1,65 @@
+{
+	"project-name": "ArchetypeNodeCLI",
+	"container": {
+		"id": "c0",
+		"slug": "c0-node-cli",
+		"folder": "/containers/c0-node-cli",
+		"status": "implemented"
+	},
+	"features": [
+		{
+			"id": "f1",
+			"slug": "f1-project-initialization",
+			"folder": "/containers/c0-node-cli/docs/f1",
+			"plan": "/containers/c0-node-cli/docs/f1/f1-project-initialization.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f1/f1-project-initialization.prompt.md",
+			"status": "implemented",
+			"git": ""
+		},
+		{
+			"id": "f2",
+			"slug": "f2-configuration-system",
+			"folder": "/containers/c0-node-cli/docs/f2",
+			"plan": "/containers/c0-node-cli/docs/f2/f2-configuration-system.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f2/f2-configuration-system.prompt.md",
+			"status": "implemented",
+			"git": ""
+		},
+		{
+			"id": "f3",
+			"slug": "f3-utilities",
+			"folder": "/containers/c0-node-cli/docs/f3",
+			"plan": "/containers/c0-node-cli/docs/f3/f3-utilities.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f3/f3-utilities.prompt.md",
+			"status": "implemented",
+			"git": ""
+		},
+		{
+			"id": "f4",
+			"slug": "f4-logging-and-error-handling",
+			"folder": "/containers/c0-node-cli/docs/f4",
+			"plan": "/containers/c0-node-cli/docs/f4/f4-logging-and-error-handling.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f4/f4-logging-and-error-handling.prompt.md",
+			"status": "implemented",
+			"git": ""
+		},
+		{
+			"id": "f5",
+			"slug": "f5-command-management",
+			"folder": "/containers/c0-node-cli/docs/f5",
+			"plan": "/containers/c0-node-cli/docs/f5/f5-command-management.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f5/f5-command-management.prompt.md",
+			"status": "implemented",
+			"git": ""
+		},
+		{
+			"id": "f6",
+			"slug": "f6-business-example",
+			"folder": "/containers/c0-node-cli/docs/f6",
+			"plan": "/containers/c0-node-cli/docs/f6/f6-business-example.plan.md",
+			"prompt": "/containers/c0-node-cli/docs/f6/f6-business-example.prompt.md",
+			"status": "implemented",
+			"git": ""
+		}
+	]
+}
