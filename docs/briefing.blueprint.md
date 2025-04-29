@@ -74,11 +74,11 @@ graph TD
 - **Monitoring**: operational
 - **Persistence**: file_system
 
-### C1 ArchetypeNodeCLI
+### C0 ArchetypeNodeCLI
 
 - A node-cli that provides a standardized template and structure for creating new Node.js CLI applications
 
-- [Systems architecture](/docs/systems-architecture.blueprint.md)
+- [Archetype Node CLI](/containers/c0-node-cli/docs/node-cli.archetype.md)
 
 ## Credits
 
