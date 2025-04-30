@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { beforeEach, describe, mock, test } from "node:test";
-import { runMeteoCommand } from "../../src/application/meteo.command.ts";
+import { meteoCommand } from "../../src/application/meteo.command.ts";
 import type { MeteoOptions } from "../../src/domain/meteo.service.ts";
 import { meteoService } from "../../src/domain/meteo.service.ts";
 import { log } from "../../src/system/log/log.factory.ts";
@@ -19,6 +19,12 @@ const logInfoSpy = mock.method(log, "info", (message: string) => {});
 const logErrorSpy = mock.method(log, "error", (message: string) => {});
 const options: MeteoOptions = { useCache: true };
 
+/**
+ * Given meteo.command with successful getMeteo service call
+ * When runMeteoCommand is called
+ * Then getMeteo service is called with options
+ * And log info is called
+ */
 describe("Given meteo.command with successful getMeteo service call", () => {
 	beforeEach(() => {
 		// Arrange
@@ -29,7 +35,7 @@ describe("Given meteo.command with successful getMeteo service call", () => {
 	describe("When runMeteoCommand is called ", () => {
 		beforeEach(async () => {
 			// Act
-			await runMeteoCommand(options);
+			await meteoCommand.run(options);
 		});
 		test("Then getMeteo service is called with options ", async () => {
 			// Assert
@@ -43,6 +49,12 @@ describe("Given meteo.command with successful getMeteo service call", () => {
 		});
 	});
 });
+
+/**
+ * Given meteo.command with failed getMeteo service call
+ * When runMeteoCommand is called
+ * Then getMeteo service is called and log error is called
+ */
 describe("Given meteo.command with failed getMeteo service call", () => {
 	beforeEach(() => {
 		// Arrange
@@ -54,7 +66,7 @@ describe("Given meteo.command with failed getMeteo service call", () => {
 	describe("When runMeteoCommand is called", () => {
 		beforeEach(async () => {
 			// Act
-			await runMeteoCommand(options);
+			await meteoCommand.run(options);
 		});
 		test("Then getMeteo service is called and log error is called", async () => {
 			// Assert

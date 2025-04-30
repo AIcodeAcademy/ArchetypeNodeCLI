@@ -16,6 +16,10 @@
   - **Act**: Execute the function or method under test.
   - **Assert**: Verify that the action taken has the expected outcome.
 
+### Comments
+
+- Use JSDoc comments with gherkin syntax at each main `describe` block.
+- Use comments each AAA pattern step.
 
 ## Test Naming
 - Create a folder for each feature you are testing in the `/test` directory.
