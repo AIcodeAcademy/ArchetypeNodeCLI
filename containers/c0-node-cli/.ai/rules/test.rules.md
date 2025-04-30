@@ -1,12 +1,14 @@
 # Test rules
 
 - We will use `node:test` for testing, without any external libraries.
-- Test will be written in TypeScript at the `/test` directory (sibling of `/src`).
+- Test will be written in TypeScript 
+- Tests are located at the `/test` directory (sibling of `/src`).
 - Source code is imported with relative full paths, ending in `.ts`.
 - The script `npm test` should run the all the tests in the `/test` directory.
 - Do not change the source code to make the tests pass.
 
 ## Test Structure
+
 - Follow the Gherkin syntax for writing tests.
  - **Given** a specific context in a main `describe` block
  - **When** a specific action is taken in a nested `describe` block or a `beforeEach` block
@@ -25,3 +27,14 @@
 - Create a folder for each feature you are testing in the `/test` directory.
 - Test files should be named with the pattern `*.test.ts`.  
 - Doubles should be suffixed with `Spy`, `Mock` or `Stub`.
+
+## Best Practices
+
+- Keep test coverage focused on feature requirements
+- Use consistent naming conventions
+- Include both happy path and error cases
+- Consider edge cases and boundary conditions
+- Follow the AAA pattern consistently
+- Use appropriate test doubles
+- Group related tests logically
+- Include cleanup steps where needed 

@@ -22,7 +22,7 @@
 			"folder": "/containers/c0-node-cli/docs/f2",
 			"plan": "/containers/c0-node-cli/docs/f2/f2-configuration-system.plan.md",
 			"prompt": "/containers/c0-node-cli/docs/f2/f2-configuration-system.prompt.md",
-			"status": "implemented",
+			"status": "test-prompted",
 			"git": ""
 		},
 		{
@@ -31,7 +31,7 @@
 			"folder": "/containers/c0-node-cli/docs/f3",
 			"plan": "/containers/c0-node-cli/docs/f3/f3-utilities.plan.md",
 			"prompt": "/containers/c0-node-cli/docs/f3/f3-utilities.prompt.md",
-			"status": "implemented",
+			"status": "test-prompted",
 			"git": ""
 		},
 		{
@@ -49,7 +49,7 @@
 			"folder": "/containers/c0-node-cli/docs/f5",
 			"plan": "/containers/c0-node-cli/docs/f5/f5-command-management.plan.md",
 			"prompt": "/containers/c0-node-cli/docs/f5/f5-command-management.prompt.md",
-			"status": "implemented",
+			"status": "test-prompted",
 			"git": ""
 		},
 		{
@@ -58,7 +58,7 @@
 			"folder": "/containers/c0-node-cli/docs/f6",
 			"plan": "/containers/c0-node-cli/docs/f6/f6-business-example.plan.md",
 			"prompt": "/containers/c0-node-cli/docs/f6/f6-business-example.prompt.md",
-			"status": "implemented",
+			"status": "test-prompted",
 			"git": ""
 		}
 	]

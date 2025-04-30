@@ -1,20 +1,20 @@
 {
-  "project-name": "{{ project name }}",
-  "container": {
-    "id": "{{ container.id }}",
-    "slug": "{{ container | slug }}",
-    "folder": "/containers/{{ slug }}",
-    "status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
-  },
-  "features": [
-    {
-      "id": "{{ feature.id }}",
-      "slug": "{{ feature.slug }}",
-      "folder": "{{ container.folder }}/docs/{{ feature.id }}",
-      "plan": "{{ feature.folder }}/{{ feature.slug }}.plan.md",
-      "prompt": "{{ feature.folder }}/{{ feature.slug }}.prompt.md",
-      "status": "{{: defined | planned | prompted | implemented }}",
-      "git": "{{ git commit hash for the feature implementation }}"
-    }
-  ]
+	"project-name": "{{ project name }}",
+	"container": {
+		"id": "{{ container.id }}",
+		"slug": "{{ container | slug }}",
+		"folder": "/containers/{{ slug }}",
+		"status": "{{: draft | defined | planned | prompted | implemented  }}"
+	},
+	"features": [
+		{
+			"id": "{{ feature.id }}",
+			"slug": "{{ feature.slug }}",
+			"folder": "{{ container.folder }}/docs/{{ feature.id }}",
+			"plan": "{{ feature.folder }}/{{ feature.slug }}.plan.md",
+			"prompt": "{{ feature.folder }}/{{ feature.slug }}.prompt.md",
+			"status": "{{: defined | planned | prompted | implemented }}",
+			"git": "{{ git commit hash for the feature implementation }}"
+		}
+	]
 }
