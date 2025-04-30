@@ -6,12 +6,13 @@ import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
 import { TransportFile } from "../../src/system/log/transport.-file.repository.ts";
 
 /**
- * @description
- * Given a file transport
+ * @feature File Transport
+ * @scenario Write log entries to file
+ * Given a file transport configuration
  * When writing log entries
- * Then it should properly write to the specified file
+ * Then entries should be properly written to the specified file
  */
-describe("File Transport", () => {
+describe("Given TransportFile", () => {
 	let transport: TransportFile;
 	const testFilePath = "test.log";
 	const defaultConfig: LogTransportConfig = {
@@ -30,7 +31,7 @@ describe("File Transport", () => {
 	};
 
 	beforeEach(async () => {
-		// Clean up test file if it exists
+		// Arrange: Clean up test file if it exists
 		try {
 			await fs.unlink(testFilePath);
 		} catch (err) {
@@ -48,76 +49,77 @@ describe("File Transport", () => {
 		}
 	});
 
-	/**
-	 * @description
-	 * Given a file transport
-	 * When writing a log entry
-	 * Then it should create the file and write the entry
-	 */
-	test("should write log entry to file", async () => {
-		await transport.write(sampleLogEntry);
-		const content = await fs.readFile(testFilePath, "utf-8");
-		assert.ok(content.includes("Test message"), "File should contain message");
-		assert.ok(content.includes("info"), "File should contain level");
+	describe("When writing single log entry", () => {
+		test("Then the file should be created and contain the entry", async () => {
+			// Act: Write log entry
+			await transport.write(sampleLogEntry);
+
+			// Assert: Verify file content
+			const content = await fs.readFile(testFilePath, "utf-8");
+			assert.ok(
+				content.includes("Test message"),
+				"File should contain message",
+			);
+			assert.ok(content.includes("info"), "File should contain level");
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a file transport
-	 * When writing multiple log entries
-	 * Then it should append entries to the file
-	 */
-	test("should append multiple log entries", async () => {
-		await transport.write(sampleLogEntry);
-		await transport.write({ ...sampleLogEntry, message: "Second message" });
-		const content = await fs.readFile(testFilePath, "utf-8");
-		assert.ok(
-			content.includes("Test message"),
-			"File should contain first message",
-		);
-		assert.ok(
-			content.includes("Second message"),
-			"File should contain second message",
-		);
+	describe("When writing multiple log entries", () => {
+		test("Then entries should be appended to the file", async () => {
+			// Act: Write multiple entries
+			await transport.write(sampleLogEntry);
+			await transport.write({ ...sampleLogEntry, message: "Second message" });
+
+			// Assert: Verify all entries are present
+			const content = await fs.readFile(testFilePath, "utf-8");
+			assert.ok(
+				content.includes("Test message"),
+				"File should contain first message",
+			);
+			assert.ok(
+				content.includes("Second message"),
+				"File should contain second message",
+			);
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a file transport
-	 * When writing a log entry with context
-	 * Then it should include context in the file
-	 */
-	test("should include context in file", async () => {
-		await transport.write(sampleLogEntry);
-		const content = await fs.readFile(testFilePath, "utf-8");
-		assert.ok(content.includes('"key":"value"'), "File should contain context");
+	describe("When writing log entry with context", () => {
+		test("Then the context should be included in the file", async () => {
+			// Act: Write entry with context
+			await transport.write(sampleLogEntry);
+
+			// Assert: Verify context is present
+			const content = await fs.readFile(testFilePath, "utf-8");
+			assert.ok(content.includes("key:value"), "File should contain context");
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a file transport
-	 * When writing to a non-existent directory
-	 * Then it should create the directory and write the file
-	 */
-	test("should create directory if it does not exist", async () => {
-		const dirPath = "test-dir";
-		const filePath = `${dirPath}/test.log`;
+	describe("When writing to non-existent directory", () => {
+		test("Then the directory should be created and file written", async () => {
+			// Arrange: Set up directory path
+			const dirPath = "test-dir";
+			const filePath = `${dirPath}/test.log`;
 
-		const config: LogTransportConfig = {
-			...defaultConfig,
-			path: filePath,
-		};
+			const config: LogTransportConfig = {
+				...defaultConfig,
+				path: filePath,
+			};
 
-		transport = new TransportFile(config);
-		await transport.write(sampleLogEntry);
-		const content = await fs.readFile(filePath, "utf-8");
-		assert.ok(
-			content.includes("Test message"),
-			"File should be created and contain message",
-		);
+			transport = new TransportFile(config);
 
-		// Clean up
-		await fs.unlink(filePath);
-		await fs.rmdir(dirPath);
+			// Act: Write entry
+			await transport.write(sampleLogEntry);
+
+			// Assert: Verify file was created
+			const content = await fs.readFile(filePath, "utf-8");
+			assert.ok(
+				content.includes("Test message"),
+				"File should be created and contain message",
+			);
+
+			// Clean up
+			await fs.unlink(filePath);
+			await fs.rmdir(dirPath);
+		});
 	});
 });

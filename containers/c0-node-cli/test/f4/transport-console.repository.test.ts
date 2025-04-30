@@ -5,23 +5,17 @@ import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
 import { TransportConsole } from "../../src/system/log/transport-console.repository.ts";
 
 /**
- * @description
- * Given a console transport
+ * @feature Console Transport
+ * @scenario Write log entries to console
+ * Given a console transport configuration
  * When writing log entries
- * Then it should properly format and output to console
+ * Then entries should be properly formatted and output to console
  */
-describe("Console Transport", () => {
+describe("Given TransportConsole", () => {
 	let transport: TransportConsole;
 	let consoleLogSpy: ReturnType<typeof mock.method>;
 	let consoleErrorSpy: ReturnType<typeof mock.method>;
 	let consoleWarnSpy: ReturnType<typeof mock.method>;
-
-	const sampleLogEntry: LogEntry = {
-		level: "info",
-		message: "Test message",
-		timestamp: "2024-04-30T12:00:00.000Z",
-		context: { key: "value" },
-	};
 
 	const defaultConfig: LogTransportConfig = {
 		type: "console",
@@ -30,68 +24,115 @@ describe("Console Transport", () => {
 		timestamp: true,
 	};
 
+	const sampleLogEntry: LogEntry = {
+		level: "info",
+		message: "Test message",
+		timestamp: "2024-04-30T12:00:00.000Z",
+		context: { key: "value" },
+	};
+
 	beforeEach(() => {
+		// Arrange: Set up transport and mock console methods
 		transport = new TransportConsole(defaultConfig);
-		// Mock console methods
 		consoleLogSpy = mock.method(console, "log");
 		consoleErrorSpy = mock.method(console, "error");
 		consoleWarnSpy = mock.method(console, "warn");
 	});
 
 	afterEach(() => {
-		// Restore console methods
+		// Clean up: Restore console methods
 		mock.restoreAll();
 	});
 
-	/**
-	 * @description
-	 * Given a console transport
-	 * When writing an info level log entry
-	 * Then it should use console.log
-	 */
-	test("should use console.log for info level", () => {
-		transport.write(sampleLogEntry);
-		assert.strictEqual(consoleLogSpy.mock.calls.length, 1);
-		assert.strictEqual(consoleErrorSpy.mock.calls.length, 0);
-		assert.strictEqual(consoleWarnSpy.mock.calls.length, 0);
+	describe("When writing info level log entry", () => {
+		test("Then it should use console.log", () => {
+			// Act: Write info level entry
+			transport.write(sampleLogEntry);
+
+			// Assert: Verify console.log was called
+			assert.strictEqual(
+				consoleLogSpy.mock.calls.length,
+				2,
+				"console.log should be called twice (message and context)",
+			);
+			assert.strictEqual(
+				consoleErrorSpy.mock.calls.length,
+				0,
+				"console.error should not be called",
+			);
+			assert.strictEqual(
+				consoleWarnSpy.mock.calls.length,
+				0,
+				"console.warn should not be called",
+			);
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a console transport
-	 * When writing an error level log entry
-	 * Then it should use console.error
-	 */
-	test("should use console.error for error level", () => {
-		transport.write({ ...sampleLogEntry, level: "error" });
-		assert.strictEqual(consoleLogSpy.mock.calls.length, 1);
-		assert.strictEqual(consoleErrorSpy.mock.calls.length, 0);
-		assert.strictEqual(consoleWarnSpy.mock.calls.length, 0);
+	describe("When writing error level log entry", () => {
+		test("Then it should use console.error", () => {
+			// Act: Write error level entry
+			transport.write({ ...sampleLogEntry, level: "error" });
+
+			// Assert: Verify console.error was called
+			assert.strictEqual(
+				consoleLogSpy.mock.calls.length,
+				0,
+				"console.log should not be called",
+			);
+			assert.strictEqual(
+				consoleErrorSpy.mock.calls.length,
+				2,
+				"console.error should be called twice (message and context)",
+			);
+			assert.strictEqual(
+				consoleWarnSpy.mock.calls.length,
+				0,
+				"console.warn should not be called",
+			);
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a console transport
-	 * When writing a warn level log entry
-	 * Then it should use console.warn
-	 */
-	test("should use console.warn for warn level", () => {
-		transport.write({ ...sampleLogEntry, level: "warn" });
-		assert.strictEqual(consoleLogSpy.mock.calls.length, 1);
-		assert.strictEqual(consoleErrorSpy.mock.calls.length, 0);
-		assert.strictEqual(consoleWarnSpy.mock.calls.length, 0);
+	describe("When writing warn level log entry", () => {
+		test("Then it should use console.warn", () => {
+			// Act: Write warn level entry
+			transport.write({ ...sampleLogEntry, level: "warn" });
+
+			// Assert: Verify console.warn was called
+			assert.strictEqual(
+				consoleLogSpy.mock.calls.length,
+				0,
+				"console.log should not be called",
+			);
+			assert.strictEqual(
+				consoleErrorSpy.mock.calls.length,
+				0,
+				"console.error should not be called",
+			);
+			assert.strictEqual(
+				consoleWarnSpy.mock.calls.length,
+				2,
+				"console.warn should be called twice (message and context)",
+			);
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a console transport
-	 * When writing a log entry with context
-	 * Then it should include context in the output
-	 */
-	test("should include context in output", () => {
-		transport.write(sampleLogEntry);
-		assert.strictEqual(consoleLogSpy.mock.calls.length, 2); // One for message, one for context
-		const contextOutput = consoleLogSpy.mock.calls[1].arguments[0];
-		assert.deepStrictEqual(contextOutput, sampleLogEntry.context);
+	describe("When writing log entry with context", () => {
+		test("Then it should include context in the output", () => {
+			// Act: Write entry with context
+			transport.write(sampleLogEntry);
+
+			// Assert: Verify context is included
+			assert.strictEqual(
+				consoleLogSpy.mock.calls.length,
+				2,
+				"Should log twice (message and context)",
+			);
+			const contextOutput = consoleLogSpy.mock.calls[1].arguments[0];
+			assert.deepStrictEqual(
+				contextOutput,
+				sampleLogEntry.context,
+				"Context should match input",
+			);
+		});
 	});
 });

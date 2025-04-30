@@ -13,7 +13,7 @@ import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
  * When creating different types of formatters
  * Then it should properly format log entries according to the specified format
  */
-describe("Formatter Factory", () => {
+describe("Given formatterFactory", () => {
 	const sampleLogEntry: LogEntry = {
 		level: "info",
 		message: "Test message",
@@ -30,77 +30,61 @@ describe("Formatter Factory", () => {
 		timestamp: true,
 	});
 
-	/**
-	 * @description
-	 * Given a pretty formatter
-	 * When formatting a log entry
-	 * Then it should return a human-readable formatted string
-	 */
-	test("should create pretty formatter", () => {
-		const formatter = formatterFactory(createTransportConfig("pretty"));
-		const formatted = formatter(sampleLogEntry, { addTimestamp: true });
-		assert.ok(
-			formatted.includes("Test message"),
-			"Formatted string should contain the message",
-		);
-		assert.ok(
-			formatted.includes("info"),
-			"Formatted string should contain the level",
-		);
+	describe("When creating pretty formatter", () => {
+		test("Then it should return a human-readable formatted string", () => {
+			const formatter = formatterFactory(createTransportConfig("pretty"));
+			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
+			assert.ok(
+				formatted.includes("Test message"),
+				"Formatted string should contain the message",
+			);
+			assert.ok(
+				formatted.includes("info"),
+				"Formatted string should contain the level",
+			);
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a JSON formatter
-	 * When formatting a log entry
-	 * Then it should return a valid JSON string
-	 */
-	test("should create JSON formatter", () => {
-		const formatter = formatterFactory(createTransportConfig("json"));
-		const formatted = formatter(sampleLogEntry, { addTimestamp: true });
-		const parsed = JSON.parse(formatted);
-		assert.strictEqual(
-			parsed.message,
-			"Test message",
-			"JSON should contain the message",
-		);
-		assert.strictEqual(parsed.level, "info", "JSON should contain the level");
+	describe("When creating JSON formatter", () => {
+		test("Then it should return a valid JSON string", () => {
+			const formatter = formatterFactory(createTransportConfig("json"));
+			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
+			const parsed = JSON.parse(formatted);
+			assert.strictEqual(
+				parsed.message,
+				"Test message",
+				"JSON should contain the message",
+			);
+			assert.strictEqual(parsed.level, "info", "JSON should contain the level");
+		});
 	});
 
-	/**
-	 * @description
-	 * Given a CSV formatter
-	 * When formatting a log entry
-	 * Then it should return a valid CSV string
-	 */
-	test("should create CSV formatter", () => {
-		const formatter = formatterFactory(createTransportConfig("csv"));
-		const formatted = formatter(sampleLogEntry, { addTimestamp: true });
-		assert.ok(
-			formatted.includes("Test message"),
-			"CSV should contain the message",
-		);
-		assert.ok(formatted.includes("info"), "CSV should contain the level");
-		assert.ok(formatted.includes(","), "CSV should contain commas");
+	describe("When creating CSV formatter", () => {
+		test("Then it should return a valid CSV string", () => {
+			const formatter = formatterFactory(createTransportConfig("csv"));
+			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
+			assert.ok(
+				formatted.includes("Test message"),
+				"CSV should contain the message",
+			);
+			assert.ok(formatted.includes("info"), "CSV should contain the level");
+			assert.ok(formatted.includes(","), "CSV should contain commas");
+		});
 	});
 
-	/**
-	 * @description
-	 * Given an invalid formatter type
-	 * When creating a formatter
-	 * Then it should return a default formatter
-	 */
-	test("should handle invalid formatter type", () => {
-		const config = {
-			...createTransportConfig("pretty"),
-			formatter: "invalid" as LogFormatterType,
-		};
-		const formatter = formatterFactory(config);
-		const formatted = formatter(sampleLogEntry, { addTimestamp: true });
-		assert.strictEqual(
-			formatted,
-			"Test message",
-			"Invalid formatter should return message only",
-		);
+	describe("When creating formatter with invalid type", () => {
+		test("Then it should return a default formatter", () => {
+			const config = {
+				...createTransportConfig("pretty"),
+				formatter: "invalid" as LogFormatterType,
+			};
+			const formatter = formatterFactory(config);
+			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
+			assert.strictEqual(
+				formatted,
+				"Test message",
+				"Invalid formatter should return message only",
+			);
+		});
 	});
 });

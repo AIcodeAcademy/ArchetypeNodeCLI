@@ -12,9 +12,26 @@ export class TransportConsole implements LogTransportWrite {
 
 	public write(logEntry: LogEntry) {
 		const message: string = formatLogEntry(logEntry, this.logTransportConfig);
-		console.log(message);
-		if (logEntry.context) {
-			console.log(logEntry.context);
+
+		// Use appropriate console method based on log level
+		switch (logEntry.level) {
+			case "error":
+				console.error(message);
+				if (logEntry.context) {
+					console.error(logEntry.context);
+				}
+				break;
+			case "warn":
+				console.warn(message);
+				if (logEntry.context) {
+					console.warn(logEntry.context);
+				}
+				break;
+			default:
+				console.log(message);
+				if (logEntry.context) {
+					console.log(logEntry.context);
+				}
 		}
 	}
 }

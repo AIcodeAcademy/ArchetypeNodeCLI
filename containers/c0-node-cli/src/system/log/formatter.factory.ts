@@ -45,11 +45,21 @@ function prettyFormatter(logEntry: LogEntry, options: FormatterOptions) {
 }
 
 function csvFormatter(logEntry: LogEntry, options: FormatterOptions) {
-	let message = [logEntry.level, logEntry.message].join(",");
+	const parts = [logEntry.level, logEntry.message];
+	if (logEntry.context) {
+		const contextParts = Object.entries(logEntry.context)
+			.filter(
+				([key, value]) => value !== undefined && typeof value !== "object",
+			)
+			.map(([key, value]) => `${key}:${value}`)
+			.join(",");
+		parts.push(contextParts);
+	}
+	let message = parts.join(",");
 	if (options.addTimestamp) {
 		message = [formatTimestamp(logEntry.timestamp), message].join(",");
 	}
-	return `${message}`;
+	return message;
 }
 
 function formatTimestamp(timestamp: string) {
