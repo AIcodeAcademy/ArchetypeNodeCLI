@@ -1,0 +1,10 @@
+{
+	"features": [
+		{
+			"id": "f2",
+			"slug": "f2-configuration-system",
+			"status": "test-verified",
+			"git": ""
+		}
+	]
+}
