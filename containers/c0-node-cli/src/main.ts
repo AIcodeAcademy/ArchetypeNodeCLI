@@ -6,7 +6,7 @@ main();
 
 async function main() {
 	await init();
-	await commandsController();
+	await commandsController.runParsedCommand();
 }
 
 async function init() {
