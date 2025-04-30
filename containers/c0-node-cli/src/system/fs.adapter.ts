@@ -2,13 +2,6 @@ import fs from "node:fs/promises";
 
 const ENCODING = "utf-8";
 
-/**
- * File system adapter
- *
- * @description Adapts the Node.js fs module to a more generic interface
- * @example
- * const data = await fsAdapter.readFile("file.txt");
- */
 export const fsAdapter = {
 	readFile: async (path: string): Promise<string> =>
 		fs.readFile(path, ENCODING),

@@ -1,57 +1,96 @@
 import assert from "node:assert";
-import { describe, it, mock } from "node:test";
+import { beforeEach, describe, mock, test } from "node:test";
 import { fsAdapter } from "../../src/system/fs.adapter.ts";
 import { readJsonFile, writeJsonFile } from "../../src/system/json.utils.ts";
 
-describe("JSON Utilities", () => {
-	const mockReadFile = mock.method(fsAdapter, "readFile", async () => "{}");
-	const mockWriteFile = mock.method(fsAdapter, "writeFile", async () => {});
+/**
+ * Given json.utils
+ * When readJsonFile is called
+ * Then it should read and parse JSON file
+ * When writeJsonFile is called
+ * Then it should stringify and write JSON data
+ */
+describe("Given json.utils", () => {
+	const fsReadFileSpy = mock.method(fsAdapter, "readFile");
+	const fsWriteFileSpy = mock.method(fsAdapter, "writeFile");
 
-	describe("readJsonFile", () => {
-		it("should read and parse JSON file", async () => {
+	beforeEach(() => {
+		// Arrange
+		fsReadFileSpy.mock.resetCalls();
+		fsWriteFileSpy.mock.resetCalls();
+	});
+
+	describe("When readJsonFile is called with valid JSON", () => {
+		beforeEach(() => {
+			// Arrange
 			const mockData = { key: "value" };
-			mockReadFile.mock.mockImplementation(() =>
+			fsReadFileSpy.mock.mockImplementation(() =>
 				Promise.resolve(JSON.stringify(mockData)),
 			);
-
-			const result = await readJsonFile<typeof mockData>("test.json");
-
-			assert.deepStrictEqual(result, mockData);
-			assert.strictEqual(mockReadFile.mock.calls[0].arguments[0], "test.json");
 		});
 
-		it("should handle invalid JSON data", async () => {
-			mockReadFile.mock.mockImplementation(() =>
+		test("Then it should read and parse JSON file", async () => {
+			// Act
+			const result = await readJsonFile<{ key: string }>("test.json");
+
+			// Assert
+			assert.deepStrictEqual(result, { key: "value" });
+			assert.strictEqual(fsReadFileSpy.mock.calls[0].arguments[0], "test.json");
+		});
+	});
+
+	describe("When readJsonFile is called with invalid JSON", () => {
+		beforeEach(() => {
+			// Arrange
+			fsReadFileSpy.mock.mockImplementation(() =>
 				Promise.resolve("invalid json"),
 			);
-
-			await assert.rejects(() => readJsonFile("test.json"), SyntaxError);
 		});
 
-		it("should propagate file system errors", async () => {
-			const error = new Error("File not found");
-			mockReadFile.mock.mockImplementation(() => Promise.reject(error));
+		test("Then it should throw SyntaxError", async () => {
+			// Act & Assert
+			await assert.rejects(() => readJsonFile("test.json"), SyntaxError);
+		});
+	});
 
+	describe("When readJsonFile is called with non-existent file", () => {
+		beforeEach(() => {
+			// Arrange
+			const error = new Error("File not found");
+			fsReadFileSpy.mock.mockImplementation(() => Promise.reject(error));
+		});
+
+		test("Then it should propagate file system errors", async () => {
+			// Act & Assert
 			await assert.rejects(() => readJsonFile("nonexistent.json"), {
 				message: "File not found",
 			});
 		});
 	});
 
-	describe("writeJsonFile", () => {
-		it("should stringify and write JSON data", async () => {
+	describe("When writeJsonFile is called with valid data", () => {
+		test("Then it should stringify and write JSON data", async () => {
+			// Arrange
 			const data = { key: "value" };
 
+			// Act
 			await writeJsonFile("test.json", data);
 
-			assert.strictEqual(mockWriteFile.mock.calls[0].arguments[0], "test.json");
+			// Assert
 			assert.strictEqual(
-				mockWriteFile.mock.calls[0].arguments[1],
+				fsWriteFileSpy.mock.calls[0].arguments[0],
+				"test.json",
+			);
+			assert.strictEqual(
+				fsWriteFileSpy.mock.calls[0].arguments[1],
 				JSON.stringify(data),
 			);
 		});
+	});
 
-		it("should handle circular references", async () => {
+	describe("When writeJsonFile is called with circular reference", () => {
+		test("Then it should throw TypeError", async () => {
+			// Arrange
 			interface CircularData {
 				key: string;
 				self?: CircularData;
@@ -59,16 +98,23 @@ describe("JSON Utilities", () => {
 			const circularData: CircularData = { key: "value" };
 			circularData.self = circularData;
 
+			// Act & Assert
 			await assert.rejects(
 				() => writeJsonFile("test.json", circularData),
 				TypeError,
 			);
 		});
+	});
 
-		it("should propagate file system errors", async () => {
+	describe("When writeJsonFile is called with permission error", () => {
+		beforeEach(() => {
+			// Arrange
 			const error = new Error("Permission denied");
-			mockWriteFile.mock.mockImplementation(() => Promise.reject(error));
+			fsWriteFileSpy.mock.mockImplementation(() => Promise.reject(error));
+		});
 
+		test("Then it should propagate file system errors", async () => {
+			// Act & Assert
 			await assert.rejects(() => writeJsonFile("test.json", {}), {
 				message: "Permission denied",
 			});
