@@ -1,11 +1,12 @@
-import { type MeteoOptions, getMeteo } from "../domain/meteo.service.ts";
-import { getLog } from "../system/log/log.utils.ts";
+import type { MeteoOptions } from "../domain/meteo.service.ts";
+import { meteoService } from "../domain/meteo.service.ts";
+import { logService } from "../system/log/log.service.ts";
 
 export async function runMeteoCommand(options: MeteoOptions) {
 	try {
-		const meteo = await getMeteo(options);
-		getLog().info("My meteorological data", meteo);
+		const meteo = await meteoService.getMeteo(options);
+		logService.log().info("My meteorological data", meteo);
 	} catch (error) {
-		getLog().error("Error getting my meteorological data", error);
+		logService.log().error("Error getting my meteorological data", error);
 	}
 }

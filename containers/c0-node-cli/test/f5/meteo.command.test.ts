@@ -1,98 +1,71 @@
 import assert from "node:assert/strict";
-import { afterEach, beforeEach, describe, it } from "node:test";
+import { beforeEach, describe, mock, test } from "node:test";
 import { runMeteoCommand } from "../../src/application/meteo.command.ts";
 import type { MeteoOptions } from "../../src/domain/meteo.service.ts";
-import type { Meteo } from "../../src/domain/meteo.type.ts";
-import type { Log } from "../../src/system/log/log.singleton.ts";
+import { meteoService } from "../../src/domain/meteo.service.ts";
+import { logService } from "../../src/system/log/log.service.ts";
 
-describe("meteo.command", () => {
-	let originalGetMeteo: ((options: MeteoOptions) => Promise<Meteo>) | undefined;
-	let originalGetLog: (() => Log) | undefined;
-	let logSpy: {
-		debug: (message: string, context?: unknown) => void;
-		info: (message: string, context?: unknown) => void;
-		warn: (message: string, context?: unknown) => void;
-		error: (message: string, context?: unknown) => void;
+const mockedMeteo = {
+	country: "SpainTEST",
+	city: "A CoruñaTEST",
+	timezone: "Europe/MadridTEST",
+	latitude: 43.3125,
+	longitude: -8.3125,
+	dailyForecasts: [
+		{ date: "2025-04-30", max_temp: 21.1, min_temp: 11 },
+		{ date: "2025-05-01", max_temp: 21.4, min_temp: 10.5 },
+		{ date: "2025-05-02", max_temp: 20.9, min_temp: 13.2 },
+		{ date: "2025-05-03", max_temp: 20.2, min_temp: 13.6 },
+		{ date: "2025-05-04", max_temp: 17.2, min_temp: 13.2 },
+		{ date: "2025-05-05", max_temp: 17.5, min_temp: 11 },
+		{ date: "2025-05-06", max_temp: 16.7, min_temp: 10.2 },
+	],
+};
+const mockGetMeteo = mock.method(meteoService, "getMeteo", async () => {
+	return mockedMeteo;
+});
+let logInfoCalls: string[] = [];
+let logErrorCalls: string[] = [];
+const spyLog = mock.method(logService, "log", () => {
+	return {
+		info: (message: string) => {
+			logInfoCalls.push(message);
+		},
+		error: (message: string) => {
+			logErrorCalls.push(message);
+		},
 	};
-
+});
+const options: MeteoOptions = { useCache: false };
+describe("Given meteo.command with successful getMeteo service call", () => {
 	beforeEach(() => {
-		// Store original implementations
-		originalGetMeteo = (
-			global as { getMeteo?: (options: MeteoOptions) => Promise<Meteo> }
-		).getMeteo;
-		originalGetLog = (global as { getLog?: () => Log }).getLog;
-
-		// Mock implementations
-		(
-			global as { getMeteo?: (options: MeteoOptions) => Promise<Meteo> }
-		).getMeteo = async (options) => {
-			if (options.useCache) {
-				throw new Error("Test error");
-			}
-			return {
-				country: "UK",
-				city: "London",
-				timezone: "Europe/London",
-				latitude: 51.5074,
-				longitude: -0.1278,
-				dailyForecasts: [],
-			};
-		};
-
-		// Create spy log
-		logSpy = {
-			debug: (message: string, context?: unknown) => {},
-			info: (message: string, context?: unknown) => {},
-			warn: (message: string, context?: unknown) => {},
-			error: (message: string, context?: unknown) => {},
-		};
-		(global as { getLog?: () => Log }).getLog = () => logSpy as unknown as Log;
+		logInfoCalls = [];
+		logErrorCalls = [];
 	});
-
-	afterEach(() => {
-		// Restore original implementations
-		(
-			global as { getMeteo?: (options: MeteoOptions) => Promise<Meteo> }
-		).getMeteo = originalGetMeteo;
-		(global as { getLog?: () => Log }).getLog = originalGetLog;
+	describe("When runMeteoCommand is called ", () => {
+		test("Then getMeteo service is called and log info is called", async () => {
+			mockGetMeteo.mock.mockImplementation(() => Promise.resolve(mockedMeteo));
+			await runMeteoCommand(options);
+			assert.strictEqual(mockGetMeteo.mock.calls.length, 1);
+			assert.strictEqual(logInfoCalls.length, 1);
+			assert.strictEqual(logErrorCalls.length, 0);
+		});
 	});
-
-	it("should exist and be a function", () => {
-		assert.strictEqual(typeof runMeteoCommand, "function");
+});
+describe("Given meteo.command with failed getMeteo service call", () => {
+	beforeEach(() => {
+		logInfoCalls = [];
+		logErrorCalls = [];
 	});
-
-	it("should log success when getMeteo succeeds", async () => {
-		// Arrange
-		let loggedMessage = "";
-		let loggedContext: unknown;
-		logSpy.info = (message, context) => {
-			loggedMessage = message;
-			loggedContext = context;
-		};
-
-		// Act
-		await runMeteoCommand({ useCache: false });
-
-		// Assert
-		assert.strictEqual(loggedMessage, "My meteorological data");
-		assert.ok(loggedContext);
-	});
-
-	it("should log error when getMeteo fails", async () => {
-		// Arrange
-		let loggedMessage = "";
-		let loggedContext: unknown;
-		logSpy.error = (message, context) => {
-			loggedMessage = message;
-			loggedContext = context;
-		};
-
-		// Act
-		await runMeteoCommand({ useCache: true });
-
-		// Assert
-		assert.strictEqual(loggedMessage, "Error getting my meteorological data");
-		assert.ok(loggedContext instanceof Error);
-		assert.strictEqual((loggedContext as Error).message, "Test error");
+	describe("When runMeteoCommand is called", () => {
+		test("Then getMeteo service is called and log error is called", async () => {
+			mockGetMeteo.mock.mockImplementation(() =>
+				Promise.reject(new Error("Error")),
+			);
+			await runMeteoCommand(options);
+			assert.strictEqual(mockGetMeteo.mock.calls.length, 2);
+			assert.strictEqual(logInfoCalls.length, 0);
+			assert.strictEqual(logErrorCalls.length, 1);
+		});
 	});
 });

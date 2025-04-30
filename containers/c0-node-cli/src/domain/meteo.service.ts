@@ -9,21 +9,22 @@ import type { Meteo } from "./meteo.type.ts";
 export type MeteoOptions = {
 	useCache: boolean;
 };
-
-export async function getMeteo(options: MeteoOptions): Promise<Meteo> {
-	let ipApi: IpApi;
-	if (options.useCache) {
-		ipApi = await getIpApiFromCache();
-	} else {
-		ipApi = await ipApiRepository.getIpApi();
-	}
-	const openMeteo = await openMeteoRepository.getOpenMeteo(
-		ipApi.lat,
-		ipApi.lon,
-	);
-	const meteo = mapToMeteo(ipApi, openMeteo);
-	return meteo;
-}
+export const meteoService = {
+	getMeteo: async (options: MeteoOptions): Promise<Meteo> => {
+		let ipApi: IpApi;
+		if (options.useCache) {
+			ipApi = await getIpApiFromCache();
+		} else {
+			ipApi = await ipApiRepository.getIpApi();
+		}
+		const openMeteo = await openMeteoRepository.getOpenMeteo(
+			ipApi.lat,
+			ipApi.lon,
+		);
+		const meteo = mapToMeteo(ipApi, openMeteo);
+		return meteo;
+	},
+};
 
 async function getIpApiFromCache(): Promise<IpApi> {
 	const CACHE_KEY = "ipApi";
