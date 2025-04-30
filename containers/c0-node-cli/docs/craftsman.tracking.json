@@ -5,6 +5,30 @@
 			"slug": "f2-configuration-system",
 			"status": "test-verified",
 			"git": ""
+		},
+		{
+			"id": "f3",
+			"slug": "f3-utilities",
+			"status": "test-verified",
+			"git": ""
+		},
+		{
+			"id": "f4",
+			"slug": "f4-logging-and-error-handling",
+			"status": "test-verified",
+			"git": ""
+		},
+		{
+			"id": "f5",
+			"slug": "f5-command-management",
+			"status": "test-verified",
+			"git": ""
+		},
+		{
+			"id": "f6",
+			"slug": "f6-business-example",
+			"status": "test-verified",
+			"git": ""
 		}
 	]
 }
