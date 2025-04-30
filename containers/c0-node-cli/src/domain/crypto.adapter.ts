@@ -17,8 +17,8 @@ export const cryptoAdapter = {
 	hashText: hashText,
 	randomBytesString: randomBytesString,
 	randomBytes: randomBytes,
-	encryptHmac: encryptHmac,
-	decryptHmac: decryptHmac,
+	encrypt: encrypt,
+	decrypt: decrypt,
 };
 
 function hashText(
@@ -40,20 +40,43 @@ function randomBytes(length: number): Buffer {
 	return crypto.randomBytes(length);
 }
 
-function encryptHmac(
-	data: string,
+// ToDo: Implement encryption and decryption
+
+function encrypt(
+	plaintext: string,
 	key: string,
-	algorithm: string = ALGORITHM,
-	encoding: BinaryToTextEncoding = ENCODING,
+	algorithm = "aes-256-gcm",
+	encoding: BufferEncoding = "base64",
 ): string {
-	return crypto.createHmac(algorithm, key).update(data).digest(encoding);
+	const crypto_key = crypto
+		.createHash("sha512")
+		.update(key)
+		.digest("hex")
+		.substring(0, 32);
+	const encryptionIV = crypto
+		.createHash("sha512")
+		.update("secret_iv")
+		.digest("hex")
+		.substring(0, 16);
 }
 
-function decryptHmac(
-	data: string,
+function decrypt(
+	ciphertext: string,
 	key: string,
-	algorithm: string = ALGORITHM,
-	encoding: BinaryToTextEncoding = ENCODING,
+	iv: string,
+	algorithm = "aes-256-gcm",
+	encoding: BufferEncoding = "utf8",
 ): string {
-	return crypto.createHmac(algorithm, key).update(data).digest(encoding);
+	const decipher = crypto.createDecipheriv(
+		algorithm,
+		Buffer.from(key, "base64"),
+		Buffer.from(iv, "base64"),
+	);
+
+	//decipher.setAuthTag(Buffer.from(tag, "base64"));
+
+	let plaintext = decipher.update(ciphertext, "base64", encoding);
+	plaintext += decipher.final(encoding);
+
+	return plaintext;
 }

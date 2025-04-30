@@ -29,6 +29,12 @@
 			"slug": "f6-business-example",
 			"status": "test-verified",
 			"git": ""
+		},
+		{
+			"id": "f7",
+			"slug": "f7-domain-utilities",
+			"status": "test-verified",
+			"git": ""
 		}
 	]
 }
