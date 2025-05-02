@@ -45,7 +45,7 @@ describe("Given configRepository", () => {
 	describe("When invalid path", () => {
 		let config: Config;
 		beforeEach(async () => {
-			config = await configRepository.getConfig("invalid/path");
+			config = await configRepository.load("invalid/path");
 		});
 		test("Then it should use default config", async () => {
 			assert.deepStrictEqual(config, DEFAULT_CONFIG);
@@ -54,7 +54,7 @@ describe("Given configRepository", () => {
 	describe("When valid path and not config", () => {
 		beforeEach(() => {
 			// Arrange
-			configRepository.getConfig(VALID_CONFIG_PATH);
+			configRepository.load(VALID_CONFIG_PATH);
 		});
 		test("Then it should load valid config", async () => {
 			jsonReadFromFileMock.mock.resetCalls();

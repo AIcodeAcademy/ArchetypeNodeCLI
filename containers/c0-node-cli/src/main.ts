@@ -12,7 +12,7 @@ async function main() {
 
 async function init() {
 	const env = envAdapter.getEnv();
-	const config = await configRepository.getConfig(env.CONFIG_FILE);
+	const config = await configRepository.load(env.CONFIG_FILE);
 	const log = configLog(config.log);
 	cacheRepository.config(config.cache);
 	// ToDo: http configuration
