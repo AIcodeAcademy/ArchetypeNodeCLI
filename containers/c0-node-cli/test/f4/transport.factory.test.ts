@@ -37,7 +37,7 @@ describe("Given transportFactory", () => {
 			assert.ok(transport, "Transport should be created");
 			assert.strictEqual(
 				transport?.constructor.name,
-				"TransportConsole",
+				"TransportConsoleRepository",
 				"Should create console transport",
 			);
 		});
@@ -54,7 +54,7 @@ describe("Given transportFactory", () => {
 			assert.ok(transport, "Transport should be created");
 			assert.strictEqual(
 				transport?.constructor.name,
-				"TransportFile",
+				"TransportFileRepository",
 				"Should create file transport",
 			);
 		});

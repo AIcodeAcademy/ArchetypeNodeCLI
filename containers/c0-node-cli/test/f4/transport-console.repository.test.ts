@@ -2,7 +2,7 @@ import { strict as assert } from "node:assert";
 import { afterEach, beforeEach, describe, mock, test } from "node:test";
 import type { LogTransportConfig } from "../../src/system/log/log-config.type.ts";
 import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
-import { TransportConsole } from "../../src/system/log/transport-console.repository.ts";
+import { TransportConsoleRepository } from "../../src/system/log/transport-console.repository.ts";
 
 /**
  * @feature Console Transport
@@ -12,7 +12,7 @@ import { TransportConsole } from "../../src/system/log/transport-console.reposit
  * Then entries should be properly formatted and output to console
  */
 describe("Given TransportConsole", () => {
-	let transport: TransportConsole;
+	let transport: TransportConsoleRepository;
 	let consoleLogSpy: ReturnType<typeof mock.method>;
 	let consoleErrorSpy: ReturnType<typeof mock.method>;
 	let consoleWarnSpy: ReturnType<typeof mock.method>;
@@ -33,7 +33,7 @@ describe("Given TransportConsole", () => {
 
 	beforeEach(() => {
 		// Arrange: Set up transport and mock console methods
-		transport = new TransportConsole(defaultConfig);
+		transport = new TransportConsoleRepository(defaultConfig);
 		consoleLogSpy = mock.method(console, "log");
 		consoleErrorSpy = mock.method(console, "error");
 		consoleWarnSpy = mock.method(console, "warn");

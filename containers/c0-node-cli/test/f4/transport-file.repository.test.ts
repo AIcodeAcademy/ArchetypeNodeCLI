@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import { afterEach, beforeEach, describe, test } from "node:test";
 import type { LogTransportConfig } from "../../src/system/log/log-config.type.ts";
 import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
-import { TransportFile } from "../../src/system/log/transport.-file.repository.ts";
+import { TransportFileRepository } from "../../src/system/log/transport.-file.repository.ts";
 
 /**
  * @feature File Transport
@@ -13,7 +13,7 @@ import { TransportFile } from "../../src/system/log/transport.-file.repository.t
  * Then entries should be properly written to the specified file
  */
 describe("Given TransportFile", () => {
-	let transport: TransportFile;
+	let transport: TransportFileRepository;
 	const testFilePath = "test.log";
 	const defaultConfig: LogTransportConfig = {
 		type: "file",
@@ -37,7 +37,7 @@ describe("Given TransportFile", () => {
 		} catch (err) {
 			// File doesn't exist, that's fine
 		}
-		transport = new TransportFile(defaultConfig);
+		transport = new TransportFileRepository(defaultConfig);
 	});
 
 	afterEach(async () => {
@@ -105,7 +105,7 @@ describe("Given TransportFile", () => {
 				path: filePath,
 			};
 
-			transport = new TransportFile(config);
+			transport = new TransportFileRepository(config);
 
 			// Act: Write entry
 			await transport.write(sampleLogEntry);
