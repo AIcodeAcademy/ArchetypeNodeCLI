@@ -1,21 +1,13 @@
 import { formatterStyleFactory } from "./formatter-style.factory.ts";
+import type { FormatterFn, FormatterOptions } from "./formatter.fn.type.ts";
 import type {
 	LogFormatterType,
 	LogTransportConfig,
 } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 
-export type FormatterFn = (
-	logEntry: LogEntry,
-	options: FormatterOptions,
-) => string;
-
-export type FormatterOptions = {
-	addTimestamp?: boolean;
-};
-
 export const formatterFactory = {
-	create(logTransportConfig: LogTransportConfig) {
+	create(logTransportConfig: LogTransportConfig): FormatterFn {
 		const formatter = formattersMap[logTransportConfig.formatter];
 		if (!formatter) return defaultFormatter;
 		return formatter;

@@ -1,14 +1,16 @@
-import { strict as assert } from "node:assert";
+import assert from "node:assert";
 import { describe, test } from "node:test";
 import type { LogTransportConfig } from "../../src/system/log/log-config.type.ts";
 import { transportFactory } from "../../src/system/log/transport.factory.ts";
 
 /**
- * @feature Transport Factory
- * @scenario Create different types of transports
  * Given a transport factory
- * When creating different types of transports
- * Then it should properly instantiate the correct transport type
+ * When creating console transport
+ * Then it should return a console transport instance
+ * When creating file transport
+ * Then it should return a file transport instance
+ * When creating transport with invalid type
+ * Then it should return undefined
  */
 describe("Given transportFactory", () => {
 	const createConsoleConfig = (): LogTransportConfig => ({
@@ -30,10 +32,10 @@ describe("Given transportFactory", () => {
 		const config = createConsoleConfig();
 
 		test("Then it should return a console transport instance", () => {
-			// Act: Create transport
+			// Act
 			const transport = transportFactory.create(config);
 
-			// Assert: Verify transport was created
+			// Assert
 			assert.ok(transport, "Transport should be created");
 			assert.strictEqual(
 				transport?.constructor.name,
@@ -47,10 +49,10 @@ describe("Given transportFactory", () => {
 		const config = createFileConfig();
 
 		test("Then it should return a file transport instance", () => {
-			// Act: Create transport
+			// Act
 			const transport = transportFactory.create(config);
 
-			// Assert: Verify transport was created
+			// Assert
 			assert.ok(transport, "Transport should be created");
 			assert.strictEqual(
 				transport?.constructor.name,
@@ -67,10 +69,10 @@ describe("Given transportFactory", () => {
 		} as unknown as LogTransportConfig;
 
 		test("Then it should return undefined", () => {
-			// Act: Create transport
+			// Act
 			const transport = transportFactory.create(config);
 
-			// Assert: Verify undefined was returned
+			// Assert
 			assert.strictEqual(
 				transport,
 				undefined,

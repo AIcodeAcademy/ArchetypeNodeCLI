@@ -1,4 +1,4 @@
-import { strict as assert } from "node:assert";
+import assert from "node:assert";
 import { describe, test } from "node:test";
 import { formatterFactory } from "../../src/system/log/formatter.factory.ts";
 import type {
@@ -8,10 +8,15 @@ import type {
 import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
 
 /**
- * @description
  * Given a logging formatter factory
- * When creating different types of formatters
- * Then it should properly format log entries according to the specified format
+ * When creating different pretty formatters
+ * Then it should return a human-readable formatted string
+ * When creating different JSON formatters
+ * Then it should return a valid JSON string
+ * When creating different CSV formatters
+ * Then it should return a valid CSV string
+ * When creating an invalid formatter
+ * Then it should return a default formatter
  */
 describe("Given formatterFactory", () => {
 	const sampleLogEntry: LogEntry = {

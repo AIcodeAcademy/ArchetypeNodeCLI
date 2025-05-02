@@ -1,8 +1,5 @@
-import {
-	type FormatterFn,
-	type FormatterOptions,
-	formatterFactory,
-} from "./formatter.factory.ts";
+import { formatterFactory } from "./formatter.factory.ts";
+import type { FormatterFn, FormatterOptions } from "./formatter.fn.type.ts";
 import type { LogTransportConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 

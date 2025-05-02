@@ -1,4 +1,4 @@
-import { strict as assert } from "node:assert";
+import assert from "node:assert";
 import { describe, test } from "node:test";
 import { formatLogEntry } from "../../src/system/log/formatter.utils.ts";
 import type {
@@ -8,10 +8,15 @@ import type {
 import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
 
 /**
- * @description
  * Given a log entry formatter
- * When formatting log entries
- * Then it should properly format entries according to the specified format
+ * When formatting with pretty format
+ * Then it should return a human-readable string
+ * When formatting with JSON format
+ * Then it should return a valid JSON string
+ * When formatting with CSV format
+ * Then it should return a valid CSV string
+ * When formatting with an invalid format
+ * Then it should return the message only
  */
 describe("Given log entry formatter", () => {
 	const sampleLogEntry: LogEntry = {

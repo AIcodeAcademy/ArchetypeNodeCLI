@@ -1,4 +1,4 @@
-import { strict as assert } from "node:assert";
+import assert from "node:assert";
 import { afterEach, beforeEach, describe, mock, test } from "node:test";
 import type { LogTransportConfig } from "../../src/system/log/log-config.type.ts";
 import type { LogEntry } from "../../src/system/log/log-entry.type.ts";
