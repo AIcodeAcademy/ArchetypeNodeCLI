@@ -16,14 +16,18 @@ import { jsonUtils } from "../../src/system/json.utils.ts";
 describe("Given configRepository", () => {
 	const VALID_CONFIG_PATH = "test/f2/config.json";
 	const mockConfig: Config = {
+		cache: {
+			expiration: 3600000,
+			cacheDir: "",
+		},
 		log: {
-			minLevel: "info",
+			minLevel: "debug",
 			transports: [
 				{
 					type: "console",
-					minLevel: "info",
+					minLevel: "debug",
 					formatter: "pretty",
-					timestamp: false,
+					timestamp: true,
 				},
 			],
 		},
@@ -38,6 +42,15 @@ describe("Given configRepository", () => {
 			return Promise.reject(new Error("File not found"));
 		},
 	);
+	describe("When invalid path", () => {
+		let config: Config;
+		beforeEach(async () => {
+			config = await configRepository.getConfig("invalid/path");
+		});
+		test("Then it should use default config", async () => {
+			assert.deepStrictEqual(config, DEFAULT_CONFIG);
+		});
+	});
 	describe("When valid path and not config", () => {
 		beforeEach(() => {
 			// Arrange
@@ -46,16 +59,6 @@ describe("Given configRepository", () => {
 		test("Then it should load valid config", async () => {
 			jsonReadFromFileMock.mock.resetCalls();
 			assert.strictEqual(jsonReadFromFileMock.mock.calls.length, 0);
-		});
-	});
-
-	describe("When invalid path", () => {
-		let config: Config;
-		beforeEach(async () => {
-			config = await configRepository.getConfig("invalid/path");
-		});
-		test("Then it should use default config", async () => {
-			assert.deepStrictEqual(config, DEFAULT_CONFIG);
 		});
 	});
 });

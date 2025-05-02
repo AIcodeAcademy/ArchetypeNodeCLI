@@ -1,4 +1,4 @@
-import { cryptoAdapter } from "./crypto.adapter.ts";
+import { cryptoAdapter } from "../system/crypto/crypto.adapter.ts";
 
 const CHARACTERS = "0123456789abcdefghijklmnopqrstuvwxyz";
 const ID_LENGTH = 10;

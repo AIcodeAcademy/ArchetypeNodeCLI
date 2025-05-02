@@ -11,7 +11,7 @@ type CacheEntry<T> = {
 let cacheConfig: CacheConfig = DEFAULT_CACHE_CONFIG;
 
 export const cacheRepository = {
-	init: (config: CacheConfig) => {
+	config: (config: CacheConfig) => {
 		cacheConfig = config;
 	},
 	save: async <T>(key: string, value: T) => {

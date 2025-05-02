@@ -1,9 +1,9 @@
 import assert from "node:assert";
 import { afterEach, beforeEach, describe, mock, test } from "node:test";
 import { meteoCommand } from "../../src/application/meteo.command.ts";
-import { cacheUtils } from "../../src/domain/cache.utils.ts";
 import { meteoService } from "../../src/domain/meteo.service.ts";
 import type { Meteo } from "../../src/domain/meteo.type.ts";
+import { cacheRepository } from "../../src/system/cache/cache.repository.ts";
 import { ipApiRepository } from "../../src/system/ip-api.repository.ts";
 import { log } from "../../src/system/log/log.singleton.ts";
 import { openMeteoRepository } from "../../src/system/open-meteo.repository.ts";
@@ -58,8 +58,8 @@ describe("Weather Forecast Feature", () => {
 		// Mock the repositories
 		mock.method(ipApiRepository, "getIpApi", async () => mockIpApi);
 		mock.method(openMeteoRepository, "getOpenMeteo", async () => mockOpenMeteo);
-		mock.method(cacheUtils, "load", async () => null);
-		mock.method(cacheUtils, "save", async () => {});
+		mock.method(cacheRepository, "load", async () => null);
+		mock.method(cacheRepository, "save", async () => {});
 
 		// Mock the logger
 		logInfoSpy = mock.method(log, "info", (message: string) => {});
@@ -85,7 +85,7 @@ describe("Weather Forecast Feature", () => {
 		test("should use cached location data when cache is enabled", async () => {
 			// Arrange
 			const options = { useCache: true };
-			mock.method(cacheUtils, "load", async () => mockIpApi);
+			mock.method(cacheRepository, "load", async () => mockIpApi);
 
 			// Act
 			const result = await meteoService.getMeteo(options);

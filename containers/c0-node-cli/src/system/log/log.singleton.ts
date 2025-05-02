@@ -82,4 +82,4 @@ export class Log implements LogWriter {
 }
 
 export const log = Log.getInstance();
-export const logBuilder = Log.configureInstance;
+export const configLog = Log.configureInstance;
