@@ -1,5 +1,9 @@
 import { httpDecorator } from "./http.decorator.ts";
 
+// ToDo: add config
+
+let httpConfig: unknown;
+
 /**
  * HTTP adapter (shorthand http)
  * @module http.adapter
@@ -9,6 +13,10 @@ import { httpDecorator } from "./http.decorator.ts";
  * console.log(response.data);
  */
 export const http = {
+	config: (config: unknown) => {
+		httpConfig = config;
+	},
+
 	get: async <T>(url: string) => httpDecorator.wrap<T>(fetch, { url }),
 
 	post: async <T>(url: string, body: unknown) =>

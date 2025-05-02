@@ -1,15 +1,6 @@
-export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
-export type HttpResponse<T> = {
-	ok: boolean;
-	status: number;
-	data: T;
-	error: string;
-};
-export type HttpRequest = {
-	url: string;
-	body?: unknown;
-	method?: HttpMethod;
-};
+import type { HttpMethod, HttpRequest } from "./http-request.type";
+import { DEFAULT_HTTP_RESPONSE, type HttpResponse } from "./http-response.type";
+
 type decoratedFetch = (url: string, init?: RequestInit) => Promise<Response>;
 
 export const httpDecorator = {
@@ -50,8 +41,7 @@ async function buildHttpResponse<T>(
 		return await unpackResponse<T>(response);
 	} catch (error) {
 		return {
-			ok: false,
-			status: 0,
+			...DEFAULT_HTTP_RESPONSE,
 			data: {} as T,
 			error: `Unpacking response error: ${error?.message}`,
 		};
