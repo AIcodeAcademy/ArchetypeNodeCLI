@@ -18,15 +18,38 @@ import { jsonUtils } from "../../src/system/json.utils.ts";
  */
 describe("Given ConfigRepository", () => {
 	const VALID_CONFIG_PATH = "test/f2/config.json";
-	const readFileSpy = mock.method(jsonUtils, "readFromFile");
+	const mockConfig: Config = {
+		log: {
+			minLevel: "info",
+			transports: [
+				{
+					type: "console",
+					minLevel: "info",
+					formatter: "pretty",
+					timestamp: false,
+				},
+			],
+		},
+	};
+	const jsonReadFromFileMock = mock.method(
+		jsonUtils,
+		"readFromFile",
+		(path: string) => {
+			if (path === VALID_CONFIG_PATH) {
+				return Promise.resolve(mockConfig);
+			}
+			return Promise.reject(new Error("File not found"));
+		},
+	);
 	describe("When valid path and not config", () => {
 		let configRepository: ConfigRepository;
 		beforeEach(() => {
+			// Arrange
 			configRepository = new ConfigRepository(VALID_CONFIG_PATH);
 		});
 		test("Then it should load valid config", async () => {
-			readFileSpy.mock.resetCalls();
-			assert.strictEqual(readFileSpy.mock.calls.length, 0);
+			jsonReadFromFileMock.mock.resetCalls();
+			assert.strictEqual(jsonReadFromFileMock.mock.calls.length, 0);
 		});
 	});
 	describe("When path and config", () => {
@@ -41,8 +64,10 @@ describe("Given ConfigRepository", () => {
 			configRepository = new ConfigRepository(VALID_CONFIG_PATH, VALID_CONFIG);
 		});
 		test("Then it should use provided config", async () => {
-			readFileSpy.mock.resetCalls();
-			assert.strictEqual(readFileSpy.mock.calls.length, 0);
+			jsonReadFromFileMock.mock.resetCalls();
+			assert.strictEqual(jsonReadFromFileMock.mock.calls.length, 0);
+			const config = await configRepository.getConfig();
+			assert.deepStrictEqual(config, VALID_CONFIG);
 		});
 	});
 	describe("When invalid path", () => {
