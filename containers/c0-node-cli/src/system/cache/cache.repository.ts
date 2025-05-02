@@ -1,17 +1,23 @@
-import { jsonUtils } from "../system/json.utils.ts";
-import { log } from "../system/log/log.singleton.ts";
-
-const CACHE_EXPIRATION = 3600000; // 1 hour
+import { fsAdapter } from "../fs.adapter.ts";
+import { jsonUtils } from "../json.utils.ts";
+import { log } from "../log/log.singleton.ts";
+import { type CacheConfig, DEFAULT_CACHE_CONFIG } from "./cache-config.type.ts";
 
 type CacheEntry<T> = {
 	value: T;
 	timestamp: number;
 };
 
-export const cacheUtils = {
+let cacheConfig: CacheConfig = DEFAULT_CACHE_CONFIG;
+
+export const cacheRepository = {
+	init: (config: CacheConfig) => {
+		cacheConfig = config;
+	},
 	save: async <T>(key: string, value: T) => {
+		// ToDo: if dir empty, use memory cache
 		const data = buildCacheEntry(key, value);
-		const path = getCachePath(key);
+		const path = getCachePath(key, cacheConfig.cacheDir);
 		try {
 			await jsonUtils.writeToFile(path, data);
 			log.debug(`Saved cache for key ${key}`, data);
@@ -21,11 +27,11 @@ export const cacheUtils = {
 	},
 	load: async <T>(key: string): Promise<T | undefined> => {
 		try {
-			const path = getCachePath(key);
+			const path = getCachePath(key, cacheConfig.cacheDir);
 			const entry = await jsonUtils.readFromFile<CacheEntry<T>>(path);
-			if (isCacheExpired(entry)) {
+			if (isCacheExpired(entry, cacheConfig.expiration)) {
 				log.debug(`Cache for key ${key} expired`, entry);
-				await jsonUtils.deleteFile(path);
+				await fsAdapter.deleteFile(path);
 				return undefined;
 			}
 			log.debug(`Loaded cache for key ${key}`, entry.value);
@@ -37,8 +43,8 @@ export const cacheUtils = {
 	},
 };
 
-function getCachePath(key: string): string {
-	return `./cache/${key}.json`;
+function getCachePath(key: string, cacheDir: string): string {
+	return `${cacheDir}/${key}.cache.json`;
 }
 
 function buildCacheEntry<T>(key: string, value: T): CacheEntry<T> {
@@ -48,6 +54,9 @@ function buildCacheEntry<T>(key: string, value: T): CacheEntry<T> {
 	};
 }
 
-function isCacheExpired(entry: CacheEntry<unknown>): boolean {
-	return entry.timestamp + CACHE_EXPIRATION < Date.now();
+function isCacheExpired(
+	entry: CacheEntry<unknown>,
+	expiration: number,
+): boolean {
+	return entry.timestamp + expiration < Date.now();
 }

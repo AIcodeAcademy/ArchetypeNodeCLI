@@ -9,14 +9,14 @@ import { httpDecorator } from "./http.decorator.ts";
  * console.log(response.data);
  */
 export const http = {
-	get: async <T>(url: string) => httpDecorator.wrap<T>(fetch, url),
+	get: async <T>(url: string) => httpDecorator.wrap<T>(fetch, { url }),
 
-	post: async <T>(url: string, data: unknown) =>
-		httpDecorator.wrap<T>(fetch, url, data),
+	post: async <T>(url: string, body: unknown) =>
+		httpDecorator.wrap<T>(fetch, { url, body }),
 
-	put: async <T>(url: string, data: unknown) =>
-		httpDecorator.wrap<T>(fetch, url, data, "PUT"),
+	put: async <T>(url: string, body: unknown) =>
+		httpDecorator.wrap<T>(fetch, { url, body, method: "PUT" }),
 
 	delete: async <T>(url: string) =>
-		httpDecorator.wrap<T>(fetch, url, undefined, "DELETE"),
+		httpDecorator.wrap<T>(fetch, { url, method: "DELETE" }),
 };

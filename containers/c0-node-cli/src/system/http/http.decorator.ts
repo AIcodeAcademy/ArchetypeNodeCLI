@@ -5,19 +5,21 @@ export type HttpResponse<T> = {
 	data: T;
 	error: string;
 };
-
+export type HttpRequest = {
+	url: string;
+	body?: unknown;
+	method?: HttpMethod;
+};
 type decoratedFetch = (url: string, init?: RequestInit) => Promise<Response>;
 
 export const httpDecorator = {
 	wrap: async <T>(
 		fetchFn: decoratedFetch,
-		url: string,
-		body?: unknown,
-		method?: HttpMethod,
+		request: HttpRequest,
 	): Promise<HttpResponse<T>> => {
 		try {
-			const init = buildRequestInit(body, method);
-			const response = await fetchFn(url, init);
+			const init = buildRequestInit(request.body, request.method);
+			const response = await fetchFn(request.url, init);
 			return buildHttpResponse<T>(response);
 		} catch (error) {
 			return buildResponseError<T>(error);

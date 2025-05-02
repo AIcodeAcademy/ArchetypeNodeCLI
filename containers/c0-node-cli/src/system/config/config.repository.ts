@@ -1,6 +1,6 @@
 import { jsonUtils } from "../json.utils.ts";
 import { type Config, DEFAULT_CONFIG } from "./config.type.ts";
-
+/*
 export class ConfigRepository {
 	private config: Config | undefined;
 	private readonly path: string;
@@ -20,3 +20,17 @@ export class ConfigRepository {
 		return this.config;
 	}
 }
+  */
+
+let config: Config | undefined;
+export const configRepository = {
+	async getConfig(path: string): Promise<Config> {
+		if (config) return config;
+		try {
+			config = await jsonUtils.readFromFile<Config>(path);
+		} catch (error) {
+			config = DEFAULT_CONFIG;
+		}
+		return config;
+	},
+};

@@ -1,26 +1,20 @@
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import type { LogLevelType } from "./log-level.type.ts";
+import type { LogWriter } from "./log-writer.interface.ts";
 import type { TransportWrite } from "./transport-write.interface.ts";
 import { transportFactory } from "./transport.factory.ts";
 
 // ToDo: refactor with D.I. or something more testable
 
-export interface WriteLevel {
-	debug: (message: string, context?: unknown) => void;
-	info: (message: string, context?: unknown) => void;
-	warn: (message: string, context?: unknown) => void;
-	error: (message: string, context?: unknown) => void;
-}
-
-export class Log implements WriteLevel {
+export class Log implements LogWriter {
 	private static instance: Log | null = null;
 	private readonly logConfig: LogConfig;
 	private readonly transports: TransportWrite[];
 
 	private constructor(logConfig: LogConfig) {
 		this.logConfig = logConfig;
-		this.transports = (logConfig.transports ?? [])
+		this.transports = logConfig.transports
 			.map((transportConfig) => transportFactory.create(transportConfig))
 			.filter((t): t is TransportWrite => !!t);
 		if (this.transports.length === 0) {
@@ -30,15 +24,14 @@ export class Log implements WriteLevel {
 		}
 	}
 
-	public static getInstance(): Log {
+	public static getInstance(): LogWriter {
 		if (Log.instance) {
 			return Log.instance;
 		}
-		const temporalDefaultLogger = new Log(DEFAULT_LOG_CONFIG);
-		return temporalDefaultLogger;
+		return new Log(DEFAULT_LOG_CONFIG);
 	}
 
-	public static initInstance(logConfig: LogConfig): Log {
+	public static configureInstance(logConfig: LogConfig): LogWriter {
 		if (!Log.instance) {
 			Log.instance = new Log(logConfig);
 		}
@@ -89,4 +82,4 @@ export class Log implements WriteLevel {
 }
 
 export const log = Log.getInstance();
-export const logBuilder = Log.initInstance;
+export const logBuilder = Log.configureInstance;

@@ -31,7 +31,7 @@ export const DEFAULT_LOG_CONFIG: LogConfig = {
 			minLevel: "warn",
 			formatter: "csv",
 			timestamp: true,
-			path: "log.csv",
+			path: "./temp/log.csv",
 		},
 	],
 };
