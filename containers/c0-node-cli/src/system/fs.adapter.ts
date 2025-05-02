@@ -14,14 +14,11 @@ export const fsAdapter = {
 
 	deleteFile: async (path: string): Promise<void> => fs.unlink(path),
 
-	ensureDirectoryExists: async (path: string): Promise<void> => {
+	makeDir: async (path: string): Promise<void> => {
 		const dir = getDirectoryName(path);
-		if (!dir) {
-			return;
-		}
-		if (!(await exists(dir))) {
-			await fs.mkdir(dir, { recursive: true });
-		}
+		if (dir === "") return;
+		if (await exists(dir)) return;
+		await fs.mkdir(dir, { recursive: true });
 	},
 };
 

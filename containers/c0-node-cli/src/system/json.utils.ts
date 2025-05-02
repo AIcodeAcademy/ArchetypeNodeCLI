@@ -7,10 +7,7 @@ export const jsonUtils = {
 	},
 	writeToFile: async (path: string, data: unknown): Promise<void> => {
 		const json = JSON.stringify(data);
-		await fsAdapter.ensureDirectoryExists(path);
+		await fsAdapter.makeDir(path);
 		return fsAdapter.writeFile(path, json);
-	},
-	deleteFile: async (path: string): Promise<void> => {
-		return fsAdapter.deleteFile(path);
 	},
 };
