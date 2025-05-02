@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { after, before, beforeEach, describe, test } from "node:test";
-import { readJsonFile, writeJsonFile } from "../../src/system/json.utils.ts";
+import { jsonUtils } from "../../src/system/json.utils.ts";
 
 /**
  * Given json.utils
@@ -31,8 +31,8 @@ describe("Given json.utils", () => {
 			const data = { foo: "bar", n: 42 };
 
 			// Act
-			await writeJsonFile(TEST_PATH, data);
-			const result = await readJsonFile<typeof data>(TEST_PATH);
+			await jsonUtils.writeToFile(TEST_PATH, data);
+			const result = await jsonUtils.readFromFile<typeof data>(TEST_PATH);
 
 			// Assert
 			assert.deepEqual(result, data);
@@ -42,7 +42,7 @@ describe("Given json.utils", () => {
 	describe("When reading non-existent file", () => {
 		test("Then it should throw error", async () => {
 			// Act & Assert
-			await assert.rejects(() => readJsonFile(INVALID_PATH));
+			await assert.rejects(() => jsonUtils.readFromFile(INVALID_PATH));
 		});
 	});
 

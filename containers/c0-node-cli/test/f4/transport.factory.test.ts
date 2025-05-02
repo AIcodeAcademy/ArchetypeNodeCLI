@@ -31,7 +31,7 @@ describe("Given transportFactory", () => {
 
 		test("Then it should return a console transport instance", () => {
 			// Act: Create transport
-			const transport = transportFactory(config);
+			const transport = transportFactory.create(config);
 
 			// Assert: Verify transport was created
 			assert.ok(transport, "Transport should be created");
@@ -48,7 +48,7 @@ describe("Given transportFactory", () => {
 
 		test("Then it should return a file transport instance", () => {
 			// Act: Create transport
-			const transport = transportFactory(config);
+			const transport = transportFactory.create(config);
 
 			// Assert: Verify transport was created
 			assert.ok(transport, "Transport should be created");
@@ -68,7 +68,7 @@ describe("Given transportFactory", () => {
 
 		test("Then it should return undefined", () => {
 			// Act: Create transport
-			const transport = transportFactory(config);
+			const transport = transportFactory.create(config);
 
 			// Assert: Verify undefined was returned
 			assert.strictEqual(

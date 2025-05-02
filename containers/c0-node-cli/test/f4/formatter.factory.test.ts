@@ -32,7 +32,9 @@ describe("Given formatterFactory", () => {
 
 	describe("When creating pretty formatter", () => {
 		test("Then it should return a human-readable formatted string", () => {
-			const formatter = formatterFactory(createTransportConfig("pretty"));
+			const formatter = formatterFactory.create(
+				createTransportConfig("pretty"),
+			);
 			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
 			assert.ok(
 				formatted.includes("Test message"),
@@ -47,7 +49,7 @@ describe("Given formatterFactory", () => {
 
 	describe("When creating JSON formatter", () => {
 		test("Then it should return a valid JSON string", () => {
-			const formatter = formatterFactory(createTransportConfig("json"));
+			const formatter = formatterFactory.create(createTransportConfig("json"));
 			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
 			const parsed = JSON.parse(formatted);
 			assert.strictEqual(
@@ -61,7 +63,7 @@ describe("Given formatterFactory", () => {
 
 	describe("When creating CSV formatter", () => {
 		test("Then it should return a valid CSV string", () => {
-			const formatter = formatterFactory(createTransportConfig("csv"));
+			const formatter = formatterFactory.create(createTransportConfig("csv"));
 			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
 			assert.ok(
 				formatted.includes("Test message"),
@@ -78,7 +80,7 @@ describe("Given formatterFactory", () => {
 				...createTransportConfig("pretty"),
 				formatter: "invalid" as LogFormatterType,
 			};
-			const formatter = formatterFactory(config);
+			const formatter = formatterFactory.create(config);
 			const formatted = formatter(sampleLogEntry, { addTimestamp: true });
 			assert.strictEqual(
 				formatted,

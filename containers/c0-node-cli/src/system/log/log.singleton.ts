@@ -1,21 +1,19 @@
 import { DEFAULT_LOG_CONFIG, type LogConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import type { LogLevelType } from "./log-level.type.ts";
-import {
-	type LogTransportWrite,
-	transportFactory,
-} from "./transport.factory.ts";
+import type { TransportWrite } from "./transport-write.interface.ts";
+import { transportFactory } from "./transport.factory.ts";
 
 export class Log {
 	private static instance: Log | null = null;
 	private readonly logConfig: LogConfig;
-	private readonly transports: LogTransportWrite[];
+	private readonly transports: TransportWrite[];
 
 	private constructor(logConfig: LogConfig) {
 		this.logConfig = logConfig;
 		this.transports = (logConfig.transports ?? [])
-			.map((transportConfig) => transportFactory(transportConfig))
-			.filter((t): t is LogTransportWrite => !!t);
+			.map((transportConfig) => transportFactory.create(transportConfig))
+			.filter((t): t is TransportWrite => !!t);
 		if (this.transports.length === 0) {
 			console.warn?.(
 				"No valid log transports configured; logging will be disabled.",

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { beforeEach, describe, test } from "node:test";
-import { getEnv } from "../../src/system/env/env.adapter.ts";
+import { envAdapter } from "../../src/system/env/env.adapter.ts";
 import { DEFAULT_ENV } from "../../src/system/env/env.type.ts";
 
 /**
@@ -34,7 +34,7 @@ describe("Given env.adapter", () => {
 
 		test("Then it should load NODE_ENV and CONFIG_FILE", () => {
 			// Act
-			const env = getEnv();
+			const env = envAdapter.getEnv();
 
 			// Assert
 			assert.equal(env.NODE_ENV, "production");
@@ -54,7 +54,7 @@ describe("Given env.adapter", () => {
 
 		test("Then it should use default values", () => {
 			// Act
-			const env = getEnv();
+			const env = envAdapter.getEnv();
 
 			// Assert
 			assert.equal(env.NODE_ENV, DEFAULT_ENV.NODE_ENV);
@@ -74,7 +74,7 @@ describe("Given env.adapter", () => {
 
 		test("Then it should use default values", () => {
 			// Act
-			const env = getEnv();
+			const env = envAdapter.getEnv();
 
 			// Assert
 			assert.equal(env.NODE_ENV, DEFAULT_ENV.NODE_ENV);
@@ -85,7 +85,7 @@ describe("Given env.adapter", () => {
 	describe("When checking environment structure", () => {
 		test("Then it should have correct types", () => {
 			// Act
-			const env = getEnv();
+			const env = envAdapter.getEnv();
 
 			// Assert
 			assert.equal(typeof env.NODE_ENV, "string");

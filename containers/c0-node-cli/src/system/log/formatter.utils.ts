@@ -10,7 +10,7 @@ export function formatLogEntry(
 	logEntry: LogEntry,
 	logTransportConfig: LogTransportConfig,
 ) {
-	const formatter: FormatterFn = formatterFactory(logTransportConfig);
+	const formatter: FormatterFn = formatterFactory.create(logTransportConfig);
 	const options: FormatterOptions = {
 		addTimestamp: logTransportConfig.timestamp,
 	};

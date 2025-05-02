@@ -1,30 +1,39 @@
 export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
+export type HttpResponse<T> = {
+	ok: boolean;
+	status: number;
+	data: T;
+	error: string;
+};
 
-export async function httpDecorator<T>(
-	fetchFn: (url: string, init?: RequestInit) => Promise<Response>,
-	url: string,
-	body?: unknown,
-	method?: "POST" | "GET" | "PUT" | "DELETE",
-): Promise<HttpResponse<T>> {
-	try {
-		const init: RequestInit = {
-			method: method || body ? "POST" : "GET",
-			headers: createHeaders(),
-			body: body ? JSON.stringify(body) : undefined,
-		};
-		const response = await fetchFn(url, init);
-		return createHttpResponse<T>(response);
-	} catch (error) {
-		return {
-			ok: false,
-			status: 0,
-			data: {} as T,
-			error: `Unexpected http error: ${error?.message}`,
-		};
-	}
+type decoratedFetch = (url: string, init?: RequestInit) => Promise<Response>;
+
+export const httpDecorator = {
+	wrap: async <T>(
+		fetchFn: decoratedFetch,
+		url: string,
+		body?: unknown,
+		method?: HttpMethod,
+	): Promise<HttpResponse<T>> => {
+		try {
+			const init = buildRequestInit(body, method);
+			const response = await fetchFn(url, init);
+			return buildHttpResponse<T>(response);
+		} catch (error) {
+			return buildResponseError<T>(error);
+		}
+	},
+};
+
+function buildRequestInit(body?: unknown, method?: HttpMethod) {
+	return {
+		method: method || body ? "POST" : "GET",
+		headers: buildHeaders(),
+		body: body ? JSON.stringify(body) : undefined,
+	};
 }
 
-function createHeaders() {
+function buildHeaders() {
 	const token = "to be provided from environment or config file";
 	return {
 		"Content-Type": "application/json",
@@ -32,7 +41,7 @@ function createHeaders() {
 	};
 }
 
-async function createHttpResponse<T>(
+async function buildHttpResponse<T>(
 	response: Response,
 ): Promise<HttpResponse<T>> {
 	try {
@@ -66,9 +75,12 @@ async function unpackResponse<T>(response: Response): Promise<HttpResponse<T>> {
 	};
 }
 
-export type HttpResponse<T> = {
-	ok: boolean;
-	status: number;
-	data: T;
-	error: string;
-};
+function buildResponseError<T>(error: unknown) {
+	const message = error instanceof Error ? error.message : "Unknown error";
+	return {
+		ok: false,
+		status: 0,
+		data: {} as T,
+		error: `Unexpected http error: ${message}`,
+	};
+}

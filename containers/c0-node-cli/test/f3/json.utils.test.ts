@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { beforeEach, describe, mock, test } from "node:test";
 import { fsAdapter } from "../../src/system/fs.adapter.ts";
-import { readJsonFile, writeJsonFile } from "../../src/system/json.utils.ts";
+import { jsonUtils } from "../../src/system/json.utils.ts";
 
 /**
  * Given json.utils
@@ -31,7 +31,7 @@ describe("Given json.utils", () => {
 
 		test("Then it should read and parse JSON file", async () => {
 			// Act
-			const result = await readJsonFile<{ key: string }>("test.json");
+			const result = await jsonUtils.readFromFile<{ key: string }>("test.json");
 
 			// Assert
 			assert.deepStrictEqual(result, { key: "value" });
@@ -49,7 +49,10 @@ describe("Given json.utils", () => {
 
 		test("Then it should throw SyntaxError", async () => {
 			// Act & Assert
-			await assert.rejects(() => readJsonFile("test.json"), SyntaxError);
+			await assert.rejects(
+				() => jsonUtils.readFromFile("test.json"),
+				SyntaxError,
+			);
 		});
 	});
 
@@ -62,7 +65,7 @@ describe("Given json.utils", () => {
 
 		test("Then it should propagate file system errors", async () => {
 			// Act & Assert
-			await assert.rejects(() => readJsonFile("nonexistent.json"), {
+			await assert.rejects(() => jsonUtils.readFromFile("nonexistent.json"), {
 				message: "File not found",
 			});
 		});
@@ -74,7 +77,7 @@ describe("Given json.utils", () => {
 			const data = { key: "value" };
 
 			// Act
-			await writeJsonFile("test.json", data);
+			await jsonUtils.writeToFile("test.json", data);
 
 			// Assert
 			assert.strictEqual(
@@ -100,7 +103,7 @@ describe("Given json.utils", () => {
 
 			// Act & Assert
 			await assert.rejects(
-				() => writeJsonFile("test.json", circularData),
+				() => jsonUtils.writeToFile("test.json", circularData),
 				TypeError,
 			);
 		});
@@ -115,7 +118,7 @@ describe("Given json.utils", () => {
 
 		test("Then it should propagate file system errors", async () => {
 			// Act & Assert
-			await assert.rejects(() => writeJsonFile("test.json", {}), {
+			await assert.rejects(() => jsonUtils.writeToFile("test.json", {}), {
 				message: "Permission denied",
 			});
 		});

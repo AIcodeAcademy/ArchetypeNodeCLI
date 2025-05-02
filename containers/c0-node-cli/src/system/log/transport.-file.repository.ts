@@ -4,10 +4,10 @@ import { fsAdapter } from "../fs.adapter.ts";
 import { formatLogEntry } from "./formatter.utils.ts";
 import type { LogTransportConfig } from "./log-config.type.ts";
 import type { LogEntry } from "./log-entry.type.ts";
-import type { LogTransportWrite } from "./transport.factory.ts";
+import type { TransportWrite } from "./transport-write.interface.ts";
 
-export class TransportFile implements LogTransportWrite {
-	private logTransportConfig: LogTransportConfig;
+export class TransportFileRepository implements TransportWrite {
+	private readonly logTransportConfig: LogTransportConfig;
 
 	constructor(logTransportConfig: LogTransportConfig) {
 		this.logTransportConfig = logTransportConfig;

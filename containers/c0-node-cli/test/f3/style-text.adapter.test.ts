@@ -17,7 +17,7 @@ describe("Given styleTextAdapter", () => {
 
 		test("Then it should return styled text", () => {
 			// Act
-			const result = styleTextAdapter(["red"], [], inputText);
+			const result = styleTextAdapter.styleText(["red"], [], inputText);
 			// Assert
 			assert.strictEqual(result, `\x1b[31m${inputText}\x1b[39m`);
 		});
@@ -28,7 +28,7 @@ describe("Given styleTextAdapter", () => {
 
 		test("Then it should return styled text", () => {
 			// Act
-			const result = styleTextAdapter([], ["bold"], inputText);
+			const result = styleTextAdapter.styleText([], ["bold"], inputText);
 			// Assert
 			assert.strictEqual(result, `\x1B[1m${inputText}\x1B[22m`);
 		});
@@ -39,7 +39,7 @@ describe("Given styleTextAdapter", () => {
 
 		test("Then it should return styled text", () => {
 			// Act
-			const result = styleTextAdapter(["red"], ["bold"], inputText);
+			const result = styleTextAdapter.styleText(["red"], ["bold"], inputText);
 			// Assert
 			assert.strictEqual(result, `\x1B[31m\x1B[1m${inputText}\x1B[22m\x1B[39m`);
 		});
