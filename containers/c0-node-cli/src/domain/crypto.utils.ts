@@ -2,22 +2,18 @@ import { cryptoAdapter } from "./crypto.adapter.ts";
 
 const TOKEN_LENGTH = 32;
 
-export function hashPassword(password: string): string {
-	return cryptoAdapter.hashText(password);
-}
+export const crypto = {
+	hashPassword: (password: string): string => cryptoAdapter.hashText(password),
 
-export function validatePassword(password: string, hash: string): boolean {
-	return hashPassword(password) === hash;
-}
+	validatePassword: (password: string, hash: string): boolean =>
+		crypto.hashPassword(password) === hash,
 
-export function generateToken(length = TOKEN_LENGTH): string {
-	return cryptoAdapter.randomBytesString(length);
-}
+	generateToken: (length = TOKEN_LENGTH): string =>
+		cryptoAdapter.randomBytesString(length),
 
-export function encrypt(data: string, key: string): string {
-	return cryptoAdapter.encryptHmac(data, key);
-}
+	encrypt: (data: string, key: string): string =>
+		cryptoAdapter.encrypt(data, key),
 
-export function decrypt(data: string, key: string): string {
-	return cryptoAdapter.decryptHmac(data, key);
-}
+	decrypt: (data: string, key: string): string =>
+		cryptoAdapter.decrypt(data, key),
+};

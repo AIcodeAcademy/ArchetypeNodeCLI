@@ -1,7 +1,7 @@
 import { ipApiRepository } from "../system/ip-api.repository.ts";
 import type { IpApi } from "../system/ip-api.type.ts";
 import { openMeteoRepository } from "../system/open-meteo.repository.ts";
-import { cache } from "./cache.utils.ts";
+import { cacheUtils } from "./cache.utils.ts";
 import { mapToMeteo } from "./meteo.mapper.ts";
 import type { Meteo } from "./meteo.type.ts";
 
@@ -27,11 +27,11 @@ export const meteoService = {
 
 async function getIpApiFromCache(): Promise<IpApi> {
 	const CACHE_KEY = "ipApi";
-	const cachedIpApi = await cache.load<IpApi>(CACHE_KEY);
+	const cachedIpApi = await cacheUtils.load<IpApi>(CACHE_KEY);
 	if (cachedIpApi) {
 		return cachedIpApi;
 	}
 	const ipApi = await ipApiRepository.getIpApi();
-	await cache.save(CACHE_KEY, ipApi);
+	await cacheUtils.save(CACHE_KEY, ipApi);
 	return ipApi;
 }

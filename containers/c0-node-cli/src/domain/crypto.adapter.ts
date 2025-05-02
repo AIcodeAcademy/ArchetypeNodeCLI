@@ -43,40 +43,19 @@ function randomBytes(length: number): Buffer {
 // ToDo: Implement encryption and decryption
 
 function encrypt(
-	plaintext: string,
+	plainText: string,
 	key: string,
 	algorithm = "aes-256-gcm",
 	encoding: BufferEncoding = "base64",
 ): string {
-	const crypto_key = crypto
-		.createHash("sha512")
-		.update(key)
-		.digest("hex")
-		.substring(0, 32);
-	const encryptionIV = crypto
-		.createHash("sha512")
-		.update("secret_iv")
-		.digest("hex")
-		.substring(0, 16);
+	return plainText;
 }
 
 function decrypt(
-	ciphertext: string,
+	cipherText: string,
 	key: string,
-	iv: string,
 	algorithm = "aes-256-gcm",
 	encoding: BufferEncoding = "utf8",
 ): string {
-	const decipher = crypto.createDecipheriv(
-		algorithm,
-		Buffer.from(key, "base64"),
-		Buffer.from(iv, "base64"),
-	);
-
-	//decipher.setAuthTag(Buffer.from(tag, "base64"));
-
-	let plaintext = decipher.update(ciphertext, "base64", encoding);
-	plaintext += decipher.final(encoding);
-
-	return plaintext;
+	return cipherText;
 }

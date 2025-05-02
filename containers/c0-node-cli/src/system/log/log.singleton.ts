@@ -4,7 +4,16 @@ import type { LogLevelType } from "./log-level.type.ts";
 import type { TransportWrite } from "./transport-write.interface.ts";
 import { transportFactory } from "./transport.factory.ts";
 
-export class Log {
+// ToDo: refactor with D.I. or something more testable
+
+export interface WriteLevel {
+	debug: (message: string, context?: unknown) => void;
+	info: (message: string, context?: unknown) => void;
+	warn: (message: string, context?: unknown) => void;
+	error: (message: string, context?: unknown) => void;
+}
+
+export class Log implements WriteLevel {
 	private static instance: Log | null = null;
 	private readonly logConfig: LogConfig;
 	private readonly transports: TransportWrite[];
@@ -78,3 +87,6 @@ export class Log {
 		}
 	}
 }
+
+export const log = Log.getInstance();
+export const logBuilder = Log.initInstance;

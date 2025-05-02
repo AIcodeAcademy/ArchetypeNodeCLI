@@ -1,12 +1,6 @@
 import { strict as assert } from "node:assert";
 import { describe, test } from "node:test";
-import {
-	generateNumberId,
-	generateStringId,
-	generateTimestampId,
-	generateTimestampNumberId,
-	generateUuid,
-} from "../../src/domain/id.utils.ts";
+import { idUtils } from "../../src/domain/id.utils.ts";
 
 /**
  * @feature ID Generation Utilities
@@ -45,7 +39,7 @@ describe("ID Generation Utilities", () => {
 				/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 			// Act
-			const uuid = generateUuid();
+			const uuid = idUtils.generateUuid();
 
 			// Assert
 			assert.match(uuid, uuidRegex);
@@ -59,7 +53,7 @@ describe("ID Generation Utilities", () => {
 			const max = 1000000;
 
 			// Act
-			const id = generateNumberId();
+			const id = idUtils.generateNumberId();
 
 			// Assert
 			assert.ok(id >= min && id <= max);
@@ -71,7 +65,7 @@ describe("ID Generation Utilities", () => {
 			const max = 20;
 
 			// Act
-			const id = generateNumberId(min, max);
+			const id = idUtils.generateNumberId(min, max);
 
 			// Assert
 			assert.ok(id >= min && id <= max);
@@ -84,7 +78,7 @@ describe("ID Generation Utilities", () => {
 			const defaultLength = 10;
 
 			// Act
-			const id = generateStringId();
+			const id = idUtils.generateStringId();
 
 			// Assert
 			assert.strictEqual(id.length, defaultLength);
@@ -96,7 +90,7 @@ describe("ID Generation Utilities", () => {
 			const customLength = 15;
 
 			// Act
-			const id = generateStringId(customLength);
+			const id = idUtils.generateStringId(customLength);
 
 			// Assert
 			assert.strictEqual(id.length, customLength);
@@ -110,7 +104,7 @@ describe("ID Generation Utilities", () => {
 			const isoRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
 
 			// Act
-			const timestamp = generateTimestampId();
+			const timestamp = idUtils.generateTimestampId();
 
 			// Assert
 			assert.match(timestamp, isoRegex);
@@ -123,7 +117,7 @@ describe("ID Generation Utilities", () => {
 			const now = Date.now();
 
 			// Act
-			const timestamp = generateTimestampNumberId();
+			const timestamp = idUtils.generateTimestampNumberId();
 
 			// Assert
 			assert.ok(timestamp >= now);

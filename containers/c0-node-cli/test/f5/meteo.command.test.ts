@@ -3,7 +3,7 @@ import { beforeEach, describe, mock, test } from "node:test";
 import { meteoCommand } from "../../src/application/meteo.command.ts";
 import type { MeteoOptions } from "../../src/domain/meteo.service.ts";
 import { meteoService } from "../../src/domain/meteo.service.ts";
-import { log } from "../../src/system/log/log.factory.ts";
+import { log } from "../../src/system/log/log.singleton.ts";
 
 // Arrange
 const meteoMock = {

@@ -1,6 +1,6 @@
 import type { MeteoOptions } from "../domain/meteo.service.ts";
 import { meteoService } from "../domain/meteo.service.ts";
-import { log } from "../system/log/log.factory.ts";
+import { log } from "../system/log/log.singleton.ts";
 
 export const meteoCommand = {
 	run: async (options: MeteoOptions) => {

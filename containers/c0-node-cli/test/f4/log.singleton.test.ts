@@ -4,7 +4,7 @@ import {
 	DEFAULT_LOG_CONFIG,
 	type LogConfig,
 } from "../../src/system/log/log-config.type.ts";
-import { Log } from "../../src/system/log/log.singleton.ts";
+import { Log, type WriteLevel } from "../../src/system/log/log.singleton.ts";
 
 /**
  * @description
@@ -13,7 +13,7 @@ import { Log } from "../../src/system/log/log.singleton.ts";
  * Then it should properly configure and handle logging operations
  */
 describe("Given Log singleton", () => {
-	let log: Log;
+	let log: WriteLevel;
 	const defaultConfig: LogConfig = {
 		minLevel: "info",
 		transports: [

@@ -1,5 +1,5 @@
 import { parseArgs } from "node:util";
-import { log } from "../system/log/log.factory.ts";
+import { log } from "../system/log/log.singleton.ts";
 
 export type CommandOptions = {
 	command: string;
@@ -25,7 +25,7 @@ export const args = {
 		const command = positionals[0];
 		const options = values;
 		const commandOptions = { command, options };
-		log.info(`Parsed command options: ${JSON.stringify(commandOptions)}`);
+		log.debug(`Parsed command options: ${JSON.stringify(commandOptions)}`);
 		return commandOptions;
 	},
 };
