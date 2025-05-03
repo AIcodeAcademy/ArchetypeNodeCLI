@@ -1,6 +1,6 @@
 export type Command = {
 	name: string;
-	options: Record<string, unknown>;
+	options: unknown;
 };
 
 export const DEFAULT_COMMAND: Command = {

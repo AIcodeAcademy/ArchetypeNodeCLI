@@ -2,22 +2,13 @@
 	"name": "archetype-node-cli",
 	"version": "1.0.0",
 	"description": "Node CLI Archetype",
-	"main": "src/main.ts",
-	"scripts": {
-		"start": "node src/main.ts ",
-		"dev": "node --watch src/main.ts ",
-		"test": "node --test",
-		"test:watch": "node --test --watch",
-		"test:f": "node --test --watch test/f0/**.test.ts",
-		"lint": "biome check --write ./src"
-	},
+	"scripts": {},
 	"keywords": [],
 	"author": {
 		"name": "Alberto Basalo",
 		"email": "albertobasalo@aicode.academy"
 	},
 	"license": "ISC",
-	"type": "module",
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@types/node": "^22.15.3"
