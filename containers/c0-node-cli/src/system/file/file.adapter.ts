@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { dirname } from "node:path";
 const ENCODING = "utf-8";
 
 export const file = {
@@ -21,12 +22,12 @@ export const file = {
 	},
 	async makeDir(path: string): Promise<void> {
 		const dirName = await this.getDirName(path);
-		if (!(await this.exists(dirName))) {
+		if (dirName && !(await this.exists(dirName))) {
 			await fs.mkdir(dirName, { recursive: true });
 		}
 	},
 	async getDirName(path: string): Promise<string> {
-		return path.split("/").slice(0, -1).join("/");
+		return dirname(path);
 	},
 	async readDir(path: string): Promise<string[]> {
 		return await fs.readdir(path);
