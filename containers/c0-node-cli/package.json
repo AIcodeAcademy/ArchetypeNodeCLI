@@ -4,8 +4,8 @@
 	"description": "Node CLI Archetype",
 	"main": "src/main.ts",
 	"scripts": {
-		"start": "node src/main.ts meteo -c",
-		"dev": "node --env-file=.dev.env --watch src/main.ts meteo -c",
+		"start": "node src/main.ts ",
+		"dev": "node --watch src/main.ts ",
 		"test": "node --test",
 		"test:watch": "node --test --watch",
 		"test:f": "node --test --watch test/f4/**.test.ts",
@@ -20,6 +20,6 @@
 	"type": "module",
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@types/node": "^22.15.2"
+		"@types/node": "^22.15.3"
 	}
 }
