@@ -8,9 +8,16 @@ export const file = {
 		const content = await fs.readFile(path, ENCODING);
 		return content;
 	},
+	async readJson<T>(path: string): Promise<T> {
+		const content = await file.read(path);
+		return JSON.parse(content) as T;
+	},
 	async write(path: string, content: string): Promise<void> {
 		await directory.make(path);
 		await fs.writeFile(path, content, ENCODING);
+	},
+	async writeJson(path: string, content: unknown): Promise<void> {
+		await file.write(path, JSON.stringify(content));
 	},
 	async delete(path: string): Promise<void> {
 		await fs.unlink(path);
