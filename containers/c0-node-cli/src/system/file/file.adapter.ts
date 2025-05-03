@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
-import { dirname } from "node:path";
+import { directory } from "./directory.adapter.ts";
+
 const ENCODING = "utf-8";
 
 export const file = {
@@ -8,7 +9,7 @@ export const file = {
 		return content;
 	},
 	async write(path: string, content: string): Promise<void> {
-		await this.makeDir(path);
+		await directory.make(path);
 		await fs.writeFile(path, content, ENCODING);
 	},
 	async delete(path: string): Promise<void> {
@@ -19,17 +20,5 @@ export const file = {
 			.access(path)
 			.then(() => true)
 			.catch(() => false);
-	},
-	async makeDir(path: string): Promise<void> {
-		const dirName = await this.getDirName(path);
-		if (dirName && !(await this.exists(dirName))) {
-			await fs.mkdir(dirName, { recursive: true });
-		}
-	},
-	async getDirName(path: string): Promise<string> {
-		return dirname(path);
-	},
-	async readDir(path: string): Promise<string[]> {
-		return await fs.readdir(path);
 	},
 };
