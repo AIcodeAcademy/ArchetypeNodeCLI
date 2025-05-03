@@ -2,7 +2,7 @@ import { type ParseArgsOptionsConfig, parseArgs } from "node:util";
 import type { Command } from "./command.type.ts";
 
 export const cli = {
-	getCommandOptions: (options: ParseArgsOptionsConfig): Command => {
+	getCommandOptions(options: ParseArgsOptionsConfig): Command {
 		const args: string[] | undefined = process.argv.slice(2);
 		const { positionals, values } = parseArgs({
 			args,

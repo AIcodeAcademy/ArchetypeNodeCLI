@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import { afterEach, beforeEach, describe, test } from "node:test";
-import { getEnv } from "../../src/system/env/env.adapter.ts";
+import { env } from "../../src/system/env/env.adapter.ts";
 import { DEFAULT_ENV } from "../../src/system/env/env.type.ts";
 
 /**
@@ -28,7 +28,7 @@ describe("Given an environment adapter", () => {
 		test("Then it should return default environment configuration", () => {
 			// Arrange
 			// Act
-			const actual = getEnv();
+			const actual = env.get();
 
 			// Assert
 			assert.deepStrictEqual(actual, DEFAULT_ENV);
@@ -43,7 +43,7 @@ describe("Given an environment adapter", () => {
 			process.env.APP_PATH = "/custom/path";
 
 			// Act
-			const actual = getEnv();
+			const actual = env.get();
 
 			// Assert
 			const expected = {
@@ -63,7 +63,7 @@ describe("Given an environment adapter", () => {
 			process.env.APP_ENVIRONMENT = "production";
 
 			// Act
-			const actual = getEnv();
+			const actual = env.get();
 
 			// Assert
 			const expected = {
