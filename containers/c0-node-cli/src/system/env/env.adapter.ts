@@ -1,7 +1,7 @@
 import { DEFAULT_ENV, type Env } from "./env.type.ts";
 
 export function getEnv(): Env {
-	const env = DEFAULT_ENV;
+	const env = { ...DEFAULT_ENV };
 	env.appEnvironment =
 		process.env.APP_ENVIRONMENT || DEFAULT_ENV.appEnvironment;
 	env.appName = process.env.APP_NAME || DEFAULT_ENV.appName;
