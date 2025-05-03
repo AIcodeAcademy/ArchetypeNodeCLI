@@ -1,5 +1,5 @@
-import { getEnv } from "./system/env/env.adapter.ts";
+import { env } from "./system/env/env.adapter.ts";
 
-const env = getEnv();
+const environment = env.get();
 
-console.log(env);
+console.log(environment);
