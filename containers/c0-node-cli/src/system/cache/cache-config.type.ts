@@ -1,6 +1,6 @@
 export type CacheRepository = "file" | "memory";
 export type CacheConfig = {
-	ttl: number;
+	ttl: number | string;
 	repository: CacheRepository;
 	directory: string;
 };
