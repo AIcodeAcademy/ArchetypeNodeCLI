@@ -36,7 +36,7 @@ describe("Given a cache service", () => {
 		test("Then it should store the data in memory", async () => {
 			// Arrange
 			// Act
-			await cache.save(testKey, testValue, memoryConfig);
+			await cache.set(testKey, testValue, memoryConfig);
 
 			// Assert
 			const actual = await cache.get(testKey, memoryConfig);
@@ -47,7 +47,7 @@ describe("Given a cache service", () => {
 	describe("When retrieving data from memory cache", () => {
 		test("Then it should return the stored data", async () => {
 			// Arrange
-			await cache.save(testKey, testValue, memoryConfig);
+			await cache.set(testKey, testValue, memoryConfig);
 
 			// Act
 			const actual = await cache.get(testKey, memoryConfig);
@@ -59,7 +59,7 @@ describe("Given a cache service", () => {
 		test("Then it should return undefined for expired data", async () => {
 			// Arrange
 			const expiredConfig = { ...memoryConfig, ttl: 1000 }; // 1 second TTL
-			await cache.save(testKey, testValue, expiredConfig);
+			await cache.set(testKey, testValue, expiredConfig);
 
 			// Wait for the cache to expire
 			await new Promise((resolve) => setTimeout(resolve, 1100));
@@ -87,7 +87,7 @@ describe("Given a cache service", () => {
 			);
 
 			// Act
-			await cache.save(testKey, testValue, fileConfig);
+			await cache.set(testKey, testValue, fileConfig);
 
 			// Assert
 			assert.strictEqual(

@@ -1,7 +1,5 @@
 import { DEFAULT_ENV, type Env } from "./env.type.ts";
 
-// ToDo: rename as environment?
-
 export const env = {
 	get(): Env {
 		const env = { ...DEFAULT_ENV };
@@ -12,9 +10,9 @@ export const env = {
 		env.isProduction = env.appEnvironment === "production";
 		return Object.freeze(env);
 	},
-	getEntries(prefix: string): [string, string | undefined][] {
-		return Object.entries(process.env).filter(([key]) =>
-			key.startsWith(prefix),
+	getEntries(prefix: string): Map<string, string | undefined> {
+		return new Map(
+			Object.entries(process.env).filter(([key]) => key.startsWith(prefix)),
 		);
 	},
 };

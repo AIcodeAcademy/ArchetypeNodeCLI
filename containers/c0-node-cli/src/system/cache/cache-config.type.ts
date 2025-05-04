@@ -1,7 +1,7 @@
-export type CacheRepository = "file" | "memory";
+export type CacheRepositoryType = "file" | "memory";
 export type CacheConfig = {
-	ttl: number | string;
-	repository: CacheRepository;
+	ttl: number;
+	repository: CacheRepositoryType;
 	directory: string;
 };
 
