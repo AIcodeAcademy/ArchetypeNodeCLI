@@ -1,9 +1,7 @@
-import { getConfigRepositories } from "./log-config.utils.ts";
-import { logConsoleRepository } from "./log-console.repository.ts";
-import type { LogEntry, LogLevel } from "./log-entry.type.ts";
-import { logFileRepository } from "./log-file.repository.ts";
-import type { LogRepository } from "./log-repository.type.ts";
-import type { LogRepositoryWriteEntry } from "./log-write.interface.ts";
+import { getLogRepositories } from "./log-config.utils.ts";
+import type { LogEntry } from "./log-entry.type.ts";
+import { LOG_LEVELS, type LogLevelName } from "./log-level.type.ts";
+import { getLogRepositoryWriter } from "./log-repository.type.ts";
 
 export const log = {
 	debug(message: string, context?: Record<string, unknown>, source?: string) {
@@ -24,28 +22,13 @@ export const log = {
 	},
 };
 
-function write(entry: LogEntry) {
-	for (const currentRepository of getConfigRepositories()) {
-		const repository = logRepositoriesMap[currentRepository.repository];
-		if (repository) {
-			if (entry.level >= currentRepository.minLevel) {
-				repository.write(entry);
-			}
-		}
-	}
-}
-
-const logRepositoriesMap: Record<LogRepository, LogRepositoryWriteEntry> = {
-	console: logConsoleRepository,
-	file: logFileRepository,
-};
-
 function buildLogEntry(
-	level: LogLevel,
+	levelName: LogLevelName,
 	message: string,
 	context?: Record<string, unknown>,
 	source?: string,
 ): LogEntry {
+	const level = LOG_LEVELS[levelName];
 	return {
 		level,
 		message,
@@ -53,4 +36,16 @@ function buildLogEntry(
 		context,
 		timestamp: Date.now(),
 	};
+}
+
+function write(entry: LogEntry) {
+	for (const repository of getLogRepositories()) {
+		if (entry.level.rank >= repository.minLevel.rank) {
+			const repositoryWriter = getLogRepositoryWriter(repository.name);
+			if (!repositoryWriter) {
+				continue;
+			}
+			repositoryWriter.write(entry);
+		}
+	}
 }

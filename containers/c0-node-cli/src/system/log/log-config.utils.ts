@@ -1,37 +1,49 @@
 import { environment } from "../env/env.adapter.ts";
-import type { LogLevel } from "./log-entry.type.ts";
-import type { LogRepository } from "./log-repository.type.ts";
+import {
+	LOG_LEVELS,
+	type LogLevel,
+	type LogLevelName,
+} from "./log-level.type.ts";
+import {
+	DEFAULT_REPOSITORIES,
+	type LogRepository,
+	type LogRepositoryName,
+} from "./log-repository.type.ts";
 
-let configRepositories: LogRepositoryConfig[] | undefined = undefined;
-const DEFAULT_REPOSITORIES: LogRepositoryConfig[] = [
-	{
-		repository: "console",
-		minLevel: "info",
-	},
-];
+let logRepositories: LogRepository[] | undefined = undefined;
 
-export type LogRepositoryConfig = {
-	repository: LogRepository;
-	minLevel: LogLevel;
-};
-
-export function getConfigRepositories(): LogRepositoryConfig[] {
-	console.log("getConfigRepositories", configRepositories);
-	if (configRepositories) {
-		return configRepositories;
+export function getLogRepositories(): LogRepository[] {
+	if (logRepositories) {
+		return logRepositories;
 	}
+	logRepositories = DEFAULT_REPOSITORIES;
 	try {
-		const envRepositories = environment.getEntry("LOG_REPOSITORIES");
-		if (Array.isArray(envRepositories)) {
-			configRepositories = envRepositories.map((repository) => ({
-				repository: repository as LogRepository,
-				minLevel: environment.getEntry(
-					`LOG_${repository.toUpperCase()}_MIN_LEVEL`,
-				) as LogLevel,
+		const envRepositoriesNames = environment.getEntry("LOG_REPOSITORIES");
+		if (
+			envRepositoriesNames &&
+			Array.isArray(envRepositoriesNames) &&
+			envRepositoriesNames.length > 0
+		) {
+			logRepositories = envRepositoriesNames.map((repositoryName) => ({
+				name: repositoryName as LogRepositoryName,
+				minLevel: getMinLevelBy(repositoryName),
 			}));
 		}
 	} catch (error) {
 		console.error("Error getting config repositories", error);
 	}
-	return configRepositories || DEFAULT_REPOSITORIES;
+	return logRepositories;
+}
+
+function getMinLevelBy(repositoryName: string): LogLevel {
+	const envRepositoryMinLevel = environment.getEntry(
+		`LOG_${repositoryName.toUpperCase()}_MIN_LEVEL`,
+	);
+	if (envRepositoryMinLevel) {
+		const minLevel = LOG_LEVELS[envRepositoryMinLevel as LogLevelName];
+		if (minLevel) {
+			return minLevel;
+		}
+	}
+	return LOG_LEVELS.info;
 }

@@ -1,4 +1,4 @@
-export type LogLevel = "debug" | "info" | "warn" | "error";
+import type { LogLevel } from "./log-level.type";
 
 export type LogEntry = {
 	level: LogLevel;

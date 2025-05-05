@@ -1,5 +1,5 @@
 import type { LogEntry } from "./log-entry.type.ts";
-import type { LogRepositoryWriteEntry } from "./log-write.interface.ts";
+import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
 
 export const logConsoleRepository: LogRepositoryWriteEntry = {
 	write(entry: LogEntry) {
@@ -14,7 +14,8 @@ export const logConsoleRepository: LogRepositoryWriteEntry = {
 
 function buildConsoleMessage(entry: LogEntry): string {
 	const time = new Date(entry.timestamp).toLocaleTimeString();
-	return `${time} ${entry.level.padEnd(5)} ${entry.message}`;
+	// ToDo: use styleText to format the message
+	return `${time} ${entry.level.name.padEnd(5)} ${entry.message}`;
 }
 
 function buildContextMessage(context: Record<string, unknown>): string {

@@ -1,6 +1,6 @@
 import { file } from "../file/file.adapter.ts";
 import type { LogEntry } from "./log-entry.type.ts";
-import type { LogRepositoryWriteEntry } from "./log-write.interface.ts";
+import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
 
 export const logFileRepository: LogRepositoryWriteEntry = {
 	write(entry: LogEntry) {
@@ -17,7 +17,7 @@ const LOG_FILE_PATH = "./temp/log.csv";
 
 function buildFileMessage(entry: LogEntry): string {
 	const time = new Date(entry.timestamp).toLocaleTimeString();
-	return `${time},${entry.level.padEnd(5)},${entry.message}`;
+	return `${time},${entry.level.name},${entry.message}`;
 }
 
 function buildContextMessage(context: Record<string, unknown>): string {
