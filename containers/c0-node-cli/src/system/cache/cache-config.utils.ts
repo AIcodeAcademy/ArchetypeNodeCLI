@@ -1,4 +1,4 @@
-import { env } from "../env/env.adapter.ts";
+import { environment } from "../env/env.adapter.ts";
 import {
 	type CacheConfig,
 	type CacheRepositoryType,
@@ -21,7 +21,8 @@ export function getCacheConfig(
 
 function getCacheConfigFromEnv(): CacheConfig {
 	const PREFIX = "CACHE_";
-	const envEntries: Map<string, string | undefined> = env.getEntries(PREFIX);
+	const envEntries: Map<string, string | undefined> =
+		environment.getEntries(PREFIX);
 	if (envEntries.size === 0) {
 		return DEFAULT_CACHE_CONFIG;
 	}

@@ -16,6 +16,10 @@ export const file = {
 		await directory.make(path);
 		await fs.writeFile(path, content, ENCODING);
 	},
+	async appendLine(path: string, content: string): Promise<void> {
+		await directory.make(path);
+		await fs.appendFile(path, `${content}\n`, ENCODING);
+	},
 	async writeJson(path: string, content: unknown): Promise<void> {
 		await file.write(path, JSON.stringify(content));
 	},
