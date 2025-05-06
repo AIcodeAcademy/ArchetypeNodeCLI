@@ -1,23 +1,27 @@
-import { cache } from "./system/cache/cache.service.ts";
+import { ipApiCommand } from "./application/ip-api.command.ts";
 import { environment } from "./system/env/env.adapter.ts";
 import type { Env } from "./system/env/env.type.ts";
 import { log } from "./system/log/log.service.ts";
 
-const env = environment.get();
-log.warn("environment", env, "main");
-cache.set("environment", env);
-const cachedEnvironment = await cache.get<Env>("environment");
-log.info("cachedEnvironment", cachedEnvironment);
-// wait 2 seconds
-await new Promise((resolve) => setTimeout(resolve, 2000));
-const cachedEnvironment2 = await cache.get<Env>("environment");
-log.info("cachedEnvironment2", cachedEnvironment2);
-// wait 1 more second
-await new Promise((resolve) => setTimeout(resolve, 1000));
-const cachedEnvironment3 = await cache.get<Env>("environment");
-log.error("cachedEnvironment3", cachedEnvironment3);
+async function main() {
+	const appEnv: Env = environment.get();
+	log.warn(
+		`App ${appEnv.name} is running in ${appEnv.environment} environment`,
+	);
 
-// ToDo:
-// - Feature : getIp
-// - Feature: get weather forecast
-// - Feature: process command line arguments
+	try {
+		await ipApiCommand.run({ useCache: true });
+	} catch (error) {
+		log.error(error.message, error, error.stack);
+	}
+
+	// ToDo:
+	// - Feature: log
+	//   - Improve error context and trace
+	//   - Do it for any transporter
+	//   - Add a log style for console
+	// - Feature: get weather forecast
+	// - Feature: process command line arguments
+}
+
+main();

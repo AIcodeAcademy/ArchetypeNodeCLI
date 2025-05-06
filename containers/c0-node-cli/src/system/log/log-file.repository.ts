@@ -20,8 +20,17 @@ function buildFileMessage(entry: LogEntry): string {
 	return `${time},${entry.level.name},${entry.message}`;
 }
 
-function buildContextMessage(context: Record<string, unknown>): string {
-	return Object.entries(context)
-		.map(([key, value]) => `${key}=${value}`)
-		.join(",");
+function buildContextMessage(context: unknown): string {
+	if (typeof context === "string") {
+		return context;
+	}
+	if (context instanceof Error) {
+		return context.cause?.toString() || context.stack || context.message;
+	}
+	if (typeof context === "object") {
+		return Object.entries(context as Record<string, unknown>)
+			.map(([key, value]) => `${key}=${value}`)
+			.join(",");
+	}
+	return JSON.stringify(context);
 }

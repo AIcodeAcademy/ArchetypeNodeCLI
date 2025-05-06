@@ -1,13 +1,13 @@
 export type Env = {
-	appEnvironment: string;
-	appName: string;
-	appPath: string;
+	environment: string;
+	name: string;
+	path: string;
 	isProduction: boolean;
 };
 
 export const DEFAULT_ENV: Env = {
-	appEnvironment: "production",
-	appName: "c0-node-cli",
-	appPath: ".",
+	environment: "production",
+	name: "c0-node-cli",
+	path: ".",
 	isProduction: true,
 };

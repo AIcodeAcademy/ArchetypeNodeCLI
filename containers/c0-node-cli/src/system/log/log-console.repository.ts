@@ -7,7 +7,7 @@ export const logConsoleRepository: LogRepositoryWriteEntry = {
 		console.log(consoleMessage);
 		if (entry.context) {
 			const contextMessage = buildContextMessage(entry.context);
-			console.log(contextMessage);
+			console.log(`-> ${contextMessage}`);
 		}
 	},
 };
@@ -18,8 +18,17 @@ function buildConsoleMessage(entry: LogEntry): string {
 	return `${time} ${entry.level.name.padEnd(5)} ${entry.message}`;
 }
 
-function buildContextMessage(context: Record<string, unknown>): string {
-	return Object.entries(context)
-		.map(([key, value]) => `${key}=${value}`)
-		.join(",");
+function buildContextMessage(context: unknown): string {
+	if (typeof context === "string") {
+		return context;
+	}
+	if (context instanceof Error) {
+		return context.cause?.toString() || context.stack || context.message;
+	}
+	if (typeof context === "object") {
+		return Object.entries(context as Record<string, unknown>)
+			.map(([key, value]) => `${key}=${value}`)
+			.join(",");
+	}
+	return JSON.stringify(context);
 }

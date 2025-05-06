@@ -3,11 +3,10 @@ import { DEFAULT_ENV, type Env } from "./env.type.ts";
 export const environment = {
 	get(): Env {
 		const env = { ...DEFAULT_ENV };
-		env.appEnvironment =
-			process.env.APP_ENVIRONMENT || DEFAULT_ENV.appEnvironment;
-		env.appName = process.env.APP_NAME || DEFAULT_ENV.appName;
-		env.appPath = process.env.APP_PATH || DEFAULT_ENV.appPath;
-		env.isProduction = env.appEnvironment === "production";
+		env.environment = process.env.APP_ENVIRONMENT || DEFAULT_ENV.environment;
+		env.name = process.env.APP_NAME || DEFAULT_ENV.name;
+		env.path = process.env.APP_PATH || DEFAULT_ENV.path;
+		env.isProduction = env.environment === "production";
 		return Object.freeze(env);
 	},
 	getEntry(key: string): string | string[] | undefined {
