@@ -39,13 +39,20 @@ function buildLogEntry(
 }
 
 function write(entry: LogEntry) {
-	for (const repository of getLogRepositories()) {
-		if (entry.level.rank >= repository.minLevel.rank) {
-			const repositoryWriter = getLogRepositoryWriter(repository.name);
-			if (!repositoryWriter) {
-				continue;
-			}
-			repositoryWriter.write(entry);
-		}
-	}
+	// for (const repository of getLogRepositories()) {
+	// 	if (entry.level.rank >= repository.minLevel.rank) {
+	// 		const repositoryWriter = getLogRepositoryWriter(repository.name);
+	// 		if (!repositoryWriter) {
+	// 			continue;
+	// 		}
+	// 		repositoryWriter.write(entry);
+	// 	}
+	// }
+
+	// biome-ignore lint/complexity/noForEach: pipeline
+	getLogRepositories()
+		.filter((repository) => entry.level.rank >= repository.minLevel.rank)
+		.map((repository) => getLogRepositoryWriter(repository.name))
+		.filter((repositoryWriter) => !!repositoryWriter)
+		.forEach((repositoryWriter) => repositoryWriter.write(entry));
 }

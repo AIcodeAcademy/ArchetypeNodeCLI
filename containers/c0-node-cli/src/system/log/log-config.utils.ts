@@ -16,23 +16,24 @@ export function getLogRepositories(): LogRepository[] {
 	if (logRepositories) {
 		return logRepositories;
 	}
-	logRepositories = DEFAULT_REPOSITORIES;
-	try {
-		const envRepositoriesNames = environment.getEntry("LOG_REPOSITORIES");
-		if (
-			envRepositoriesNames &&
-			Array.isArray(envRepositoriesNames) &&
-			envRepositoriesNames.length > 0
-		) {
-			logRepositories = envRepositoriesNames.map((repositoryName) => ({
-				name: repositoryName as LogRepositoryName,
-				minLevel: getMinLevelBy(repositoryName),
-			}));
-		}
-	} catch (error) {
-		console.error("Error getting config repositories", error);
-	}
+	logRepositories = getFromEnvironment() ?? DEFAULT_REPOSITORIES;
 	return logRepositories;
+}
+
+function getFromEnvironment(): LogRepository[] | undefined {
+	const envRepositoriesNames = environment.getEntry("LOG_REPOSITORIES");
+	if (
+		envRepositoriesNames &&
+		Array.isArray(envRepositoriesNames) &&
+		envRepositoriesNames.length > 0
+	) {
+		const logRepositories = envRepositoriesNames.map((repositoryName) => ({
+			name: repositoryName as LogRepositoryName,
+			minLevel: getMinLevelBy(repositoryName),
+		}));
+		return logRepositories;
+	}
+	return undefined;
 }
 
 function getMinLevelBy(repositoryName: string): LogLevel {

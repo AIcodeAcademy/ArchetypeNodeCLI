@@ -16,3 +16,8 @@ log.info("cachedEnvironment2", cachedEnvironment2);
 await new Promise((resolve) => setTimeout(resolve, 1000));
 const cachedEnvironment3 = await cache.get<Env>("environment");
 log.error("cachedEnvironment3", cachedEnvironment3);
+
+// ToDo:
+// - Feature : getIp
+// - Feature: get weather forecast
+// - Feature: process command line arguments
