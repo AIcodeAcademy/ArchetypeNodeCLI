@@ -4,7 +4,7 @@
 	"description": "Node CLI Archetype",
 	"main": "src/main.ts",
 	"scripts": {
-		"start": "node --env-file=.env src/main.ts",
+		"start": "node --env-file=.env src/main.ts ip",
 		"dev": "node --watch --env-file=.env src/main.ts",
 		"test": "node --test",
 		"test:watch": "node --test --watch",

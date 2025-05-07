@@ -1,4 +1,4 @@
-import { ipApiCommand } from "./application/ip-api.command.ts";
+import { commandsController } from "./application/commands.controller.ts";
 import { environment } from "./system/env/env.adapter.ts";
 import type { Env } from "./system/env/env.type.ts";
 import { log } from "./system/log/log.service.ts";
@@ -9,7 +9,7 @@ async function main() {
 	log.warn(initMessage);
 
 	try {
-		await ipApiCommand.run({ useCache: true });
+		await commandsController.runParsedCommand();
 	} catch (error) {
 		log.error(error);
 	}
