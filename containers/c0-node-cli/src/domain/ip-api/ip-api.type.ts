@@ -1,5 +1,6 @@
 export type IpApi = {
 	status: string;
+	query: string;
 	country: string;
 	countryCode: string;
 	region: string;

@@ -7,7 +7,7 @@ import { log } from "../system/log/log.service.ts";
 export const ipApiCommand = {
 	async run(ipApiOptions: IpApiOptions) {
 		log.info("ipApiCommand.run", ipApiOptions);
-		const ip = await getCurrentIp(ipApiOptions);
-		log.warn("ip", ip);
+		const ipApi = await getCurrentIp(ipApiOptions);
+		log.warn(`ip ${ipApi.query}`, ipApi);
 	},
 };

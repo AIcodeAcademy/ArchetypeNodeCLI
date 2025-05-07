@@ -5,9 +5,8 @@ import { log } from "./system/log/log.service.ts";
 
 async function main() {
 	const appEnv: Env = environment.get();
-	log.warn(
-		`App ${appEnv.name} is running in ${appEnv.environment} environment`,
-	);
+	const initMessage = `App ${appEnv.name} is running in ${appEnv.environment} environment`;
+	log.warn(initMessage);
 
 	try {
 		await ipApiCommand.run({ useCache: true });
@@ -16,10 +15,10 @@ async function main() {
 	}
 
 	// ToDo:
-	// - Feature: log
-	//   - Add a log style for console
-	// - Feature: get weather forecast
 	// - Feature: process command line arguments
+	//   - standardize command call
+	//   - add help command and call it as default
+	// - Feature: get weather forecast
 }
 
 main();
