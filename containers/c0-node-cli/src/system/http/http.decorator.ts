@@ -38,36 +38,40 @@ async function buildHttpResponse<T>(
 	response: Response,
 	context: string,
 ): Promise<HttpResponse<T>> {
+	const payload = await getPayload<T>(response);
 	if (response.ok) {
-		const data = await getJson<T>(response);
+		const value = payload || {};
 		return {
-			ok: true,
 			status: response.status,
-			data: data as T,
-			errorMessage: "",
+			value: value as T,
 			error: undefined,
 		};
 	}
-	const error = await getText(response);
-	const errorMessage = `[${response.status}] ${response.statusText}: ${context}`;
+	const errorMessage = `[${response.status}] ${response.statusText} : ${context}`;
+	const error = new Error(errorMessage, { cause: payload });
 	return {
-		ok: false,
 		status: response.status,
-		data: {} as T,
-		errorMessage,
+		value: {} as T,
 		error,
 	};
 }
 
 function buildNoResponse<T>(error: unknown): HttpResponse<T> {
-	const message = error instanceof Error ? error.message : "Unknown";
 	return {
-		ok: false,
 		status: 0,
-		data: {} as T,
-		errorMessage: `Unexpected http error: ${message}`,
-		error: error,
+		value: {} as T,
+		error,
 	};
+}
+async function getPayload<T>(response: Response): Promise<T | undefined> {
+	let payload = await getJson<T>(response);
+	if (!payload) {
+		const text = await getText(response);
+		if (text) {
+			payload = JSON.parse(text);
+		}
+	}
+	return payload;
 }
 
 async function getJson<T>(response: Response): Promise<T | undefined> {

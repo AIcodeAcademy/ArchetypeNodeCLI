@@ -12,13 +12,11 @@ async function main() {
 	try {
 		await ipApiCommand.run({ useCache: true });
 	} catch (error) {
-		log.error(error.message, error, error.stack);
+		log.error(error);
 	}
 
 	// ToDo:
 	// - Feature: log
-	//   - Improve error context and trace
-	//   - Do it for any transporter
 	//   - Add a log style for console
 	// - Feature: get weather forecast
 	// - Feature: process command line arguments

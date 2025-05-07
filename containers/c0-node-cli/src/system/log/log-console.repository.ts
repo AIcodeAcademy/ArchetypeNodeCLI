@@ -15,7 +15,8 @@ export const logConsoleRepository: LogRepositoryWriteEntry = {
 function buildConsoleMessage(entry: LogEntry): string {
 	const time = new Date(entry.timestamp).toLocaleTimeString();
 	// ToDo: use styleText to format the message
-	return `${time} ${entry.level.name.padEnd(5)} ${entry.message}`;
+
+	return `${time} ${entry.level.name.padEnd(5)} ${entry.message} ${entry.source || ""}`;
 }
 
 function buildContextMessage(context: unknown): string {

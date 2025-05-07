@@ -1,6 +1,6 @@
-import { cache } from "../system/cache/cache.service.ts";
-import { ipApiRepository } from "../system/ip-api/ip-api.repository.ts";
-import type { IpApi } from "../system/ip-api/ip-api.type.ts";
+import { cache } from "../../system/cache/cache.service.ts";
+import { ipApiRepository } from "./ip-api.repository.ts";
+import type { IpApi } from "./ip-api.type.ts";
 
 export type IpApiOptions = {
 	useCache: boolean;
@@ -27,8 +27,8 @@ async function getCurrentIpFromCache(ipApiOptions: IpApiOptions) {
 
 async function getCurrentIpFromApi(): Promise<IpApi> {
 	const response = await ipApiRepository.getIpApi();
-	if (response.ok) {
-		return response.data;
+	if (response.error instanceof Error) {
+		throw response.error;
 	}
-	throw new Error(response.errorMessage, { cause: response.error });
+	return response.value;
 }

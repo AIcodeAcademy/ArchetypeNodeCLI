@@ -4,20 +4,26 @@ import { LOG_LEVELS, type LogLevelName } from "./log-level.type.ts";
 import { getLogRepositoryWriter } from "./log-repository.type.ts";
 
 export const log = {
-	debug(message: string, context?: Record<string, unknown>, source?: string) {
-		const entry = buildLogEntry("debug", message, context, source);
+	debug(message: string, context?: Record<string, unknown>) {
+		const entry = buildLogEntry("debug", message, context);
 		write(entry);
 	},
-	info(message: string, context?: Record<string, unknown>, source?: string) {
-		const entry = buildLogEntry("info", message, context, source);
+	info(message: string, context?: Record<string, unknown>) {
+		const entry = buildLogEntry("info", message, context);
 		write(entry);
 	},
-	warn(message: string, context?: Record<string, unknown>, source?: string) {
-		const entry = buildLogEntry("warn", message, context, source);
+	warn(message: string, context?: Record<string, unknown>) {
+		const entry = buildLogEntry("warn", message, context);
 		write(entry);
 	},
-	error(message: string, context?: Record<string, unknown>, source?: string) {
-		const entry = buildLogEntry("error", message, context, source);
+	error(error: Error, context?: Record<string, unknown>) {
+		const message = error.message;
+		const errorContext = {
+			stack: error.stack,
+			cause: error.cause,
+		};
+		context && Object.assign(errorContext, context);
+		const entry = buildLogEntry("error", message, errorContext);
 		write(entry);
 	},
 };
@@ -26,16 +32,25 @@ function buildLogEntry(
 	levelName: LogLevelName,
 	message: string,
 	context?: Record<string, unknown>,
-	source?: string,
 ): LogEntry {
 	const level = LOG_LEVELS[levelName];
+	const source = getSource(levelName);
+	const timestamp = Date.now();
 	return {
 		level,
 		message,
-		source: source ?? "log",
+		source,
 		context,
-		timestamp: Date.now(),
+		timestamp,
 	};
+}
+
+function getSource(levelName: LogLevelName): string | undefined {
+	if (["debug", "error"].includes(levelName)) {
+		const source = new Error().stack?.split("\n")[4].trim();
+		return source ?? "log";
+	}
+	return undefined;
 }
 
 function write(entry: LogEntry) {

@@ -31,9 +31,9 @@ function getFromEnvironment(): LogRepository[] | undefined {
 			name: repositoryName as LogRepositoryName,
 			minLevel: getMinLevelBy(repositoryName),
 		}));
-		console.log("logRepositories", logRepositories);
 		return logRepositories;
 	}
+	console.warn("No log repositories found in environment");
 	return undefined;
 }
 
