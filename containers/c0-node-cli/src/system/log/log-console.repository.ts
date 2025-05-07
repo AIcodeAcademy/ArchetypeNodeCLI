@@ -1,6 +1,6 @@
+import { styleTextAdapter } from "../utils/style-text.adapter.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
-import { styleTextAdapter } from "./style-text.adapter.ts";
 
 export const logConsoleRepository: LogRepositoryWriteEntry = {
 	write(entry: LogEntry) {

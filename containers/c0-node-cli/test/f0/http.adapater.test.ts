@@ -1,5 +1,5 @@
 import assert from "node:assert";
-import { describe, test } from "node:test";
+import { describe, mock, test } from "node:test";
 import type { HttpResponse } from "../../src/system/http/http-response.type";
 import { http } from "../../src/system/http/http.adapter.ts";
 
@@ -22,21 +22,23 @@ describe("Given an HTTP adapter", () => {
 	describe("When making a GET request", () => {
 		test("Then it should return the response data", async () => {
 			// Arrange
-			global.fetch = async () =>
-				new Response(JSON.stringify(mockResponse), {
-					status: 200,
-					headers: { "Content-Type": "application/json" },
-				});
+			mock.method(
+				globalThis,
+				"fetch",
+				async () =>
+					new Response(JSON.stringify(mockResponse), {
+						status: 200,
+						headers: { "Content-Type": "application/json" },
+					}),
+			);
 
 			// Act
 			const actual = await http.get<typeof mockResponse>(mockUrl);
 
 			// Assert
 			const expected: HttpResponse<typeof mockResponse> = {
-				ok: true,
 				status: 200,
-				data: mockResponse,
-				errorMessage: "",
+				value: mockResponse,
 				error: undefined,
 			};
 			assert.deepStrictEqual(actual, expected);
@@ -47,7 +49,7 @@ describe("Given an HTTP adapter", () => {
 		test("Then it should send the body and return the response data", async () => {
 			// Arrange
 			let actualBody: unknown;
-			global.fetch = async (url, options) => {
+			mock.method(globalThis, "fetch", async (url, options) => {
 				actualBody = options?.body
 					? JSON.parse(options.body as string)
 					: undefined;
@@ -55,17 +57,15 @@ describe("Given an HTTP adapter", () => {
 					status: 200,
 					headers: { "Content-Type": "application/json" },
 				});
-			};
+			});
 
 			// Act
 			const actual = await http.post<typeof mockResponse>(mockUrl, mockBody);
 
 			// Assert
 			const expected: HttpResponse<typeof mockResponse> = {
-				ok: true,
 				status: 200,
-				data: mockResponse,
-				errorMessage: "",
+				value: mockResponse,
 				error: undefined,
 			};
 			assert.deepStrictEqual(actual, expected);
@@ -77,7 +77,7 @@ describe("Given an HTTP adapter", () => {
 		test("Then it should send the body and return the response data", async () => {
 			// Arrange
 			let actualBody: unknown;
-			global.fetch = async (url, options) => {
+			mock.method(globalThis, "fetch", async (url, options) => {
 				actualBody = options?.body
 					? JSON.parse(options.body as string)
 					: undefined;
@@ -85,17 +85,15 @@ describe("Given an HTTP adapter", () => {
 					status: 200,
 					headers: { "Content-Type": "application/json" },
 				});
-			};
+			});
 
 			// Act
 			const actual = await http.put<typeof mockResponse>(mockUrl, mockBody);
 
 			// Assert
 			const expected: HttpResponse<typeof mockResponse> = {
-				ok: true,
 				status: 200,
-				data: mockResponse,
-				errorMessage: "",
+				value: mockResponse,
 				error: undefined,
 			};
 			assert.deepStrictEqual(actual, expected);
@@ -106,21 +104,23 @@ describe("Given an HTTP adapter", () => {
 	describe("When making a DELETE request", () => {
 		test("Then it should return the response data", async () => {
 			// Arrange
-			global.fetch = async () =>
-				new Response(JSON.stringify(mockResponse), {
-					status: 200,
-					headers: { "Content-Type": "application/json" },
-				});
+			mock.method(
+				globalThis,
+				"fetch",
+				async () =>
+					new Response(JSON.stringify(mockResponse), {
+						status: 200,
+						headers: { "Content-Type": "application/json" },
+					}),
+			);
 
 			// Act
 			const actual = await http.delete<typeof mockResponse>(mockUrl);
 
 			// Assert
 			const expected: HttpResponse<typeof mockResponse> = {
-				ok: true,
 				status: 200,
-				data: mockResponse,
-				errorMessage: "",
+				value: mockResponse,
 				error: undefined,
 			};
 			assert.deepStrictEqual(actual, expected);

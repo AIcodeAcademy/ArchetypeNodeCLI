@@ -1,6 +1,8 @@
+import { helpCommand } from "../domain/help/help.command.ts";
+import { ipApiCommand } from "../domain/ip-api/ip-api.command.ts";
 import { cli } from "../system/cli/cli.adapter.ts";
+import type { CommandHandler } from "../system/cli/command-handler.interface.ts";
 import type { Command } from "../system/cli/command.type.ts";
-import { ipApiCommand } from "./ip-api.command.ts";
 
 export const commandsController = {
 	runParsedCommand: async () => {
@@ -8,14 +10,24 @@ export const commandsController = {
 			useCache: { type: "boolean", default: true },
 		});
 
-		switch (command.name) {
-			case "ip": {
-				await ipApiCommand.run({ useCache: true });
-				break;
-			}
-			default: {
-				throw new Error(`Command ${JSON.stringify(command)} not processable`);
-			}
+		if (!command || command.name === "") {
+			await helpCommand.run({});
+			return;
 		}
+
+		const commandHandler = commands.get(command.name);
+		if (!commandHandler) {
+			throw new Error(`Command ${command.name} not found`);
+		}
+		await commandHandler.run(command.options);
+	},
+
+	addCommand(name: string, command: CommandHandler) {
+		commands.set(name, command);
 	},
 };
+
+const commands = new Map<string, CommandHandler>([
+	["ip", ipApiCommand],
+	["help", helpCommand],
+]);
