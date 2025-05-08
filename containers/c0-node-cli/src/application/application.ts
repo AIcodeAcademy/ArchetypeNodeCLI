@@ -1,7 +1,7 @@
-import { environment } from "../shared/env/env.adapter.ts";
-import type { Env } from "../shared/env/env.type.ts";
-import { log } from "../shared/log/log.service.ts";
 import { commandsController } from "./commands.controller.ts";
+import { environment } from "./shared/env/env.adapter.ts";
+import type { Env } from "./shared/env/env.type.ts";
+import { log } from "./shared/log/log.service.ts";
 
 export async function init() {
 	const appEnv: Env = environment.get();
