@@ -1,3 +1,4 @@
+import { getTimeString } from "../utils/string.utils.ts";
 import { styleTextAdapter } from "../utils/style-text.adapter.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
@@ -26,7 +27,7 @@ export const logConsoleRepository: LogRepositoryWriteEntry = {
 };
 
 function buildConsoleMessage(entry: LogEntry): string {
-	const time = new Date(entry.timestamp).toLocaleTimeString();
+	const time = getTimeString(new Date(entry.timestamp));
 	return `${time} ${entry.level.name.padEnd(5)} ${entry.message} ${entry.source || ""}`;
 }
 

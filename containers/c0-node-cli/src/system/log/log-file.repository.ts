@@ -1,4 +1,5 @@
 import { file } from "../file/file.adapter.ts";
+import { getTimeString } from "../utils/string.utils.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
 
@@ -17,6 +18,6 @@ const LOG_FOLDER_PATH = "./temp";
 const LOG_FILE_PATH = `${LOG_FOLDER_PATH}/log.csv`;
 
 function buildFileMessage(entry: LogEntry): string {
-	const time = new Date(entry.timestamp).toLocaleTimeString();
+	const time = getTimeString(new Date(entry.timestamp));
 	return `${time},${entry.level.name.padEnd(5)},${entry.message}`;
 }
