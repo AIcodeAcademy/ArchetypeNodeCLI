@@ -1,5 +1,5 @@
-import { helpCommand } from "../domain/help/help.command.ts";
-import { ipApiCommand } from "../domain/ip-api/ip-api.command.ts";
+import { helpCommand } from "../commands/help/help.command.ts";
+import { ipApiCommand } from "../commands/ip-api/ip-api.command.ts";
 import { cli } from "../shared/cli/cli.adapter.ts";
 import type { CommandHandler } from "../shared/cli/command-handler.interface.ts";
 import type { Command } from "../shared/cli/command.type.ts";
