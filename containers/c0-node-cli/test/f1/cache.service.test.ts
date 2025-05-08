@@ -1,9 +1,9 @@
 import assert from "node:assert";
 import { describe, mock, test } from "node:test";
-import { DEFAULT_CACHE_CONFIG } from "../../src/system/cache/cache-config.type.ts";
-import type { CacheEntry } from "../../src/system/cache/cache-entry.type.ts";
-import { cache } from "../../src/system/cache/cache.service.ts";
-import { file } from "../../src/system/file/file.adapter.ts";
+import { DEFAULT_CACHE_CONFIG } from "../../src/shared/cache/cache-config.type.ts";
+import type { CacheEntry } from "../../src/shared/cache/cache-entry.type.ts";
+import { cache } from "../../src/shared/cache/cache.service.ts";
+import { file } from "../../src/shared/file/file.adapter.ts";
 
 /**
  * Given a cache service

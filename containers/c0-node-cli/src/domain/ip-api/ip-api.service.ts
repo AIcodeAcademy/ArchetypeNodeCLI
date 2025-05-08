@@ -1,4 +1,4 @@
-import { cache } from "../../system/cache/cache.service.ts";
+import { cache } from "../../shared/cache/cache.service.ts";
 import { ipApiRepository } from "./ip-api.repository.ts";
 import type { IpApi } from "./ip-api.type.ts";
 

@@ -1,5 +1,5 @@
-import type { CommandHandler } from "../../system/cli/command-handler.interface.ts";
-import { styleTextAdapter } from "../../system/utils/style-text.adapter.ts";
+import type { CommandHandler } from "../../shared/cli/command-handler.interface.ts";
+import { styleTextAdapter } from "../../shared/utils/style-text.adapter.ts";
 export const helpCommand: CommandHandler = {
 	async run() {
 		const helpMessage = styleTextAdapter.styleText(

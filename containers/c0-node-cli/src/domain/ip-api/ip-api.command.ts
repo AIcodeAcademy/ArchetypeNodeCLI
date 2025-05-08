@@ -1,5 +1,5 @@
-import type { CommandHandler } from "../../system/cli/command-handler.interface.ts";
-import { log } from "../../system/log/log.service.ts";
+import type { CommandHandler } from "../../shared/cli/command-handler.interface.ts";
+import { log } from "../../shared/log/log.service.ts";
 import { type IpApiOptions, getCurrentIp } from "./ip-api.service.ts";
 
 export const ipApiCommand: CommandHandler = {

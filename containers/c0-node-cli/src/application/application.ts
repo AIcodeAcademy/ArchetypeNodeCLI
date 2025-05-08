@@ -1,6 +1,6 @@
-import { environment } from "../system/env/env.adapter.ts";
-import type { Env } from "../system/env/env.type.ts";
-import { log } from "../system/log/log.service.ts";
+import { environment } from "../shared/env/env.adapter.ts";
+import type { Env } from "../shared/env/env.type.ts";
+import { log } from "../shared/log/log.service.ts";
 import { commandsController } from "./commands.controller.ts";
 
 export async function init() {

@@ -1,5 +1,5 @@
-import type { HttpResponse } from "../../system/http/http-response.type.ts";
-import { http } from "../../system/http/http.adapter.ts";
+import type { HttpResponse } from "../../shared/http/http-response.type.ts";
+import { http } from "../../shared/http/http.adapter.ts";
 import type { IpApi } from "./ip-api.type.ts";
 
 const IP_API_URL = "http://ip-api.com/json";

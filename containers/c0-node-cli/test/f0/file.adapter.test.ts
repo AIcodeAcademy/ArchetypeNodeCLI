@@ -2,8 +2,8 @@ import assert from "node:assert";
 import fs from "node:fs/promises";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, test } from "node:test";
-import { directory } from "../../src/system/file/directory.adapter.ts";
-import { file } from "../../src/system/file/file.adapter.ts";
+import { directory } from "../../src/shared/file/directory.adapter.ts";
+import { file } from "../../src/shared/file/file.adapter.ts";
 
 /**
  * Given a file adapter

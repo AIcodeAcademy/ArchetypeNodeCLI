@@ -1,8 +1,8 @@
 import { helpCommand } from "../domain/help/help.command.ts";
 import { ipApiCommand } from "../domain/ip-api/ip-api.command.ts";
-import { cli } from "../system/cli/cli.adapter.ts";
-import type { CommandHandler } from "../system/cli/command-handler.interface.ts";
-import type { Command } from "../system/cli/command.type.ts";
+import { cli } from "../shared/cli/cli.adapter.ts";
+import type { CommandHandler } from "../shared/cli/command-handler.interface.ts";
+import type { Command } from "../shared/cli/command.type.ts";
 
 export const commandsController = {
 	runParsedCommand: async () => {
