@@ -1,7 +1,7 @@
-import { getLogRepositories } from "./log-config.utils.ts";
 import type { LogEntry } from "./log-entry.type.ts";
 import { LOG_LEVELS, type LogLevelName } from "./log-level.type.ts";
-import { getLogRepositoryWriter } from "./log-repository.type.ts";
+import { logRepositoryFactory } from "./log-repository.factory.ts";
+import type { LogRepositoryWriteEntry } from "./log-repository.type.ts";
 
 export const log = {
 	debug(message: string, context?: Record<string, unknown>) {
@@ -54,20 +54,10 @@ function getSource(levelName: LogLevelName): string | undefined {
 }
 
 function write(entry: LogEntry) {
-	// for (const repository of getLogRepositories()) {
-	// 	if (entry.level.rank >= repository.minLevel.rank) {
-	// 		const repositoryWriter = getLogRepositoryWriter(repository.name);
-	// 		if (!repositoryWriter) {
-	// 			continue;
-	// 		}
-	// 		repositoryWriter.write(entry);
-	// 	}
-	// }
-
 	// biome-ignore lint/complexity/noForEach: pipeline
-	getLogRepositories()
-		.filter((repository) => entry.level.rank >= repository.minLevel.rank)
-		.map((repository) => getLogRepositoryWriter(repository.name))
-		.filter((repositoryWriter) => !!repositoryWriter)
-		.forEach((repositoryWriter) => repositoryWriter.write(entry));
+	logRepositoryFactory
+		.createForLevel(entry.level)
+		.forEach((repositoryWriter: LogRepositoryWriteEntry) =>
+			repositoryWriter.write(entry),
+		);
 }

@@ -1,8 +1,8 @@
-import { init } from "./application/application.ts";
+import { application } from "./application/application.ts";
 
 async function main() {
 	try {
-		await init();
+		await application.init();
 	} catch (error) {
 		console.error(error);
 	}

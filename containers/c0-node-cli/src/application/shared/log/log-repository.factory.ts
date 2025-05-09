@@ -1,4 +1,6 @@
 import { environment } from "../env/env.adapter.ts";
+import { logConsoleRepository } from "./log-console.repository.ts";
+import { logFileRepository } from "./log-file.repository.ts";
 import {
 	LOG_LEVELS,
 	type LogLevel,
@@ -8,17 +10,38 @@ import {
 	DEFAULT_REPOSITORIES,
 	type LogRepository,
 	type LogRepositoryName,
+	type LogRepositoryWriteEntry,
 } from "./log-repository.type.ts";
+
+const logRepositoriesWritersMap: Record<
+	LogRepositoryName,
+	LogRepositoryWriteEntry
+> = {
+	console: logConsoleRepository,
+	file: logFileRepository,
+};
 
 let logRepositories: LogRepository[] | undefined = undefined;
 
-export function getLogRepositories(): LogRepository[] {
-	if (logRepositories) {
+export const logRepositoryFactory = {
+	init() {
+		logRepositories = getFromEnvironment() ?? DEFAULT_REPOSITORIES;
 		return logRepositories;
-	}
-	logRepositories = getFromEnvironment() ?? DEFAULT_REPOSITORIES;
-	return logRepositories;
-}
+	},
+
+	createForLevel(minLevel: LogLevel) {
+		const repositories = logRepositories || this.init();
+		return repositories
+			.filter(
+				(repository: LogRepository) =>
+					repository.minLevel.rank <= minLevel.rank,
+			)
+			.map((repository: LogRepository) =>
+				getLogRepositoryWriter(repository.name),
+			)
+			.filter((writer: LogRepositoryWriteEntry | undefined) => !!writer);
+	},
+};
 
 function getFromEnvironment(): LogRepository[] | undefined {
 	const envRepositoriesNames = environment.getEntry("LOG_REPOSITORIES");
@@ -48,4 +71,10 @@ function getMinLevelBy(repositoryName: string): LogLevel {
 		}
 	}
 	return LOG_LEVELS.info;
+}
+
+export function getLogRepositoryWriter(
+	name: LogRepositoryName,
+): LogRepositoryWriteEntry | undefined {
+	return logRepositoriesWritersMap[name];
 }

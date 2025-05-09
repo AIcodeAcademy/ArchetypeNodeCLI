@@ -1,19 +1,21 @@
-import type { HttpRequest } from "./http-request.type";
-import type { HttpResponse } from "./http-response.type";
+import type { HttpRequest } from "./http-request.type.ts";
+import type { HttpResponse } from "./http-response.type.ts";
 
 type decoratedFetch = (url: string, init?: RequestInit) => Promise<Response>;
 
-export const httpDecorator = async <T>(
-	fetchFn: decoratedFetch,
-	request: HttpRequest,
-): Promise<HttpResponse<T>> => {
-	try {
-		const init = buildRequest(request);
-		const response = await fetchFn(request.url, init);
-		return buildHttpResponse<T>(response, request.url);
-	} catch (error) {
-		return buildNoResponse<T>(error);
-	}
+export const fetchDecorator = {
+	async wrap<T>(
+		fetchFn: decoratedFetch,
+		request: HttpRequest,
+	): Promise<HttpResponse<T>> {
+		try {
+			const init = buildRequest(request);
+			const response = await fetchFn(request.url, init);
+			return buildWithResponse<T>(response, request.url);
+		} catch (error) {
+			return buildNoResponse<T>(error);
+		}
+	},
 };
 
 function buildRequest(request: HttpRequest): RequestInit {
@@ -34,7 +36,7 @@ function buildHeaders(request: HttpRequest): HeadersInit {
 	};
 }
 
-async function buildHttpResponse<T>(
+async function buildWithResponse<T>(
 	response: Response,
 	context: string,
 ): Promise<HttpResponse<T>> {

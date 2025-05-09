@@ -1,5 +1,5 @@
+import { cacheConfigBuilder } from "./cache-config.builder.ts";
 import type { CacheConfig } from "./cache-config.type.ts";
-import { getCacheConfig } from "./cache-config.utils.ts";
 import type { CacheEntry } from "./cache-entry.type.ts";
 import { cacheFileRepository } from "./cache-file.repository.ts";
 import { cacheMemoryRepository } from "./cache-memory.repository.ts";
@@ -8,12 +8,12 @@ import type { CacheRepository } from "./cache-repository.interface.ts";
 export const cache = {
 	async set<T>(key: string, value: T, config?: Partial<CacheConfig>) {
 		const cacheEntry = buildCacheEntry(key, value);
-		const cacheConfig = getCacheConfig(config);
+		const cacheConfig = cacheConfigBuilder.build(config);
 		const repository = createRepositoryFactory(cacheConfig);
 		await repository.set<T>(cacheEntry, cacheConfig.directory);
 	},
 	async get<T>(key: string, config?: CacheConfig): Promise<T | undefined> {
-		const cacheConfig = getCacheConfig(config);
+		const cacheConfig = cacheConfigBuilder.build(config);
 		const repository = createRepositoryFactory(cacheConfig);
 		const cacheEntry = await repository.get<T>(key, cacheConfig.directory);
 		return getValue(cacheEntry, cacheConfig.ttl);
