@@ -13,13 +13,18 @@
 				"minLevel": "warn",
 				"formatter": "csv",
 				"timestamp": true,
-				"path": "log.csv"
-			},{
-        "type": "http",
-        "minLevel": "error",
-        "formatter": "json",
-        "timestamp": true
-      }
+				"path": "./temp/log.csv"
+			},
+			{
+				"type": "http",
+				"minLevel": "error",
+				"formatter": "json",
+				"timestamp": true
+			}
 		]
+	},
+	"cache": {
+		"expiration": 3600000,
+		"cacheDir": "./temp"
 	}
 }

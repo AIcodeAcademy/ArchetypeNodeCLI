@@ -1,0 +1,3 @@
+APP_ENV=development
+APP_NAME=c0-node-cli
+APP_PATH=.

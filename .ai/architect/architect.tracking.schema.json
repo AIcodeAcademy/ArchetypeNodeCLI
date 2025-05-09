@@ -1,21 +1,19 @@
 {
-  "project-name": "",
-  "features": [
-    {
-      "id": "f{{#}}",
-      "name": "{{ name | short sentence | Title Case }}",
-      "slug": "{{ id }}-{{ name | slugify }}",
-      "blueprint": "/docs/{{slug}}.blueprint.md",
-      "status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
-    }
-  ],
-  "containers": [
-    {
-      "id": "c{{#}}",
-      "archetype": "{{: node-cli | express-api | angular-spa | other }}",
-      "slug": "{{ id }}-{{ archetype | slugify }}",
-      "docs": "/containers/{{slug}}/docs/{{ archetype | slugify }}.archetype.md",
-      "status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
-    }
-  ]
+	"project-name": "",
+	"features": [
+		{
+			"id": "f{{#}}",
+			"name": "{{ name | short sentence | Title Case }}",
+			"slug": "{{ id }}-{{ name | slugify }}",
+			"status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
+		}
+	],
+	"containers": [
+		{
+			"id": "c{{#}}",
+			"archetype": "{{: node-cli | express-api | angular-spa | other }}",
+			"slug": "{{ id }}-{{ archetype | slugify }}",
+			"status": "{{: draft | defined | planned | prompted | implemented | tested | failed | versioned }}"
+		}
+	]
 }

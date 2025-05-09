@@ -1,45 +1,39 @@
 {
-	"project-name": "ArchetypeNodeCLI",
-	"container": {
-		"id": "c0",
-		"slug": "c0-node-cli",
-		"status": "implemented"
-	},
 	"features": [
-		{
-			"id": "f1",
-			"slug": "f1-project-initialization",
-			"status": "implemented",
-			"git": ""
-		},
 		{
 			"id": "f2",
 			"slug": "f2-configuration-system",
-			"status": "test-prompted",
+			"status": "test-verified",
 			"git": ""
 		},
 		{
 			"id": "f3",
 			"slug": "f3-utilities",
-			"status": "test-prompted",
+			"status": "test-verified",
 			"git": ""
 		},
 		{
 			"id": "f4",
 			"slug": "f4-logging-and-error-handling",
-			"status": "implemented",
+			"status": "test-verified",
 			"git": ""
 		},
 		{
 			"id": "f5",
 			"slug": "f5-command-management",
-			"status": "test-prompted",
+			"status": "test-verified",
 			"git": ""
 		},
 		{
 			"id": "f6",
 			"slug": "f6-business-example",
-			"status": "test-prompted",
+			"status": "test-verified",
+			"git": ""
+		},
+		{
+			"id": "f7",
+			"slug": "f7-domain-utilities",
+			"status": "test-verified",
 			"git": ""
 		}
 	]
