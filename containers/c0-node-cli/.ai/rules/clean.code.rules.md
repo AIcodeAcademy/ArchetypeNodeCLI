@@ -1,10 +1,5 @@
 # Clean code rules
 
-## Formatting
-- Keep a blank line between imports sections and functions, types, interfaces, classes, etc.
-- Avoid blank lines inside blocks of code.
-- Be consistent with indentation and spacing between operators.
-
 ## Intentional naming
 - Use fully descriptive names for variables and functions.
 - Start with a verb every function and flag variables (like `is`, `has`, `can`...).  
@@ -12,15 +7,20 @@
 
 ## Avoid complexity
 - Divide complex instructions into steps.
-- Use early return guards.
-- Extract and call inner blocks of conditional or repetitive code.
+- Use early return guards for invalid or trivial cases.
+- Extract inner blocks of conditional or repetitive code.
   
+## Short functions or methods
+- Keep them small and focused.
+- Keep parameters to a minimum.
+- Separate pure functions from function with side effects.
+
 ## Structure the data
 - Prefer structures over primitives.
 - Prefer composition over inheritance.
 - Place validations near the definitions.
 
-## Cohesion vs coupling
+## More cohesion, less coupling
 - Place together things that change together.
 - Show behavior, hide implementation details.
 - Wrap external dependencies with adapters.

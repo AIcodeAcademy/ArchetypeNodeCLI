@@ -1,7 +1,7 @@
 # Node CLI Archetype rules
 
 - **Language** : TypeScript
-- **Architecture** : Layered, no DI
+- **Architecture** : Modular, no DI
 - **Paradigm** : Functional and Object Oriented
 - **Framework** : Node.js
 - **Testing** : {{: built-in | Jest }}

@@ -6,9 +6,9 @@
 - Constants and enums are in UPPER_SNAKE_CASE.
 
 ## Types
+- Always define explicit types. Do it for variables, function parameters and return values.
 
 ### Type declarations
-- Always define explicit types for function parameters and return values
 - Avoid primitive obsession and define type aliases in its own `*.type.ts` file.
 - Leverage generics for reusable components
 - Use `type` over `interface` for custom data types.
@@ -27,11 +27,12 @@
 - Do not use `any` (except as a last resort).
 
 ## Modules
+- In this context a module is a typescript file that exports a single object.
 
 ### Export
 - Export objects with methods rather than standalone functions for better testability.
 - Use named exports over default exports for clarity and better IDE support.
-- Export only one module per file.
+- Export only one component per file.
 
 ### Naming
 - The exported object got a `<intention><artifact>` name in camelCase.
@@ -45,17 +46,17 @@
 - Destructure imports when possible (eg. `import { foo } from 'bar.ts'`)
 - Import types specifically from the module file (eg. `import type { Foo } from './foo.ts'`)
 
-
-
-## Functions
+## Functions and methods
+- Name functions and methods with a verb and optional add a noun.
+- Use a single level of abstraction.
 
 ### Pure over side effects
 - Prefer pure functions over side effects.
 - Keep side effects in separate functions easy to identify and mock.
 
 ### Declarations over expressions
-- Prefer `function` declarations over _arrow functions_.
-- Use _arrow functions_ for callbacks, one-liners, and when preserving parent scope this
+- Prefer `function` declarations over _arrow => functions_.
+- Only use _arrow => functions_ for callbacks, one-liners, and when preserving parent scope `this`
 
 ### Array methods
 - Prefer array functions (`map`, `filter`, `reduce`, `find`, etc.) over traditional `for` loops
