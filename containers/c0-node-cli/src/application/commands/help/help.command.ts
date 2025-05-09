@@ -1,6 +1,7 @@
 import type { CommandHandler } from "../../shared/cli/command-handler.interface.ts";
 import { styleTextAdapter } from "../../shared/utils/style-text.adapter.ts";
-export const helpCommand: CommandHandler = {
+export const helpCommand: CommandHandler<Record<string, unknown>> = {
+	parseOptions: {},
 	async run() {
 		const helpMessage = styleTextAdapter.styleText(
 			["blue"],
