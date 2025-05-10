@@ -2,7 +2,7 @@
 
 ## Intentional naming
 - Use fully descriptive names for variables and functions.
-- Start with a verb every function and flag variables (like `is`, `has`, `can`...).  
+- Start with a verb in every function and flag variables (like `is`, `has`, `can`...).  
 - Avoid magic numbers and strings by declaring named constants.
 
 ## Avoid complexity
@@ -13,7 +13,7 @@
 ## Short functions or methods
 - Keep them small and focused.
 - Keep parameters to a minimum.
-- Separate pure functions from function with side effects.
+- Separate pure functions from functions with side effects.
 
 ## Structure the data
 - Prefer structures over primitives.
@@ -32,5 +32,5 @@
 
 ## Principles
 - YAGNI: You ain't gonna need it (do the minimum).
-- KISS: Keep it simple stupid (do the simplest thing that could work).
+- KISS: Keep it simple, stupid (do the simplest thing that could work).
 - DRY: Don't repeat yourself (do the same thing once, use it everywhere).
