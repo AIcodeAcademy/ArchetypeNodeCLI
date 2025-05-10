@@ -1,6 +1,6 @@
 ## TypeScript Code Generation Rules
 
-These rules are intended to generate consistent, readable, and maintainable TypeScript code.
+Generate consistent, readable, and maintainable TypeScript code.
 
 ### 1. Case Conventions
 
