@@ -1,3 +1,6 @@
+/**
+ * Environment configuration.
+ */
 export type Env = {
 	environment: string;
 	name: string;
@@ -5,6 +8,9 @@ export type Env = {
 	isProduction: boolean;
 };
 
+/**
+ * Default environment values.
+ */
 export const DEFAULT_ENV: Env = {
 	environment: "production",
 	name: "c0-node-cli",
