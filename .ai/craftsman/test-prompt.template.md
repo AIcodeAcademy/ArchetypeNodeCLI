@@ -1,7 +1,7 @@
 ---
 syntax: "[Template Syntax](/.ai/syntax.template.md)"
 feature: "The feature to be tested"
-folder: "/containers/{{ container.slug }}/docs/{{ feature.id }}/"
+folder: "/{{ container.slug }}/docs/{{ feature.id }}/"
 file: "{{ feature.slug }}.test.md"
 ---
 
@@ -12,13 +12,13 @@ file: "{{ feature.slug }}.test.md"
 
 
 <!--
-  {{ containerFolder: /containers/{{container.slug}} }}
+  {{ containerFolder: /{{container.slug}} }}
   {{ folderRules: {{containerFolder}}/.ai/}}
   -->
 
 - [Feature Documentation](/docs/{{feature.slug}}.blueprint.md)
-- [Archetype Node CLI](/containers/{{container.slug}}/docs/{{container.archetype}}.archetype.md)
-- [Test Rules](/containers/{{container.slug}}/.ai/rules/test.rules.md)
+- [Archetype Node CLI](/{{container.slug}}/docs/{{container.archetype}}.archetype.md)
+- [Test Rules](/{{container.slug}}/.ai/rules/test.rules.md)
 
 <!--
   Read this documents to understand the feature requirements and the container rules.
