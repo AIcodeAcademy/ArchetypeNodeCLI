@@ -6,6 +6,11 @@ Archetype for AI tools to create CLI applications using Node.js.
 
 Repository: [AI code Academy / archetype node cli](https://github.com/AIcodeAcademy/ArchetypeNodeCLI)
 
+AI instructions, prompts and rules: [.ai/](.ai/)
+
+Documentation: [docs/](docs/)
+
+
 ---
 
 - **Author**: [Alberto Basalo](https://albertobasalo.dev)
