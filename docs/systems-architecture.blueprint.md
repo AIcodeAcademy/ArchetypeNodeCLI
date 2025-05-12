@@ -23,7 +23,7 @@ As this is an archetype, there is no containers per se. Itself is a prototype fo
 
 The main container is a Node.js CLI application that provides a standardized template and structure for creating new Node.js CLI applications. It handles user interactions, manages commands, and coordinates the system's core functionality.
 
-- [Archetype Node CLI](/containers/c0-node-cli/docs/node-cli.archetype.md)
+- [Archetype Node CLI](/c0-node-cli/docs/node-cli.archetype.md)
 
 ### Tech Stack
 

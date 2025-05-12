@@ -78,7 +78,7 @@ graph TD
 
 - A node-cli that provides a standardized template and structure for creating new Node.js CLI applications
 
-- [Archetype Node CLI](/containers/c0-node-cli/docs/node-cli.archetype.md)
+- [Archetype Node CLI](/c0-node-cli/docs/node-cli.archetype.md)
 
 ## Credits
 
