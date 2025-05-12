@@ -19,7 +19,7 @@ export const ipApiCommand: CommandHandler<IpApiOptions> = {
 	 * @param {IpApiOptions} ipApiOptions - Options for IP API command
 	 * @returns {Promise<void>}
 	 */
-	async run(ipApiOptions: IpApiOptions) {
+	async run(ipApiOptions: IpApiOptions): Promise<void> {
 		log.info("ipApiCommand.run", ipApiOptions);
 		let ipApi: IpApi;
 		if (ipApiOptions.useCache) {

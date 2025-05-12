@@ -1,6 +1,6 @@
 import { cache } from "../../../shared/cache/cache.service.ts";
 import { log } from "../../../shared/log/log.service.ts";
-import { ipApiRepository } from "../system/ip-api.repository.ts";
+import { ipApiGateway } from "../system/ip-api.gateway.ts";
 import type { IpApi } from "../system/ip-api.type.ts";
 
 export const ipApiService = {
@@ -17,7 +17,7 @@ export const ipApiService = {
 	},
 
 	async getFromApi(): Promise<IpApi> {
-		const response = await ipApiRepository.getIpApi();
+		const response = await ipApiGateway.getIpApi();
 		if (response.error instanceof Error) {
 			throw response.error;
 		}

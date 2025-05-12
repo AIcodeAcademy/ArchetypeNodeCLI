@@ -4,7 +4,7 @@ import type { IpApi } from "./ip-api.type.ts";
 
 const IP_API_URL = "http://ip-api.com/json";
 
-export const ipApiRepository = {
+export const ipApiGateway = {
 	async getIpApi(): Promise<HttpResponse<IpApi>> {
 		return await http.get<IpApi>(IP_API_URL);
 	},

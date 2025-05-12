@@ -13,7 +13,7 @@ export const helpCommand: CommandHandler<Record<string, unknown>> = {
 	 * @async
 	 * @returns {Promise<void>}
 	 */
-	async run() {
+	async run(): Promise<void> {
 		const helpMessage = styleTextAdapter.styleText(
 			["blue"],
 			["bold"],
