@@ -1,5 +1,5 @@
 {
-	"name": "archetype-node-cli",
+	"name": "c0-node-cli",
 	"version": "1.0.0",
 	"description": "Node CLI Archetype",
 	"main": "src/main.ts",
@@ -14,6 +14,8 @@
 	"keywords": [],
 	"author": {
 		"name": "Alberto Basalo",
+		"company": "AI code Academy",
+		"website": "https://aicode.academy",
 		"email": "albertobasalo@aicode.academy"
 	},
 	"license": "ISC",
