@@ -97,6 +97,7 @@ An Technical Type in this context is a class, object, function or variable that 
 - **Repository**: Persist or fetch from an store (local or remote)
 - **Service**: Main logic, and transformation
 - **Singleton**: Ensures a class has only one instance and a point of access to it
+- **Store**: Implements an in-memory data storage (could be reactive)
 - **Type**: Data structures, and default values
 - **Util**: Common utilities, not tied to an specific domain
 - **Validator**: Data validation
