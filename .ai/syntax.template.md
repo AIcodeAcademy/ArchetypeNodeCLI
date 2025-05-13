@@ -15,6 +15,18 @@ Defines variables and naming conventions.
 
 Do NOT include the `YAML` header in the output document.
 
+**EXAMPLE**
+
+Indicates the folder and file to be generated.
+
+```md
+---
+folder: /docs
+file: {{ projectName | lower }}.md
+---
+```
+
+
 ### Markdown Body
 
 The template used to generate the output file.
