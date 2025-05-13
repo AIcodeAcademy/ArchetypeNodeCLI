@@ -1,4 +1,10 @@
 {
+	"project-name": "ArchetypeNodeCLI",
+	"container": {
+		"id": "c0",
+		"slug": "c0-node-cli",
+		"status": "test-verified"
+	},
 	"features": [
 		{
 			"id": "f2",

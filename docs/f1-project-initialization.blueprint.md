@@ -1,9 +1,5 @@
 # Feature F1 - Project Initialization
 
-### Reference
-
-- [Briefing Blueprint](./briefing.blueprint.md)
-
 ## Description
 
 A vanilla Node.js CLI project with best practices, dev tools and standard structure that serves as a foundation for building CLI applications.
@@ -61,9 +57,9 @@ Scenario: Configure development environment
 - npm/yarn package manager
 - Development environment set up
 
-## Implementation Details
+## Constext referece
 
-List of implementation plans for each container:
-- [ArchetypeNodeCLI Implementation Plan](/containers/archetype-node-cli/docs/f1-project-initialization.plan.md)
+- [Briefing Blueprint](./briefing.blueprint.md)
+- [C0 NodeCLI Implementation Plan](/c0-node-cli/docs/f1-project-initialization.plan.md)
 
 > End of Feature Documentation for `f1-project-initialization` 

@@ -8,37 +8,25 @@
 
 - Vanilla Node.js CLI project with best practices, dev tools and standard structure
 
-- [Feature F1 - Project Initialization](./f1-project-initialization.blueprint.md)
-
 ### F2 Configuration System
 
 - Flexible configuration system with environment variables, config files, and defaults
-
-- [Feature F2 - Configuration System](./f2-configuration-system.blueprint.md)
 
 ### F3 Utilities
 
 - Wraps and adapts external or built-in frameworks dependencies for http, crypto, fs, etc.
 
-- [Feature F3 - Utilities](./f3-utilities.blueprint.md)
-
 ### F4 Logging and Error Handling
 
 - Comprehensive logging and error handling with different verbosity levels
-
-- [Feature F4 - Logging and Error Handling](./f4-logging-and-error-handling.blueprint.md)
 
 ### F5 Command Management
 
 - Basic command system with argument parsing, and options support
 
-- [Feature F5 - Command Management](./f5-command-management.blueprint.md)
-
 ### F6 Business example
 
 - A business example to show how to use the archetype, get current weather from current location based on current IP address
-
-- [Feature F6 - Business example](./f6-business-example.blueprint.md)
 
 ## Context diagram
 
@@ -86,8 +74,14 @@ graph TD
 - **Company**: [AI code Academy](https://aicode.academy)
 - **Repository**: [ArchetypeNodeCLI](https://github.com/AIcodeAcademy/ArchetypeNodeCLI)
 
-## Related Blueprints
+## Context references
 
+- [Feature F1 - Project Initialization](./f1-project-initialization.blueprint.md)
+- [Feature F2 - Configuration System](./f2-configuration-system.blueprint.md)
+- [Feature F3 - Utilities](./f3-utilities.blueprint.md)
+- [Feature F4 - Logging and Error Handling](./f4-logging-and-error-handling.blueprint.md)
+- [Feature F5 - Command Management](./f5-command-management.blueprint.md)
+- [Feature F6 - Business example](./f6-business-example.blueprint.md)
 - [Domain Model Blueprint](/docs/domain-model.blueprint.md)
 - [Systems Architecture Blueprint](/docs/systems-architecture.blueprint.md)
 

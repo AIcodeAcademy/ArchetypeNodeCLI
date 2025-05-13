@@ -3,11 +3,6 @@
 This document describes the system architecture for the project.
 It covers the technical stack, component interactions, and deployment considerations.
 
-### Reference
-
-- [Briefing Blueprint](/docs/briefing.blueprint.md)
-- [Domain Model Blueprint](/docs/domain-model.blueprint.md)
-
 ## Overview
 
 ArchetypeNodeCLI is a Node.js-based command-line interface tool designed to streamline the creation of new Node.js CLI applications. The system follows a modular architecture with clear separation of concerns, focusing on configuration management, command handling, and logging capabilities. It adheres to Node.js best practices and provides a standardized template structure for CLI application development.
@@ -112,6 +107,12 @@ graph TD
     
     Logging --> FsAdapter
 ```
+
+
+### Context references
+
+- [Briefing Blueprint](/docs/briefing.blueprint.md)
+
 
 > End of Systems Architecture Document for `ArchetypeNodeCLI` 
 

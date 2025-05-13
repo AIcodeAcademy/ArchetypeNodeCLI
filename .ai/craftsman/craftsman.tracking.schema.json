@@ -3,7 +3,7 @@
 	"container": {
 		"id": "{{ container.id }}",
 		"slug": "{{ container | slug }}",
-		"status": "{{: implemented | test-verified | test-failed }}"
+		"status": "{{: implemented | test-verified | test-failed | refactored | documented }}"
 	},
 	"features": [
 		{

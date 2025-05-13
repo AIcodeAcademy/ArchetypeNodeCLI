@@ -1,10 +1,6 @@
 
 # Feature F2 - Configuration System
 
-### Reference
-
-- [Briefing Blueprint](./briefing.blueprint.md)
-
 ## Description
 
 A flexible configuration system that supports multiple configuration sources including environment variables, JSON configuration files, and default values, with type safety and validation.
@@ -83,5 +79,10 @@ List of implementation plans for each container:
 3. Default Values
    - Fallback values for missing configurations
    - Environment-specific defaults
+
+### Context references
+
+- [Briefing Blueprint](/docs/briefing.blueprint.md)
+- [C0 NodeCLI Implementation Plan](/c0-node-cli/docs/f2-configuration-system.plan.md)
 
 > End of Feature Documentation for `f2-configuration-system` 

@@ -5,37 +5,37 @@
 			"id": "f1",
 			"name": "Project Initialization",
 			"slug": "f1-project-initialization",
-			"status": "implemented"
+			"status": "defined"
 		},
 		{
 			"id": "f2",
 			"name": "Configuration System",
 			"slug": "f2-configuration-system",
-			"status": "implemented"
+			"status": "defined"
 		},
 		{
 			"id": "f3",
 			"name": "Utilities",
 			"slug": "f3-utilities",
-			"status": "implemented"
+			"status": "defined"
 		},
 		{
 			"id": "f4",
 			"name": "Logging and Error Handling",
 			"slug": "f4-logging-and-error-handling",
-			"status": "implemented"
+			"status": "defined"
 		},
 		{
 			"id": "f5",
 			"name": "Command Management",
 			"slug": "f5-command-management",
-			"status": "implemented"
+			"status": "defined"
 		},
 		{
 			"id": "f6",
 			"name": "Business Example",
 			"slug": "f6-business-example",
-			"status": "implemented"
+			"status": "defined"
 		}
 	],
 	"containers": [
@@ -43,7 +43,7 @@
 			"id": "c0",
 			"archetype": "node-cli",
 			"slug": "c0-node-cli",
-			"status": "implemented"
+			"status": "defined"
 		}
 	]
 }

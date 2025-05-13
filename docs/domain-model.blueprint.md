@@ -156,3 +156,7 @@ erDiagram
     }
 ```
 
+
+### Context references
+
+- [Briefing Blueprint](/docs/briefing.blueprint.md)
