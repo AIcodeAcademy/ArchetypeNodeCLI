@@ -1,4 +1,4 @@
-import { application } from "./application/application.ts";
+import { application } from "./app/app.bootstrap.ts";
 
 /**
  * Main entry point for the CLI application.
@@ -7,6 +7,7 @@ import { application } from "./application/application.ts";
 async function main() {
 	try {
 		await application.init();
+		await application.processCommandLine();
 	} catch (error) {
 		console.error(error);
 	}

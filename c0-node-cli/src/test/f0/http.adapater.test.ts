@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { describe, mock, test } from "node:test";
-import type { HttpResponse } from "../../src/shared/http/http-response.type";
-import { http } from "../../src/shared/http/http.adapter.ts";
+import type { HttpResponse } from "../../app/shared/http/http-response.type";
+import { http } from "../../app/shared/http/http.adapter.ts";
 
 /**
  * Given an HTTP adapter

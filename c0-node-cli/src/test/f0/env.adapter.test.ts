@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { afterEach, beforeEach, describe, test } from "node:test";
-import { environment } from "../../src/shared/env/env.adapter.ts";
-import { DEFAULT_ENV } from "../../src/shared/env/env.type.ts";
+import { environment } from "../../app/shared/env/env.adapter.ts";
+import { DEFAULT_ENV } from "../../app/shared/env/env.type.ts";
 
 /**
  * Given an environment adapter

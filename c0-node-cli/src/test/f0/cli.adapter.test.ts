@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import { beforeEach, describe, test } from "node:test";
 import type { ParseArgsOptionsConfig } from "node:util";
-import { cli } from "../../src/application/shared/cli/cli.adapter.ts";
+import { cli } from "../../app/cli/cli.adapter.ts";
 /**
  * Given a CLI adapter
  *  When processing command line without arguments

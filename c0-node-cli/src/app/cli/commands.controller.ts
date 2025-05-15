@@ -1,6 +1,6 @@
 import type { ParseArgsOptionsConfig } from "node:util";
-import { cli } from "./cli.adapter.ts";
 import type { CommandHandler } from "../shared/models/command-handler.interface.ts";
+import { cli } from "./cli.adapter.ts";
 import type { Command } from "./command.type.ts";
 
 /**
@@ -9,13 +9,20 @@ import type { Command } from "./command.type.ts";
  */
 export const commandsController = {
 	/**
-	 * Runs the parsed command from CLI arguments.
-	 * @async
-	 * @returns {Promise<void>}
-	 * @throws {Error} If command is not found
+	 * Gets the parsed command from CLI arguments.
+	 * @returns {Command} The parsed command
 	 */
-	runParsedCommand: async () => {
+	getParsedCommand: (): Command => {
 		const command: Command = cli.getCommandOptions(parseOptions);
+		return command;
+	},
+
+	/**
+	 * Runs the parsed command.
+	 * @param {Command} command - The parsed command
+	 * @throws {Error} If command handler is not found
+	 */
+	runParsedCommand: async (command: Command) => {
 		const commandHandler = getCommand(command.name);
 		if (!commandHandler) {
 			throw new Error(`Command ${command.name} not found`);
