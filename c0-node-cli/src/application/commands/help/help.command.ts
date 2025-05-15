@@ -1,4 +1,4 @@
-import type { CommandHandler } from "../../shared/cli/command-handler.interface.ts";
+import type { CommandHandler } from "../../shared/models/command-handler.interface.ts";
 import { styleTextAdapter } from "../../shared/utils/style-text.adapter.ts";
 
 /**

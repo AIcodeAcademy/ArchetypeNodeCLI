@@ -1,7 +1,7 @@
 import { helpCommand } from "./commands/help/help.command.ts";
 import { ipApiCommand } from "./commands/ip-api/api/ip-api.command.ts";
-import { commandsController } from "./shared/cli/commands.controller.ts";
 import { environment } from "./shared/env/env.adapter.ts";
+import { commandsController } from "./cli/commands.controller.ts";
 import type { Env } from "./shared/env/env.type.ts";
 import { log } from "./shared/log/log.service.ts";
 

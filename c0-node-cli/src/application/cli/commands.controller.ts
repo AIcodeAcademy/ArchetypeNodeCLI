@@ -1,6 +1,6 @@
 import type { ParseArgsOptionsConfig } from "node:util";
 import { cli } from "./cli.adapter.ts";
-import type { CommandHandler } from "./command-handler.interface.ts";
+import type { CommandHandler } from "../shared/models/command-handler.interface.ts";
 import type { Command } from "./command.type.ts";
 
 /**
